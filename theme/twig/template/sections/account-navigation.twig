@@ -1,7 +1,8 @@
 {# Generates account nav item. Includes a login form and logout button when appropriate #}
 {% if 'USERS' is enabled %}
 	<li class="account-nav {% if user.isNull() %} do-form {% else %} has-children logged-in {% endif %} {% if page.pageType == "Account" %} sel {% endif %}">
-		<a href="/account/">Account</a>
+<a href="/account/">login</a>
+
 		{% if not user.isNull() %}
 			<ul>
 				<li>
