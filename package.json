@@ -1,0 +1,21 @@
+{
+	"name": "orm-cms",
+	"dependencies": {
+		"blueimp-load-image": "*",
+		"cropperjs": "*",
+		"featherlight": "*",
+		"foxy": "git+https://Rizanola@bitbucket.org/Rizanola/foxy.git",
+		"jquery": "*",
+		"js-cookie": "*",
+		"lightgallery": "*",
+		"pica": "*",
+		"slick-carousel": "*",
+		"smartcrop": "*",
+		"sortablejs": "*",
+		"tinymce": "*",
+		"vue": "~2.6",
+		"vue-router": "~3.5",
+		"vuedraggable": "*",
+		"vuejs-datepicker": "*"
+	}
+}

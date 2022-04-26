@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-nz">
+	<head>
+		<title>{{ config.siteName }} - Admin</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" href="/node_modules/featherlight/release/featherlight.min.css" />
+		<link rel="stylesheet" type="text/css" href="/node_modules/cropperjs/dist/cropper.min.css" />
+		<link rel="stylesheet" type="text/css" href="/admin/theme/style.php?p=style.scss" />
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans" />
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" />
+		{% if config.favicon != null %}
+			{% include "template/sections/favicon.twig" %}
+		{% endif %}
+		<script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="/node_modules/featherlight/release/featherlight.min.js"></script>
+		<script type="text/javascript" src="/node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
+		<script type="text/javascript" src="/node_modules/cropperjs/dist/cropper.min.js"></script>
+		<script type="text/javascript" src="/node_modules/pica/dist/pica.min.js"></script>
+		<script type="text/javascript" src="/node_modules/smartcrop/smartcrop.js"></script>
+		<script type="text/javascript" src="/node_modules/sortablejs/Sortable.min.js"></script>
+		<script type="text/javascript" src="/node_modules/tinymce/tinymce.min.js"></script>
+		{% if constant("IS_DEV_SITE") %}
+			{# Vue debugging is only included with the non-minified Vue files #}
+			<script type="text/javascript" src="/node_modules/vue/dist/vue.js"></script>
+			<script type="text/javascript" src="/node_modules/vue-router/dist/vue-router.js"></script>
+		{% else %}
+			<script type="text/javascript" src="/node_modules/vue/dist/vue.min.js"></script>
+			<script type="text/javascript" src="/node_modules/vue-router/dist/vue-router.min.js"></script>
+		{% endif %}
+		<script type="text/javascript" src="/node_modules/vuedraggable/dist/vuedraggable.umd.min.js"></script>
+		<script type="text/javascript" src="/node_modules/vuejs-datepicker/dist/vuejs-datepicker.min.js"></script>
+		<script type="module" src="/admin/theme/scripts/script.js"></script>
+	</head>
+	<body>
+		<div class="vue-wrapper js-vue-wrapper">
+			<header class="header">
+				<div class="container">
+					<img class="logo" src="/theme/images/logo.png" alt="{{ config.siteName }}" />
+					{% if not user.isNull() %}
+						{% if user.hasAdminAccess() %}
+							<button class="menu-button" @click="navOpen = true">
+								{{ "/admin/theme/images/icons/menu-open.svg"|source }}
+							</button>
+						{% endif %}
+						<div class="user">
+							{{ "/admin/theme/images/icons/user.svg"|source }} <span class="welcome">Welcome</span> {{ user.name }} | <a href="/Account/Action/Logout/">Logout</a>
+						</div>
+					{% endif %}
+				</div>
+			</header>
+			<nav class="navigation" :class="{open: navOpen}">
+				{% if not user.isNull() and user.hasAdminAccess() %}
+					<span class="close-block" @click="navOpen = false"></span>
+					<div class="container">
+						<header class="menu-header">
+							<button class="close-button" @click="navOpen = false">
+								{{ "/admin/theme/images/icons/menu-close.svg"|source }}
+							</button>
+							<div class="logo">
+								<img src="/theme/images/logo.png" alt="{{ config.siteName }}" />
+							</div>
+						</header>
+						<ul>
+							{% for link in adminNavItems %}
+								{% include "navigation-link.twig" %}
+							{% endfor %}
+						</ul>
+					</div>
+				{% endif %}
+			</nav>
+			<main class="main-content">
+				{% block main_content %}
+					<div class="container">
+						{% block content %}{% endblock %}
+					</div>
+				{% endblock %}
+			</main>
+		</div>
+		<footer class="footer">
+			<div class="container">
+				<div class="need-help">
+					Need help? Visit our <a href="https://www.activehost.co.nz/Help-Guides/CMS-Help/" target="_blank" rel="noopener">Training Portal</a>
+				</div>
+				<div class="attribution">
+					Powered by <a href="{{ powerUrl }}" target="_blank" rel="nofollow noopener">{{ powerSource }}</a>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

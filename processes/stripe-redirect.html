@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-NZ">
+	<head>
+		<title>Redirecting...</title>
+		<script src="https://js.stripe.com/v3/"></script>
+		<script>
+			let parameters = window.location.search.substr(1).split("+");
+			let stripe = Stripe(parameters[0]);
+			stripe.redirectToCheckout({ sessionId: parameters[1] });
+		</script>
+	</head>
+	<body>
+		<noscript>
+			<h1>
+				Please enable JavaScript
+			</h1>
+			<p>
+				JavaScript must be enabled in order to continue...
+			</p>
+		</noscript>
+	</body>
+</html>

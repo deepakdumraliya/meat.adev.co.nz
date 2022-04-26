@@ -1,0 +1,5 @@
+.DS_Store
+.idea/*
+*.pack
+_files/*
+admin/classes/Test/*

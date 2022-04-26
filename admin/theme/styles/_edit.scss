@@ -1,0 +1,896 @@
+.actions
+{
+	align-items: flex-start;
+	border-top: 1px solid $EMPHASIS_COLOUR;
+	display: flex;
+	flex-direction: column;
+	margin-top: 20px;
+	padding-top: 20px;
+	
+	@include above($LAPTOP_MIN)
+	{
+		align-items: center;
+		flex-direction: row;
+	}
+	
+	.active-toggle
+	{
+		margin-bottom: 10px;
+		
+		@include above($LAPTOP_MIN)
+		{
+			margin-bottom: 0;
+			margin-right: 10px;
+		}
+	}
+	
+	.button
+	{
+		margin-bottom: 10px;
+		
+		@include above($LAPTOP_MIN)
+		{
+			margin-bottom: 0;
+			margin-right: 5px;
+		}
+	}
+	
+	.cancel
+	{
+		font-weight: bold;
+		margin-top: 20px;
+		
+		@include above($LAPTOP_MIN)
+		{
+			margin-top: 0;
+			margin-left: 40px;
+		}
+		
+		@include hover
+		{
+			color: $DARK_COLOUR;
+			text-decoration: none;
+		}
+	}
+}
+
+.errors
+{
+	background: rgba($WARNING_COLOUR, 0.1);
+	border: 4px solid $WARNING_COLOUR;
+	margin-bottom: 20px;
+	padding: 20px 20px 20px 40px;
+}
+
+.breadcrumbs
+{
+	display: flex;
+	font-size: 0.8em;
+	margin: 0 0 15px;
+	padding: 0;
+	
+	li
+	{
+		display: inline;
+		
+		&:after
+		{
+			display: inline-block;
+			content: "/";
+			margin: 0 5px;
+		}
+		
+		&:last-child:after
+		{
+			display: none;
+		}
+	}
+}
+
+.message:not(:empty)
+{
+	border: 4px solid $PRIMARY_HIGHLIGHT;
+	// background: rgba($WARNING_COLOUR, 0.1);
+	color: $PRIMARY_HIGHLIGHT;
+	margin-bottom: 20px;
+	padding: 20px 20px 20px 40px;
+	
+	div
+	{
+		margin-bottom: 1rem;
+	}
+}
+
+.add-button
+{
+	svg
+	{
+		display: inline-block;
+		fill: $LIGHT_COLOUR;
+		height: 20px;
+		vertical-align: middle;
+		width: 20px;
+	}
+}
+
+@include form-fields
+{
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background: mix($LIGHT_COLOUR, $EMPHASIS_COLOUR);
+	border: 1px solid darken($EMPHASIS_COLOUR, 10%);
+	color: $DARK_COLOUR;
+	font-family: inherit;
+	font-size: inherit;
+	padding: 10px;
+	width: 100%;
+	
+	&.list-filter
+	{
+		width: auto;
+	}
+}
+
+.generator-form
+{
+	
+	textarea
+	{
+		min-height: 200px;
+	}
+	
+	.select-element .element-content
+	{
+		position: relative;
+		
+		&:after
+		{
+			content: "";
+			position: absolute;
+			top: 50%;
+			right: 12px;
+			border-width: 10px 8px 0;
+			border-style: solid;
+			border-color: $NEUTRAL_COLOUR transparent transparent;
+			margin-top: -5px;
+			pointer-events: none;
+		}
+	}
+}
+
+.element
+{
+	display: block;
+	padding-bottom: 10px;
+	
+	.element-label
+	{
+		font-weight: $SEMI_BOLD;
+		margin-bottom: 5px;
+		
+		.secondary
+		{
+			color: lighten($DARK_COLOUR, 10%);
+			font-weight: normal;
+			
+			&:before
+			{
+				content: "- (";
+			}
+			
+			&:after
+			{
+				content: ")";
+			}
+		}
+	}
+	
+	.element-content
+	{
+		margin-bottom: 5px;
+	}
+	
+	.element-info
+	{
+		color: rgba($DARK_COLOUR, 0.8);
+		font-size: 14px;
+		margin-bottom: 5px;
+	}
+	
+	.element-error
+	{
+		color: $WARNING_COLOUR;
+		margin-bottom: 5px;
+	}
+
+	input[type=checkbox],
+	input[type=radio]
+	{
+		display: none;
+		
+		+ .indicator
+		{
+			display: inline-block;
+			vertical-align: sub;
+			
+			svg
+			{
+				fill: $PRIMARY_HIGHLIGHT;
+				height: 20px;
+				width: 20px;
+			}
+			
+			.unchecked
+			{
+				display: inline-block;
+			}
+			
+			.checked
+			{
+				display: none;
+			}
+		}
+		
+		&:checked + .indicator
+		{
+			.unchecked
+			{
+				display: none;
+			}
+			
+			.checked
+			{
+				display: inline-block;
+			}
+		}
+		
+		&:disabled + .indicator
+		{
+			filter: saturate(0);
+			opacity: 0.5;
+			
+			+ .option-label
+			{
+				opacity: 0.5;
+			}
+		}
+	}
+
+	/*
+	* Form element styles added by addClasses() go here
+	*/
+
+	&.half 
+	{
+		@include above($LAPTOP_MIN)
+		{
+			display: inline-block;
+			width: 48.5%;
+		}
+	}
+	&.half + &.half
+	{
+		@include above($LAPTOP_MIN)
+		{
+			margin-left: 3%;
+		}
+	} 
+	&.half + &.half + &.half
+	{
+		@include above($LAPTOP_MIN)
+		{
+			margin-left: 0;
+		}
+	}
+	
+	&.currency
+	{
+		input
+		{
+			display: inline-block;
+			width: 20%;
+			
+			@include responsive
+			{
+				display: block;
+				width: auto;
+			}
+		}
+		
+		.element-content:before
+		{
+			content: '$';
+			display: inline-block;
+			margin-right: 5px;
+			
+			@include responsive
+			{
+				display: block;
+			}
+		}
+	}
+}
+
+.checkbox-element
+{
+	align-items: center;
+	display: flex;
+	margin: 10px 0;
+	
+	.element-content
+	{
+		margin-bottom: 0;
+		margin-right: 5px;
+		order: -1;
+	}
+}
+
+.columns
+{
+	display: block;
+	justify-content: space-between;
+	
+	@include above($LAPTOP_MIN)
+	{
+		display: grid;
+		grid-column-gap: 3%;
+		grid-template-columns: 1fr 1fr;
+	}
+	
+	h2
+	{
+		@include above($LAPTOP_MIN)
+		{
+			grid-column: 1 / -1;
+		}
+	}
+}
+
+.editor
+{
+	height: 600px;
+	
+	&.basic
+	{
+		height: 200px;
+	}
+}
+
+.file-upload
+{
+	display: flex;
+	justify-content: space-between;
+	
+	&.drag-target
+	{
+		background: rgba($PRIMARY_HIGHLIGHT, 0.3);
+		
+		> *
+		{
+			opacity: 0.5;
+		}
+	}
+	
+	.button
+	{
+		flex-grow: 0;
+		flex-shrink: 0;
+	}
+	
+	.details
+	{
+		align-items: center;
+		background: lighten($EMPHASIS_COLOUR, 5%);
+		border: 1px solid darken($EMPHASIS_COLOUR, 10%);
+		color: $DARK_COLOUR;
+		display: flex;
+		flex-grow: 1;
+		padding: 10px;
+		width: 100%;
+		
+		&.drag-hover
+		{
+			background: rgba($PRIMARY_HIGHLIGHT, 0.1);
+			border: 1px solid $PRIMARY_HIGHLIGHT;
+		}
+	}
+}
+
+.generators
+{
+	padding-bottom: 10px;
+}
+
+.generator-group-label
+{
+	
+}
+
+.generator-list
+{
+	margin-bottom: 10px;
+}
+
+.generator-grid
+{
+	display: grid;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+	grid-template-columns: repeat(auto-fill, 220px);
+	margin-bottom: 20px;
+}
+
+.generator,
+.grid-item
+{
+	&.removed .fields
+	{
+		opacity: 0.5;
+		pointer-events: none;
+	}
+	
+	.element
+	{
+		align-items: center;
+	}
+
+	.controls .element 
+	{
+		padding-bottom: 0;
+	}
+	
+	.indicator
+	{
+		align-items: center;
+		display: flex;
+	}
+	
+	.checked,
+	.unchecked
+	{
+		display: block;
+		margin-right: 3px;
+		
+		svg
+		{
+			display: block;
+		}
+	}
+}
+
+.generator
+{
+	header
+	{
+		align-items: center;
+		background: rgba($LIGHT_COLOUR, 0.5);
+		border-bottom: 1px solid darken($EMPHASIS_COLOUR, 10%);
+		display: flex;
+		justify-content: space-between;
+		padding: 13px 10px;
+		
+		&.draggable
+		{
+			cursor: grab;
+		}
+		
+		&.sortable-ghost
+		{
+			cursor: grabbing;
+		}
+		
+		h2
+		{
+			font-size: inherit;
+			font-weight: normal;
+			margin: 0;
+		}
+		
+		.expand-button
+		{
+			margin-right: 10px;
+		}
+		
+		.label
+		{
+			color: $PRIMARY_HIGHLIGHT;
+		}
+		
+		.controls
+		{
+			align-items: center;
+			display: flex;
+			justify-content: space-between;
+		}
+		
+		.to-remove
+		{
+			align-items: center;
+			color: $WARNING_COLOUR;
+			display: flex;
+		}
+		
+		.drag-indicator
+		{
+			fill: lighten($DARK_COLOUR, 50%);
+			margin-left: 10px;
+		}
+	}
+	
+	.fields
+	{
+		border-left: 2px solid $PRIMARY_HIGHLIGHT;
+		padding: 25px 10px 10px 20px;
+	}
+}
+
+.grid-item
+{
+	background: $EMPHASIS_COLOUR;
+	
+	.preview
+	{
+		display: flex;
+		flex-direction: column;
+		padding-top: 10px;
+		min-height: 100%;
+		box-shadow: $STANDARD_BOX_SHADOW;
+
+		a 
+		{
+			flex-grow: 1;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+	
+	.controls
+	{
+		display: flex;
+		font-size: 12px;
+		justify-content: space-between;
+		padding: 5px;
+		
+		.element
+		{
+			display: flex;
+			justify-content: center;
+			margin: 5px 0;
+		}
+		
+		.indicator
+		{
+			margin-left: 0;
+			margin-right: 3px;
+		}
+	}
+	
+	.remove-holder
+	{
+		align-items: center;
+		color: $WARNING_COLOUR;
+		display: flex;
+		flex-direction: row-reverse;
+	}
+	
+	.grid-popup-wrapper
+	{
+		align-items: center;
+		background: rgba($DARK_COLOUR, 0.5);
+		bottom: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		left: 0;
+		position: fixed;
+		right: 0;
+		top: 0;
+		z-index: 11; // Should be above the menus
+	}
+	
+	.grid-cancel-backdrop
+	{
+		cursor: pointer;
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+	
+	.grid-popup
+	{
+		background: $LIGHT_COLOUR;
+		box-shadow: $HOVER_BOX_SHADOW;
+		display: block;
+		min-height: calc(100% - 20px);
+		margin: 10px;
+		overflow: auto;
+		padding: 10px;
+		position: relative;
+		width: calc(100% - 20px);
+		
+		@include above($TABLET_MIN)
+		{
+			min-height: 0;
+			margin: 20px;
+			padding: 40px;
+			max-width: calc(100% - 40px);
+			width: $MAX_WIDTH;
+		}
+	}
+	
+	.actions
+	{
+		background: $EMPHASIS_COLOUR;
+		flex-grow: 0;
+		margin: 20px -10px -10px;
+		padding: 20px 10px 10px;
+		
+		@include above($TABLET_MIN)
+		{
+			margin: 20px -40px -40px;
+			padding: 20px 40px 40px;
+		}
+	}
+}
+
+.image-editor
+{
+	background: rgba($DARK_COLOUR, 0.5);
+	box-shadow: $HOVER_BOX_SHADOW;
+	display: flex;
+    flex-direction: column;
+	justify-content: center;
+	height: 100%;
+	left: 0;
+	padding: 20px;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 10;
+	
+	.title
+	{
+		background: $LIGHT_COLOUR;
+		padding: 0 10px;
+		position: relative;
+		text-align: center;
+		z-index: 1;
+	}
+	
+	.image-area
+	{
+		background: $EMPHASIS_COLOUR;
+		overflow: auto;
+		padding: 10px;
+		position: relative;
+		text-align: center;
+		
+		img
+		{
+			background: url(/admin/theme/images/alpha-background.png);
+			display: block;
+		}
+	}
+	
+	.editor
+	{
+		display: inline-block;
+		height: auto;
+		margin: 10px;
+		
+		img
+		{
+			height: auto;
+			max-width: 100%;
+		}
+	}
+	
+	.actions
+	{
+		background: $LIGHT_COLOUR;
+		display: flex;
+		justify-content: flex-end;
+		margin: 0;
+		padding: 10px;
+		position: relative;
+		
+		.button
+		{
+			margin-left: 20px;
+		}
+	}
+}
+
+.option
+{
+	display: block;
+}
+
+.preview-box
+{
+	display: grid;
+	grid-column-gap: 10px;
+	grid-row-gap: 10px;
+	grid-template-columns: repeat(auto-fill, 220px);
+	margin: 10px 0;
+	
+	a
+	{
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		min-height: 220px;
+
+		&:hover 
+		{
+			text-decoration: none;
+		}
+	}
+	
+	.image-preview,
+	.loading-animation
+	{
+		height: 100%;
+		width: 100%;
+	}
+	
+	.image-preview
+	{
+		flex-grow: 1;
+		padding: 10px;
+		background: $EMPHASIS_COLOUR;
+		box-shadow: $STANDARD_BOX_SHADOW;
+	}
+
+	.preview-label 
+	{
+		display: block;
+		width: 100%;
+		padding: 5px 0;
+		color: rgba($DARK_COLOUR, 0.6);
+		font-size: 14px;
+		text-transform: uppercase;
+	}
+}
+
+.tab
+{
+	border-top: 1px solid darken($EMPHASIS_COLOUR, 10%);
+	padding-top: 15px;
+	position: relative;
+}
+
+.tab-group
+{
+	.tab-headings
+	{
+		display: flex;
+		flex-direction: column;
+		padding-left: 1px;
+		position: relative;
+		z-index: 1;
+		
+		@include above($LAPTOP_MIN)
+		{
+			flex-direction: row;
+		}
+	}
+	
+	.tab-heading
+	{
+		background: $EMPHASIS_COLOUR;
+		border: solid darken($EMPHASIS_COLOUR, 10%);
+		border-width: 1px 1px 0;
+		color: #4a4a4a;
+		font-size: 14px;
+		font-weight: $SEMI_BOLD;
+		margin-left: -1px;
+		padding: 15px 20px;
+		position: relative;
+		text-transform: uppercase;
+		
+		@include above($LAPTOP_MIN)
+		{
+			border-width: 1px;
+		}
+		
+		@include hover
+		{
+			text-decoration: none;
+			transition: all 0.2s;
+			
+			@include above($LAPTOP_MIN)
+			{
+				margin-top: -5px;
+				padding-bottom: 20px;
+			}
+		}
+		
+		&:before
+		{
+			background: $PRIMARY_HIGHLIGHT;
+			content: "";
+			height: 3px;
+			left: 0;
+			position: absolute;
+			top: 0;
+			transition: width 0.2s;
+			width: 0;
+		}
+		
+		&:after
+		{
+			background: $LIGHT_COLOUR;
+			content: "";
+			display: none;
+			height: 1px;
+			left: 0;
+			position: absolute;
+			top: 100%;
+			width: 100%;
+			z-index: 1;
+			
+			@include above($LAPTOP_MIN)
+			{
+				display: block;
+			}
+		}
+		
+		&.active
+		{
+			background: transparent;
+			border-bottom: 0;
+			color: $PRIMARY_HIGHLIGHT;
+			cursor: text;
+			
+			@include above($LAPTOP_MIN)
+			{
+				margin-top: -10px;
+				padding-bottom: 25px;
+			}
+			
+			&:before
+			{
+				width: 100%;
+			}
+		}
+	}
+}
+
+
+.tabular-data 
+{
+	border-collapse: collapse;
+
+	thead,
+	tbody tr td:first-child 
+	{
+		background: $EMPHASIS_COLOUR;
+		text-transform: uppercase;
+		font-weight: bold;
+		padding: 6px;
+		font-size: rem(14px);
+		color: #4a4a4a;
+	}
+
+	tr
+	{
+		td 
+		{
+			padding: 4px;
+		}
+
+		.cell 
+		{
+			//padding: 4px;
+		}
+	}
+
+	@include form-fields
+	{
+		background: transparent;
+	}
+}

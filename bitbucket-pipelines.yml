@@ -1,0 +1,20 @@
+image: php:8.0.0
+
+pipelines:
+    default:
+        - step:
+            script:
+                - apt-get update
+
+                # Unit Tests
+                - cd _tests
+                - vendor/bin/peridot specs/
+
+                # Setup
+                - docker-php-ext-install mysqli
+                - docker-php-ext-enable mysqli
+
+                # PHPStan
+                - mkdir test-results
+                - php -d memory_limit=4G vendor/bin/phpstan analyse ../admin/classes --level 2 --no-progress --no-ansi
+                - echo "Finished PHPStan"

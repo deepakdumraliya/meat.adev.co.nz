@@ -1,0 +1,603 @@
+// Everything box-sizing
+html
+{
+	box-sizing: border-box;
+}
+
+// These already have explicit widths and heights, so we don't want borders or padding to squash them
+canvas,
+embed,
+iframe,
+img,
+object,
+video
+{
+	box-sizing: content-box;
+}
+
+*,
+*:before,
+*:after
+{
+	box-sizing: inherit;
+}
+
+html,
+body
+{
+	scroll-behavior: smooth;
+}
+
+body
+{
+	background: $DARK_COLOUR;
+	display: flex;
+	flex-direction: column;
+	font-family: $CONTENT_FONT;
+	font-size: 16px;
+	justify-content: space-between;
+	line-height: 1.4;
+	margin: 0;
+	min-height: 100vh;
+}
+
+@include headings
+{
+	font-family: $HEADING_FONT;
+	font-weight: normal;
+	line-height: 1.2;
+}
+
+a
+{
+	color: $PRIMARY_HIGHLIGHT;
+	text-decoration: none;
+	
+	@include hover
+	{
+		text-decoration: underline;
+	}
+}
+
+.container
+{
+	margin: auto;
+	max-width: $MAX_WIDTH;
+	padding: 0 10px;
+}
+
+.header
+{
+	border: solid $PRIMARY_HIGHLIGHT;
+	border-width: 0 0 4px;
+	color: $LIGHT_COLOUR;
+	padding: 5px 0;
+	
+	@include above($NAV_BREAKPOINT)
+	{
+		border-width: 4px 0 0;
+		background: $LIGHT_COLOUR;
+		color: $DARK_COLOUR;
+		padding: 20px;
+	}
+	
+	a
+	{
+		color: inherit;
+		
+		@include above($NAV_BREAKPOINT)
+		{
+			color: $PRIMARY_HIGHLIGHT;
+		}
+	}
+	
+	.container
+	{
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		text-align: right;
+		
+		@include above($NAV_BREAKPOINT)
+		{
+			align-items: flex-start;
+			text-align: left;
+		}
+	}
+	
+	.menu-button
+	{
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		background: none;
+		border: 0;
+		cursor: pointer;
+		margin-right: 10px;
+		padding: 0;
+		
+		@include above($NAV_BREAKPOINT)
+		{
+			display: none;
+		}
+		
+		svg
+		{
+			fill: $LIGHT_COLOUR;
+			height: 40px;
+			width: 40px;
+			
+			@include above($NAV_BREAKPOINT)
+			{
+				fill: $DARK_COLOUR;
+			}
+		}
+	}
+	
+	.logo
+	{
+		display: none;
+		margin: -10px 0;
+		max-height: 95px;
+		width: auto;
+		
+		@include above($NAV_BREAKPOINT)
+		{
+			display: block;
+		}
+	}
+	
+	.user
+	{
+		font-size: 14px;
+		
+		svg
+		{
+			fill: $LIGHT_COLOUR;
+			height: 20px;
+			vertical-align: text-bottom;
+			
+			@include above($NAV_BREAKPOINT)
+			{
+				fill: $PRIMARY_HIGHLIGHT;
+			}
+		}
+	}
+	
+	.welcome
+	{
+		display: none;
+		
+		@include above($TABLET_MIN)
+		{
+			display: inline;
+		}
+	}
+}
+
+.vue-wrapper
+{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	justify-content: space-between;
+}
+
+.navigation
+{
+	font-family: $HEADING_FONT;
+	min-height: 5px; // For when there are no menu items
+	z-index: 3; // To display over the top of tabs and active toggle
+	
+	@include below($NAV_BREAKPOINT)
+	{
+		bottom: 0;
+		left: 0;
+		pointer-events: none;
+		position: absolute;
+		right: 0;
+		top: 0;
+		transition: background 0.3s;
+		
+		&.open
+		{
+			background: rgba($DARK_COLOUR, 0.5);
+			pointer-events: auto;
+		}
+		
+		.close-block
+		{
+			bottom: 0;
+			cursor: pointer;
+			left: 0;
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+		
+		.container
+		{
+			align-items: center;
+			background: $LIGHT_COLOUR;
+			box-shadow: $HOVER_BOX_SHADOW;
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+			height: 100%;
+			left: 0;
+			margin: 0;
+			max-width: 320px;
+			padding: 0;
+			position: absolute;
+			top: 0;
+			transform: translateX(-100%);
+			transition: transform 0.3s;
+			width: 100%;
+		}
+		
+		&.open .container
+		{
+			transform: none;
+		}
+		
+		.menu-header
+		{
+			align-items: flex-start;
+			border-bottom: 4px solid $PRIMARY_HIGHLIGHT;
+			display: flex;
+			flex-grow: 0;
+			flex-shrink: 0;
+			padding: 10px;
+			width: 100%;
+			
+			.close-button
+			{
+				-moz-appearance: none;
+				-webkit-appearance: none;
+				background: none;
+				border: 0;
+				cursor: pointer;
+				flex-grow: 0;
+				flex-shrink: 0;
+				margin-right: 10px;
+				padding: 0;
+				
+				svg
+				{
+					fill: $DARK_COLOUR;
+					height: 40px;
+					width: 40px;
+				}
+			}
+			
+			.logo
+			{
+				align-items: center;
+				display: flex;
+				justify-content: center;
+				flex-grow: 1;
+				
+				img
+				{
+					display: block;
+					height: auto;
+					max-width: 100%;
+				}
+			}
+		}
+		
+		ul
+		{
+			background: $DARK_COLOUR;
+			flex-grow: 1;
+			margin: 0;
+			padding: 10px 10px 15px;
+			width: 100%;
+		}
+		
+		li
+		{
+			background: rgba($LIGHT_COLOUR, 0.1);
+			display: grid;
+			grid-template-columns: 1fr 40px;
+			margin-bottom: 5px;
+			
+			&:last-child
+			{
+				margin-bottom: -5px;
+			}
+			
+			a
+			{
+				color: $LIGHT_COLOUR;
+				display: block;
+				padding: 10px;
+				text-decoration: none;
+			}
+			
+			&.active,
+			&.router-link-active
+			{
+				background: $PRIMARY_HIGHLIGHT;
+			}
+			
+			.open-subnav
+			{
+				-moz-appearance: none;
+				-webkit-appearance: none;
+				background: rgba($LIGHT_COLOUR, 0.2);
+				border: 0;
+				cursor: pointer;
+				fill: $LIGHT_COLOUR;
+				margin: 0;
+				padding: 10px;
+				
+				svg
+				{
+					transform: rotate(-90deg);
+					transition: transform 0.2s;
+				}
+			}
+			
+			&.open .open-subnav svg
+			{
+				transform: none;
+			}
+		}
+		
+		li ul
+		{
+			display: none;
+			grid-column: span 2;
+		}
+		
+		li.open ul
+		{
+			display: block;
+		}
+	}
+	
+	@include above($NAV_BREAKPOINT)
+	{
+		flex-grow: 0;
+		position: relative;
+		
+		.menu-header
+		{
+			display: none;
+		}
+		
+		ul
+		{
+			display: flex;
+			margin: 0;
+			padding: 0;
+		}
+		
+		li
+		{
+			display: block;
+			position: relative;
+		}
+		
+		.open-subnav
+		{
+			display: none;
+		}
+		
+		a
+		{
+			color: $LIGHT_COLOUR;
+			display: block;
+			padding: 15px 20px;
+			text-decoration: none;
+			transition: all 0.2s, color 0s;
+			
+			&:after
+			{
+				background: $PRIMARY_HIGHLIGHT;
+				content: "";
+				height: 3px;
+				left: 50%;
+				position: absolute;
+				top: 100%;
+				transition: all 0.5s;
+				width: 0;
+				z-index: 1; // To display over the top of any submenu
+			}
+			
+			@include hover
+			{
+				color: $PRIMARY_HIGHLIGHT;
+			}
+		}
+		
+		li.active > a,
+		li.router-link-active > a
+		{
+			background: $LIGHT_COLOUR;
+			color: $PRIMARY_HIGHLIGHT;
+			position: relative;
+			
+			&:after
+			{
+				height: 3px;
+				left: 0;
+				width: 100%;
+			}
+		}
+		
+		li ul
+		{
+			background: $DARK_COLOUR;
+			box-shadow: $STANDARD_BOX_SHADOW;
+			flex-direction: column;
+			opacity: 0;
+			position: absolute;
+			transform: translateY(-10px);
+			transition: all 0.2s;
+			visibility: hidden;
+			white-space: nowrap;
+		}
+		
+		li
+		{
+			@include hover
+			{
+				ul
+				{
+					opacity: 1;
+					transform: none;
+					visibility: visible;
+				}
+			}
+		}
+		
+		li li a:after
+		{
+			display: none;
+		}
+	}
+}
+
+.main-content
+{
+	align-items: center;
+	background: #eee url(/admin/theme/images/background.jpg) center fixed;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	justify-content: flex-start;
+	padding: 20px;
+	
+	@include above($LAPTOP_MIN)
+	{
+		padding: 40px;
+	}
+	
+	.container
+	{
+		background: $LIGHT_COLOUR;
+		box-shadow: $STANDARD_BOX_SHADOW;
+		margin: 0;
+		padding: 20px;
+		width: 100%;
+		
+		@include above($LAPTOP_MIN)
+		{
+			padding: 40px;
+		}
+	}
+}
+
+.content-header
+{
+	border-bottom: 1px solid $EMPHASIS_COLOUR;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	
+	@include above($TABLET_MIN)
+	{
+		align-items: center;
+		flex-direction: row;
+	}
+	
+	.title
+	{
+		align-items: flex-start;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		
+		@include above($TABLET_MIN)
+		{
+			align-items: center;
+			flex-direction: row;
+		}
+		
+		.button
+		{
+			margin-bottom: 10px;
+			
+			@include above($TABLET_MIN)
+			{
+				margin-bottom: 0;
+			}
+		}
+	}
+	
+	h1,
+	h2
+	{
+		margin: 0 0 10px 0;
+		
+		@include above($TABLET_MIN)
+		{
+			margin: 0 20px 0 0;
+		}
+	}
+	
+	.heading-right
+	{
+		@include above($TABLET_MIN)
+		{
+			display: flex;
+		}
+	}
+}
+
+.raw-output
+{
+	background: rgba($INFO_COLOUR, 0.1);
+	border: 4px solid $INFO_COLOUR;
+	margin-bottom: 20px;
+	padding: 20px;
+}
+
+.footer
+{
+	border-top: 4px solid $PRIMARY_HIGHLIGHT;
+	color: #8b8b8b;
+	font-size: 14px;
+	padding: 20px 0 20px;
+	
+	.container
+	{
+		display: flex;
+		justify-content: space-between;
+		
+		@include below($TABLET_MIN)
+		{
+			flex-direction: column;
+			text-align: center;
+		}
+	}
+	
+	a
+	{
+		color: inherit;
+	}
+	
+	.need-help
+	{
+		&:before
+		{
+			background: url(/admin/theme/images/speech_bubble.png);
+			content: "";
+			display: inline-block;
+			height: 16px;
+			margin-right: 5px;
+			vertical-align: middle;
+			width: 19px;
+		}
+		
+		@include below($TABLET_MIN)
+		{
+			margin-bottom: 10px;
+		}
+	}
+}

@@ -1,0 +1,47 @@
+[25-Apr-2022 22:22:21 Pacific/Auckland] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'products.' in 'where clause' in /home/meatadev/public_html/admin/classes/Database/Mysql.php:45
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Database/Mysql.php(45): mysqli->prepare()
+#1 /home/meatadev/public_html/admin/classes/Database/Mysql.php(169): Database\Mysql->prepareStatement()
+#2 /home/meatadev/public_html/admin/classes/Database/Mysql.php(202): Database\Mysql->query()
+#3 /home/meatadev/public_html/admin/classes/Core/Entity.php(541): Database\Mysql->run()
+#4 /home/meatadev/public_html/admin/classes/Core/Entity.php(887): Core\Entity::makeMany()
+#5 /home/meatadev/public_html/admin/classes/Core/Generator.php(274): Core\Entity::loadAllForMultiple()
+#6 /home/meatadev/public_html/admin/classes/Core/Entity.php(935): Core\Generator::loadAllForMultiple()
+#7 /home/meatadev/public_html/admin/classes/Core/Generator.php(228): Core\Entity::loadAllFor()
+#8 /home/meatadev/public_html/admin/classes/Core/Generator.php(984): Core\Generator::loadAllFor()
+#9 /home/meatadev/public_html/admin/classes/Admin/ListController.php(189): Core\Generator::loadAllForTable()
+#10 /home/meatadev/public_html/admin/classes/Controller/UrlController.php(117): Admin\ListController::getControllerFromPattern()
+#11 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(100): Controller\UrlController::getControllerFor()
+#12 /home/meatadev/public_html/admin/classes/Controller/UrlController.php(122): Admin\AdminController::getControllerFor()
+#13 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(100): Controller\UrlController::getControllerFor()
+#14 /home/meatadev/public_html/admin/index.php(50): Admin\AdminController::getControllerFor()
+#15 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Database/Mysql.php on line 45
+[25-Apr-2022 22:22:32 Pacific/Auckland] PHP Fatal error:  Uncaught TypeError: Cannot assign null to property Orders\WeightRange::$upTo of type float in /home/meatadev/public_html/admin/classes/Core/Elements/Base/ResultElement.php:128
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Core/Elements/Base/ResultElement.php(138): Core\Elements\Base\ResultElement->getValue()
+#1 /home/meatadev/public_html/admin/classes/Admin/EditController.php(53): Core\Elements\Base\ResultElement->getJsonValue()
+#2 /home/meatadev/public_html/admin/classes/Core/Elements/GeneratorElement.php(141): Admin\EditController::getJsonValue()
+#3 /home/meatadev/public_html/admin/classes/Core/Elements/GeneratorElement.php(215): Core\Elements\GeneratorElement->getJsonValue()
+#4 /home/meatadev/public_html/admin/classes/Admin/EditController.php(162): Core\Elements\GeneratorElement->getJson()
+#5 /home/meatadev/public_html/admin/classes/Controller/UrlController.php(117): Admin\EditController::getControllerFromPattern()
+#6 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(100): Controller\UrlController::getControllerFor()
+#7 /home/meatadev/public_html/admin/classes/Controller/UrlController.php(122): Admin\AdminController::getControllerFor()
+#8 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(100): Controller\UrlController::getControllerFor()
+#9 /home/meatadev/public_html/admin/index.php(50): Admin\AdminController::getControllerFor()
+#10 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Core/Elements/Base/ResultElement.php on line 128
+[25-Apr-2022 22:22:38 Pacific/Auckland] PHP Fatal error:  Uncaught TypeError: Cannot assign null to property Orders\WeightRange::$upTo of type float in /home/meatadev/public_html/admin/classes/Core/Elements/Base/ResultElement.php:128
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Core/Elements/Base/ResultElement.php(138): Core\Elements\Base\ResultElement->getValue()
+#1 /home/meatadev/public_html/admin/classes/Admin/EditController.php(53): Core\Elements\Base\ResultElement->getJsonValue()
+#2 /home/meatadev/public_html/admin/classes/Core/Elements/GeneratorElement.php(141): Admin\EditController::getJsonValue()
+#3 /home/meatadev/public_html/admin/classes/Core/Elements/GeneratorElement.php(215): Core\Elements\GeneratorElement->getJsonValue()
+#4 /home/meatadev/public_html/admin/classes/Admin/EditController.php(162): Core\Elements\GeneratorElement->getJson()
+#5 /home/meatadev/public_html/admin/classes/Controller/UrlController.php(117): Admin\EditController::getControllerFromPattern()
+#6 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(100): Controller\UrlController::getControllerFor()
+#7 /home/meatadev/public_html/admin/classes/Controller/UrlController.php(122): Admin\AdminController::getControllerFor()
+#8 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(100): Controller\UrlController::getControllerFor()
+#9 /home/meatadev/public_html/admin/index.php(50): Admin\AdminController::getControllerFor()
+#10 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Core/Elements/Base/ResultElement.php on line 128

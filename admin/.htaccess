@@ -1,0 +1,9 @@
+RewriteOptions InheritBefore
+
+# Any call to a PHP script that's not index or style
+RewriteRule ^((?!index|theme/style).+)\.php$ index.php [L]
+
+# Any call to a file that doesn't exist
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /admin/index.php [NC,L,QSA]

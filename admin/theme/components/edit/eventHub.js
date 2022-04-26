@@ -1,0 +1,2 @@
+// This keeps track of subcomponents being mounted, and reports to FormPage, allowing us to only display the confirm edit screen when all components have finished editing the values object.
+export default new Vue();

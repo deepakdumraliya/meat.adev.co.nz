@@ -1,0 +1,329 @@
+.button
+{
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background: $PRIMARY_HIGHLIGHT;
+	border: 0;
+	border-radius: 2px;
+	box-shadow: $STANDARD_BOX_SHADOW;
+	color: $LIGHT_COLOUR;
+	cursor: pointer;
+	display: inline-block;
+	font-family: inherit;
+	font-size: inherit;;
+	font-weight: inherit;
+	padding: 10px 20px;
+	transition: all 0.2s;
+	
+	@include hover
+	{
+		background: $SECONDARY_HIGHLIGHT;
+		box-shadow: $HOVER_BOX_SHADOW;
+		text-decoration: none;
+	}
+	
+	&[disabled]
+	{
+		box-shadow: none;
+		opacity: 0.2;
+		pointer-events: none;
+	}
+}
+
+.button.destructive
+{
+	background: desaturate($WARNING_COLOUR, 30%);
+	
+	@include hover
+	{
+		background: $WARNING_COLOUR;
+	}
+}
+
+@keyframes loading-animation-spin
+{
+	0%
+	{
+		transform: none;
+	}
+	
+	100%
+	{
+		transform: rotate(360deg);
+	}
+}
+
+.loading-animation
+{
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+	
+	svg
+	{
+		animation: loading-animation-spin 1s infinite;
+		display: block;
+		fill: $PRIMARY_HIGHLIGHT;
+		height: 50px;
+		width: 50px;
+	}
+}
+
+.loading-progress
+{
+	background: $EMPHASIS_COLOUR;
+	border: 1px solid darken($EMPHASIS_COLOUR, 10%);
+	height: 10px;
+	width: 100%;
+	
+	.bar
+	{
+		background: $PRIMARY_HIGHLIGHT;
+		height: 10px;
+		transition: width 0.2s;
+	}
+}
+
+.update-field 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+	max-width: 65px;
+	min-height: 44px;
+
+	svg 
+	{
+		fill: $PRIMARY_HIGHLIGHT;
+		height: 20px;
+		width: 20px;
+	}
+}
+
+.input-number 
+{
+	position: relative;
+
+	.error
+	{
+		position: absolute;
+		top: 85%;
+		z-index: 10;
+		font-size: rem(14px);
+		color: $WARNING_COLOUR;
+		background: $LIGHT_COLOUR;
+		border: 1px solid darken($EMPHASIS_COLOUR, 10%);
+	}
+}
+
+.edit-button svg
+{
+	fill: $PRIMARY_HIGHLIGHT;
+	height: 20px;
+	width: 20px;
+}
+
+.toggle-button
+{
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background: none;
+	border: 0;
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+	
+	&.loading
+	{
+		cursor: default;
+	}
+	
+	svg
+	{
+		fill: $PRIMARY_HIGHLIGHT;
+		height: 20px;
+		width: 20px;
+	}
+	
+	&.loading svg
+	{
+		animation: loading-animation-spin 1s infinite;
+	}
+}
+
+.remove-button
+{
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background: none;
+	border: 0;
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+	
+	svg
+	{
+		fill: $WARNING_COLOUR;
+		height: 20px;
+		width: 20px;
+	}
+}
+
+.expand-button
+{
+	align-items: center;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background: $LIGHT_COLOUR;
+	border: 0;
+	box-shadow: 0 0 $PRIMARY_HIGHLIGHT;
+	cursor: pointer;
+	display: inline-flex;
+	height: 27px;
+	justify-content: center;
+	padding: 0;
+	transition: box-shadow 0.2s;
+	width: 27px;
+	
+	&.open
+	{
+		box-shadow: 0 0 10px 5px rgba($PRIMARY_HIGHLIGHT, 0);
+	}
+	
+	svg
+	{
+		fill: $PRIMARY_HIGHLIGHT;
+		height: 14px;
+		transition: transform 0.2s;
+		width: 20px;
+	}
+	
+	&.open svg
+	{
+		transform: rotate(90deg);
+	}
+}
+
+.active-toggle
+{
+	cursor: pointer;
+	display: inline-block;
+	height: 39px;
+	position: relative;
+	width: 108px;
+	
+	input
+	{
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		background: $LIGHT_COLOUR;
+		border-radius: 18px;
+		border: 0;
+		cursor: pointer;
+		height: 35px;
+		margin: 0;
+		outline: none;
+		padding: 0;
+		position: absolute;
+		left: 2px;
+		top: 2px;
+		transition: left 0.2s;
+		width: 35px;
+		z-index: 2;
+	}
+	
+	.toggle-label
+	{
+		background: desaturate($SECONDARY_HIGHLIGHT, 100%);
+		border-radius: 20px;
+		box-shadow: $STANDARD_BOX_SHADOW;
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		transition: background 0.2s;
+		width: 100%;
+		z-index: 1;
+		
+		&:after
+		{
+			align-items: center;
+			box-sizing: border-box;
+			color: $LIGHT_COLOUR;
+			content: "Inactive";
+			display: flex;
+			font-size: 13px;
+			height: 100%;
+			left: 0;
+			justify-content: center;
+			padding-left: 39px;
+			padding-right: 8px;
+			position: absolute;
+			top: 0;
+			transition: padding 0.2s;
+			width: 100%;
+		}
+	}
+	
+	input:checked
+	{
+		left: calc(100% - 37px);
+	}
+	
+	input:checked + .toggle-label
+	{
+		background: $SECONDARY_HIGHLIGHT;
+		
+		&:after
+		{
+			content: "Active";
+			padding-left: 5px;
+			padding-right: 39px;
+		}
+	}
+}
+
+.image-preview
+{
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	
+	img
+	{
+		background: url(/admin/theme/images/alpha-background.png);
+		max-height: 200px;
+		max-width: 200px;
+		object-fit: contain;
+	}
+}
+
+.confirm-dialog
+{
+	background: rgba($DARK_COLOUR, 0.5);
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 2000; // To display over the top of _everything_
+	
+	.dialog-window
+	{
+		background: $LIGHT_COLOUR;
+		box-shadow: $STANDARD_BOX_SHADOW;
+		bottom: 50%;
+		padding: 20px;
+		position: absolute;
+		right: 50%;
+		transform: translateX(50%) translateY(50%);
+	}
+	
+	.actions
+	{
+		justify-content: flex-end;
+		white-space: nowrap;
+	}
+}

@@ -1,0 +1,45 @@
+.centre-login-form
+{
+	//align-self: center;
+	background: $LIGHT_COLOUR;
+	box-shadow: $STANDARD_BOX_SHADOW;
+	display: flex;
+	justify-content: center;
+	justify-self: center;
+	padding: 20px;
+}
+
+.top-spacer
+{
+	flex-grow: 1;
+}
+
+.bottom-spacer
+{
+	flex-grow: 2;
+}
+
+.login-form
+{
+	display: grid;
+	flex-shrink: 0;
+	grid-row-gap: 10px;
+	max-width: calc(100vw - 100px);
+	width: 320px;
+	
+	h1
+	{
+		margin: 0 0 10px;
+		text-align: center;
+	}
+	
+	ul
+	{
+		margin: 0;
+	}
+	
+	.button
+	{
+		margin-top: 10px;
+	}
+}

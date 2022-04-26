@@ -1,0 +1,38 @@
+{% if link.display %}
+	{% if link.isVue() and templateUsesVueRouter %}
+		<router-link to="{{ link.link }}" custom v-slot="{ href, navigate }">
+			<li :class="{'router-link-active': activeItem({{ link.getPaths()|json_encode }}, {{ link.getAllIdentifiers()|json_encode }}), open: openSubnav === {{ link.link|json_encode }}}">
+				<a :href="href" @click="navigate">{{ link.label }}</a>
+				{% if link.subitems|length > 0 %}
+					<button class="open-subnav" @click="toggleSubnav({{ link.link|json_encode }})">
+						{{ "/admin/theme/images/icons/submenu-open.svg"|source }}
+					</button>
+					<ul>
+						{% for link in link.subitems %}
+							{% include "navigation-link.twig" %}
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</li>
+		</router-link>
+	{% else %}
+		<li class="{{ link.isCurrent(controller.current) ? "active" : "" }}" :class="{open: openSubnav === {{ link.link|json_encode }}}">
+			<a href="{{ link.link }}" {% if link.newWindow %} target="_blank" {% endif %}>
+				{% if link.isParent() %}
+					<span class="open-sub"></span>
+				{% endif %}
+				{{ link.label }}
+			</a>
+			{% if link.subtiems|length > 0 %}
+				<button class="open-subnav" @click="toggleSubnav({{ link.link|json_encode }})">
+					{{ "/admin/theme/images/icons/submenu-open.svg"|source }}
+				</button>
+				<ul>
+					{% for link in link.subitems %}
+						{% include "navigation-link.twig" %}
+					{% endfor %}
+				</ul>
+			{% endif %}
+		</li>
+	{% endif %}
+{% endif %}

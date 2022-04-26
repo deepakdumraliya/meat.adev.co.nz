@@ -1,0 +1,29 @@
+{% extends 'pages/page.twig' %}
+
+{% block content_wrapper %}
+	{{ parent }}
+	{% if config.address != '' %}
+		<section class="map">
+			{{ config.getMap()|raw }}
+		</section>
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+	<div class="columns">
+		{{ block('content_title') }}
+		<div class="col-2">
+			{{ block('page_content') }}
+			<p>{{ config.address|nl2br }}</p>
+			<p>
+				Phone: <a href="tel:{{ config.getPhoneDigits() }}">{{ config.phone }}</a><br />
+				Email: <a href="mailto:{{config.email }}">{{ config.email }}</a>
+			</p>
+			{{ page.image.tag('', page.imageDescription)|raw }}
+		</div>
+		<div class="col-2">
+			<h2>{{ contactForm.name }}</h2>
+			{{ contactForm.outputForm()|raw }}
+		</div>
+	</div>
+{% endblock %}

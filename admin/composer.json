@@ -1,0 +1,55 @@
+{
+	"config":
+	{
+		"platform":
+		{
+			"php": "8.0"
+		}
+	},
+	
+	"repositories": [
+	{
+		"type": "git",
+		"url": "https://github.com/zipmoney/merchantapi-php.git"
+	}],
+	  
+	"require":
+	{
+		"erusev/parsedown": "*",
+		"eway/eway-rapid-php": "*",
+		"google/recaptcha": "~1.1",
+		"paypal/rest-api-sdk-php": "*",
+		"phpmailer/phpmailer": "*",
+		"scssphp/scssphp": "*",
+		"scssphp/server": "*",
+		"stripe/stripe-php": "*",
+		"symfony/string": "*",
+		"symfony/translation-contracts": "*",
+		"twig/markdown-extra": "*",
+		"twig/twig": "*",
+		"wamania/php-stemmer": "*",
+		"zipmoney/merchantapi-php": "*",
+		
+		"php": ">=8.0",
+		"ext-curl": "*",
+		"ext-fileinfo": "*",
+
+		"ext-json": "*",
+		"ext-mysqli": "*",
+		"ext-openssl": "*",
+		"ext-simplexml": "*",
+		"ext-sqlite3": "*"
+	},
+
+	"scripts":
+	{
+		"post-update-cmd":
+		[
+			"mv pma/config.inc.php config.inc.php",
+			"rm -r pma",
+			"composer create-project phpmyadmin/phpmyadmin pma '<4.8.2 || >4.8.2' --repository-url=https://www.phpmyadmin.net/packages.json --no-dev --ignore-platform-reqs",
+			"mv config.inc.php pma/config.inc.php",
+			"php -r \"copy('https://www.adminer.org/latest-mysql-en.php', 'adm/adminer.php');\""
+		]
+	}
+}
