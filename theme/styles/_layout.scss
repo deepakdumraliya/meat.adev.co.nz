@@ -1,0 +1,356 @@
+// action box
+.action-box {
+	p {
+		font-size: 24px;
+	}
+
+}
+
+// Title
+.section-title {
+	h2 {
+		position: relative;
+		margin-bottom: 30px;
+
+		&:before {
+			content: "";
+			position: absolute;
+			height: 2px;
+			width: 50px;
+			background: $primary;
+			bottom: -10px;
+		}
+
+	}
+
+	span {
+		font-size: 24px;
+		font-weight: 600;
+		margin-bottom: 15px;
+		display: flex;
+	}
+
+}
+
+// Premium Quality Info
+.premium-quality-info {
+	background: $secondary;
+	padding: 50px;
+	margin-left: -200px;
+}
+
+.testimonials-info {
+	background: $secondary;
+	padding: 50px;
+	margin-right: -200px;
+	position: relative;
+}
+
+// Newsletter
+.newsletter-form {
+	form {
+		display: flex;
+
+		input {
+			height: 60px;
+			background: $white !important;
+			border-color: $white !important;
+			margin-right: 20px;
+			box-shadow: $box-shadow;
+
+			&:focus {
+				box-shadow: $box-shadow;
+			}
+
+			&::placeholder {
+				font-size: 20px;
+				font-weight: 400;
+			}
+
+		}
+
+	}
+
+	button.btn {
+		width: 32%;
+	}
+
+}
+
+.featured-product {
+	background: $white;
+
+	.product-img {
+	    display: flex;
+	    justify-content: center;
+	}
+
+	.product-price {
+		border-top: 1px solid $border-color;
+		padding: 15px 25px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 15px;
+
+		span {
+			font-weight: 600;
+		}
+
+		select.form-select {
+			width: 80px;
+			height: 48px;
+			border-radius: inherit;
+			border: 1px solid $border-color;
+			&:focus {
+				box-shadow: none;
+				border: 1px solid $border-color;
+			}
+		}
+
+		.btn {
+			padding: 12px 15px;
+			box-shadow: none;
+		}
+
+	}
+
+}
+
+// Inner Banner
+.inner-banner {
+	height: 360px;
+
+	.breadcrumb {
+		.breadcrumb-item {
+			a {
+				color: $white;
+
+				&:hover {
+					color: $primary;
+				}
+
+			}
+
+			&:before {
+				color: $white;
+			}
+
+			&.active {
+				color: $primary;
+			}
+
+		}
+
+	}
+
+}
+
+.newsletter-bg-img {
+	left: 150px;
+	top: -18px;
+}
+
+.recipe-filter {
+	span {
+		margin-right: 15px;
+	}
+
+	.form-select {
+		width: 30%;
+		height: 54px;
+		border-radius: 0;
+		margin-right: 10px;
+		box-shadow: $box-shadow;
+		border: none;
+	}
+
+	.btn {
+		padding: 15px 30px;
+	}
+
+}
+
+.meet-product {
+	form {
+		.form-select {
+			height: 54px;
+			border-radius: 0;
+
+			&:focus {
+				border-color: none;
+				box-shadow: none;
+			}
+
+		}
+
+		span.price {
+			background: $white;
+			padding: 13px 15px;
+			color: $primary;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+	}
+
+}
+
+.accordion {
+	.accordion-item {
+		border: 0;
+
+		.accordion-header {
+			.accordion-button {
+				border-radius: 0;
+				font-family: "Inter", sans-serif;
+				font-size: 22px;
+				color: $primary;
+				background: $white;
+				box-shadow: inherit;
+
+				&:before {
+					content: "\2212";
+					flex-shrink: 0;
+					transition: transform .2s ease-in-out;
+					margin-right: 15px;
+					font-size: 36px;
+					line-height: 25px
+				}
+
+				&:after {
+					display: none;
+				}
+
+				&.collapsed {
+					color: $secondary;
+
+					&:before {
+						content: "\002b";
+					}
+
+				}
+
+				&:focus {
+					border: none;
+					box-shadow: none;
+				}
+
+			}
+
+		}
+
+		.accordion-collapse {
+			.accordion-body {
+				padding: 0px 60px 30px 60px;
+			}
+
+		}
+
+	}
+
+}
+
+
+.contact {
+		.contact-title {
+			font-size: 24px;
+			font-weight: 600;
+			display: flex;
+		}
+
+		.social-icons {
+			a {
+				background: $primary;
+				height: 40px;
+				width: 40px;
+				padding: 10px;
+				font-size: 20px;
+				display: flex;
+				color: $white;
+				align-items: center;
+				justify-content: center;
+				border-radius: $border-radius-lg;
+
+				&:hover {
+					background: $secondary;
+				}
+
+			}
+
+		}
+
+
+}
+
+.social-icons {
+	a {
+		background: $primary;
+		height: 40px;
+		width: 40px;
+		padding: 10px;
+		font-size: 20px;
+		display: flex;
+		color: $white;
+		align-items: center;
+		justify-content: center;
+		border-radius: $border-radius-lg;
+
+		&:hover {
+			background: $secondary;
+		}
+
+	}
+
+}
+
+@media (max-width:1600px) {
+	.newsletter-bg-img {
+		left: 0;
+	}
+
+}
+
+@media (max-width:991px) {
+	.premium-quality-info {
+		margin-left: 0;
+	}
+
+	.testimonials-info {
+		margin-right: 0;
+	}
+
+}
+
+@media (max-width:767px) {
+	.newsletter-form form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		input {
+			margin-bottom: 20px;
+			margin-right: 0;
+		}
+
+		button.btn {
+			width: auto;
+		}
+
+	}
+
+}
+
+@media (max-width:575px) {
+	.featured-product {
+		.product-price {
+			padding: 15px;
+
+			.btn {
+				padding: 13px 8px;
+				font-size: 14px;
+			}
+		}
+	}
+}

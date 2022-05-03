@@ -1,0 +1,31 @@
+// Gallery
+.gallery {
+  .img-container {
+    position: relative;
+
+    .img-content {
+      position: absolute;
+      z-index: 9;
+      bottom: 0px;
+      left: 0px;
+      padding: 0 20px 20px 20px;
+
+      .category {
+        color: $white;
+        margin-bottom: 0;
+      }
+
+    }
+
+  }
+
+}
+
+
+@media (max-width:768px) {
+  .gallery .img-container img {
+    width: 100%;
+}
+}
+
+

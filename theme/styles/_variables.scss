@@ -61,3 +61,28 @@ $NAV_BREAKPOINT: $LAPTOP_MEDIUM;
 
 // deprecated but still in use in files which haven't been updated
 $RESPONSIVE_BREAKPOINT: $TABLET_MIN;
+
+// Font family
+$font-base: 		'Inter', sans-serif;
+$font-hedding:	'Playfair Display', serif;
+
+// Colors
+$body-color:		#181d23;
+$primary:				#90d4bc;
+$secondary:			#181d23;
+$white:					#ffffff;
+$gray-1: 				#f9f9f9; 	// bg light
+$gray-2: 				#181d23; 	// Hedding color
+
+
+$border-color: 	#e8e8e8;
+
+// For button and input border radius
+$border-radius: 6px;
+$border-radius-sm: 4px;
+$border-radius-md: 10px;
+$border-radius-lg: 50%;
+
+
+// box-shadow
+$box-shadow:	0px 15px 32px rgba($gray-2, .10);

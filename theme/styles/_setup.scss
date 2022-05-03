@@ -3,8 +3,10 @@
 @import "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap";
 
 // comment out stylesheets which are not used in the site for lighter css
+
 @import "variables";
 @import "functions";
+@import "bootstrap";
 @import "typography";
 @import "widget";
 @import "template";
@@ -14,7 +16,14 @@
 @import "navigation";
 @import "page-sections";
 @import "tinymce";
-
+@import "fontawesome";
+@import "line-awesome";
+@import "button";
+@import "footer";
+@import "gallery";
+@import "header";
+@import "helpers";
+@import "layout";
 //noinspection CssInvalidFunction
 @if has-galleries()
 {

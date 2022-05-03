@@ -1,71 +1,167 @@
-// These are the base font styles for the site, as well as general typographic elements such as headings and links. Element specific typography should be defined with the rest of the styles for that element, so the styles don't end up being split across multiple files
-
-:root
-{
-	--heading-colour: #{$PRIMARY_HIGHLIGHT};
-	--link-colour: #{$PRIMARY_HIGHLIGHT};
-}
-
-html
-{
-	font-size: $BASE_FONT_SIZE;
-}
-
-body
-{
-	color: $DARK_COLOUR;
-	font-family: $CONTENT_FONT;
+/*****************************
+    Typography
+*****************************/
+body {
+	font-family: $font-base;
+	font-style: normal;
+	font-size: 18px;
 	line-height: 1.5;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
+	color: $body-color;
+	overflow-x: hidden;
 }
 
-@include headings
-{
-	margin: 0 0 0.5em;
-	color: var(--heading-colour);
-	font-family: $HEADING_FONT;
-	font-size: var(--heading-responsive-size, initial);
-	line-height: 1.2;
-	transition: all 0.2s;
-	
-	@include above($LAPTOP_MEDIUM)
-	{
-		font-size: var(--heading-size, initial);
-	}
-}
+a {
+	outline: medium none !important;
+	color: $primary;
+	transition: all 0.3s ease-in-out;
+	text-decoration: none !important;
 
-h1
-{
-	--heading-size: #{rem(60px)};
-	--heading-responsive-size: #{rem(32px)};
-}
-
-h2
-{
-	--heading-size: #{rem(32px)};
-	--heading-responsive-size: #{rem(24px)};
-}
-
-h3
-{
-	--heading-size: #{rem(24px)};
-	--heading-responsive-size: #{rem(20px)};
-}
-
-a
-{
-	color: var(--link-colour);
-	text-decoration: none;
-	transition: all 0.2s;
-
-	@include hover
-	{
-		text-decoration: underline;
+	&:focus {
+		color: $primary;
+		text-decoration: none !important;
 	}
 
-	img
-	{
-		border: none;
+	&:hover {
+		color: $primary;
+		text-decoration: none !important;
 	}
+
+}
+
+input {
+	outline: medium none !important;
+	color: $primary;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $font-hedding;
+	font-weight: normal;
+	color: $gray-2;
+	margin-top: 0px;
+	font-weight: 400;
+
+	a {
+		color: inherit;
+	}
+
+}
+
+label {
+	font-weight: normal;
+}
+
+h1 {
+	font-size: 50px;
+	font-style: normal;
+	font-weight: 400;
+}
+
+h2 {
+	font-size: 46px;
+	font-weight: 400;
+}
+
+h3 {
+	font-size: 32px;
+	font-weight: 400;
+}
+
+h4 {
+	font-size: 28px;
+}
+
+h5 {
+	font-size: 24px;
+}
+
+h6 {
+	font-size: 22px;
+}
+
+p {
+	line-height: 1.5;
+}
+
+*::-moz-selection {
+	background: $primary;
+	color: $white;
+	text-shadow: none;
+}
+
+::-moz-selection {
+	background: $primary;
+	color: $white;
+	text-shadow: none;
+}
+
+::selection {
+	background: $primary;
+	color: $white;
+	text-shadow: none;
+}
+
+/* form-control */
+.form-control {
+	border: none !important;
+	border-radius: 0px;
+	height: 50px;
+	padding: 10px 20px !important;
+	box-shadow: $box-shadow;
+	font-size: 14px !important;
+	font-weight: 500;
+	color: $gray-2;
+	background-clip: inherit !important;
+	background-color: $white !important;
+
+	&:focus {
+		background-color: $white;
+		box-shadow: $box-shadow;
+	}
+
+}
+
+.form-control::-moz-placeholder {
+	color: $gray-2;
+}
+
+.form-control::-ms-input-placeholder {
+	color: $gray-2;
+}
+
+.form-control::-webkit-input-placeholder {
+	color: $gray-2;
+}
+
+textarea.form-control {
+	height: 120px;
+}
+
+@media (max-width:767px) {
+	h1 {
+		font-size: 38px;
+	}
+
+	h2 {
+		font-size: 36px;
+	}
+
+	h3 {
+		font-size: 28px;
+	}
+
+	h4 {
+		font-size: 26px;
+	}
+
+}
+
+@media (max-width:575px) {
+	h1 {
+		font-size: 38px;
+	}
+
+	h2 {
+		font-size: 32px;
+	}
+
 }

@@ -1,0 +1,70 @@
+/*****************************
+  Button
+*****************************/
+.btn {
+	background: $white;
+	border: none;
+	z-index: 1;
+	position: relative;
+	font-size: 16px;
+	text-transform: uppercase;
+	padding: 15px 30px;
+	color: $gray-2;
+	border-radius: 0;
+	font-weight: 500;
+	transition: all 0.3s ease-in-out;
+	box-shadow: $box-shadow;
+
+	&:hover {
+		color: $white;
+		background: $primary;
+		box-shadow: none;
+		outline: none;
+	}
+
+	&:focus {
+		box-shadow: none;
+		outline: none;
+		color: $secondary;
+	}
+
+	&:active {
+		box-shadow: none;
+		outline: none;
+		color: $white;
+	}
+
+}
+
+.btn.btn-dark {
+	background: $secondary;
+	color: $primary;
+
+	&:hover {
+		background: $body-color;
+		color: $primary;
+	}
+
+}
+
+.btn.btn-primary {
+	background: $primary;
+	color: $white;
+
+	&:hover {
+		background: $secondary;
+		color: $white;
+	}
+
+	&:focus {
+		box-shadow: none;
+	}
+
+}
+
+@media (max-width:575px) {
+	.btn {
+		padding: 15px 20px;
+	}
+
+}

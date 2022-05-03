@@ -1,0 +1,99 @@
+/*****************************
+    Helper Classes
+*****************************/
+// color
+.text-primary {
+  color: $primary !important;
+}
+
+.text-secondary {
+  color: $secondary !important;
+}
+
+.text-white {
+  color: $white;
+}
+
+.text-dark {
+  color: $gray-2 !important;
+}
+
+.text-light {
+  color: $body-color !important;
+}
+
+// background
+.bg-primary {
+  background: $primary !important;
+}
+
+.bg-dark {
+  background: $gray-2 !important;
+}
+
+.bg-secondary {
+  background: $secondary !important;
+}
+
+.bg-light {
+  background: $gray-1 !important;
+}
+
+// Page section margin padding
+.space-ptb {
+  padding: 100px 0;
+}
+
+.space-pt {
+  padding: 100px 0 0;
+}
+
+.space-pb {
+  padding: 0 0 100px;
+}
+
+// img holder
+.bg-holder {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.right-0 {
+  right: 0;
+}
+
+.left-0 {
+  left: 0;
+}
+
+.top-5 {
+  top: 50px;
+}
+
+.z-index-1 {
+  z-index: 1;
+}
+
+@media (min-width:1200px) {
+  .container {
+    max-width: 1600px;
+  }
+
+}
+
+@media (max-width:767px) {
+  // Page section margin padding
+  .space-ptb {
+    padding: 60px 0;
+  }
+
+  .space-pt {
+    padding: 60px 0 0;
+  }
+
+  .space-pb {
+    padding: 0 0 60px;
+  }
+
+}

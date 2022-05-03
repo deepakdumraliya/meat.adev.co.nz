@@ -1,0 +1,60 @@
+// Resources
+.resources {
+  padding: 100px 70px 100px 270px;
+}
+
+.resources-list {
+  ul {
+    li {
+      border-bottom: 1px solid $primary;
+      padding-bottom: 15px;
+    }
+
+  }
+
+}
+
+.blog-3 {
+  border-bottom: 1px solid $primary;
+  padding-bottom: 35px;
+  margin-bottom: 35px;
+
+  .blog-content {
+    width: 90%;
+
+    .btn-text {
+      h3 {
+        font-size: 22px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        width: 130px;
+      }
+
+    }
+
+  }
+
+  .icon {
+    background: #c0b193;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    border-radius: 60px;
+  }
+
+}
+
+@media (max-width:1300px) {
+  .resources {
+    padding: 100px 70px 100px 70px;
+  }
+
+}
+
+@media (max-width:767px) {
+  .resources {
+    padding: 50px;
+  }
+
+}

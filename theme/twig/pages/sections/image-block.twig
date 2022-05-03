@@ -1,4 +1,6 @@
-<div class="image-block-wrapper {{ section.useSpecialBackground ? "special" : "" }}">
+{# <div class="image-block-wrapper {{ section.useSpecialBackground ? "special" : "" }}">
+
+
 	<div class="container image-block">
 		{% if section.image != null %}
 			{{ section.image.tag("big-image", section.imageDescription)|raw }}
@@ -12,3 +14,18 @@
 		</div>
 	</div>
 </div>
+#}
+
+<section class="space-ptb">
+	<div class="container">
+		<div class="row align-items-center">
+			<div
+				class="col-lg-6">
+				{# <img class="img-fluid" src="images/chef.jpg"> #}
+				{{ section.image.tag("big-image", section.imageDescription)|raw }}
+
+
+</div>
+
+{{ section.content|raw }}</div></div></section>
+

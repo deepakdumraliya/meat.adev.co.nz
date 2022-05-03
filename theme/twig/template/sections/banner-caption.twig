@@ -1,4 +1,4 @@
-{% if banner.title != '' %}
+{# {% if banner.title != '' %}
 	<h2 class="title">{{ banner.title|nl2br }}</h2>
 {% endif %}
 {% if banner.text != '' %}
@@ -6,4 +6,20 @@
 {% endif %}
 {% if banner.link != '' %}
 	<a href="{{ banner.link }}" class="button">{{ banner.button }}</a>
+{% endif %} #}
+
+{% if banner.title != '' %}
+<div class="container">
+	<div class="row justify-content-start">
+		<div class="col-xl-6 col-lg-12">
+			<div class="banner-info">
+				<h1 class="text-white text-start">{{ banner.title|nl2br }}
+					<span class="mt-1">{{ banner.text|nl2br }}</span>
+				</h1>
+				<a class="btn mt-3" href="#">SHOP OUR MEATS</a>
+			</div>
+		</div>
+	</div>
+</div>
 {% endif %}
+

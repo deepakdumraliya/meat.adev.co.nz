@@ -38,7 +38,8 @@
 			{% include "template/sections/favicon.twig" %}
 		{% endif %}
 		{% block scripts %}
-			{% do script.add("/node_modules/jquery/dist/jquery.min.js") %}
+			{# {% do script.add("/node_modules/jquery/dist/jquery.min.js") %} #}
+			{% do script.add("/theme/scripts/jquery-3.6.0.min.js") %}
 			{% do script.add("/node_modules/js-cookie/dist/js.cookie.js") %}
 			{% do script.add("/theme/scripts/validation.js") %}
 			{% do script.add("/node_modules/lightgallery/lightgallery.min.js") %}
@@ -69,52 +70,66 @@
 			{% if config.analyticsId != '' %}
 				{% include 'template/sections/google-analytics.twig' %}
 			{% endif %}
-
+			{% do script.add("/theme/scripts/bootstrap/bootstrap.min.js") %}
+			{% do script.add("/theme/scripts/fontawesome/all.min.js") %}
+			{% do script.add("/theme/scripts/custom.js") %}
 			{% if config.tagManagerId != '' %}
 				{% include 'template/sections/google-tag-manager.twig' %}
 			{% endif %}
-
+			
 			{% if config.recaptchaSiteKey != '' and config.recaptchaSecret != '' %}
 				<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 			{% endif %}
 		{% endblock %}
 	</head>
 	<body>
-		<header role="banner">
-			<section class="site-header">
-				<div class="container">
-					<a href="{{ homePath }}">
-						<img class="logo" src="/theme/images/logo.png" width="" height="" alt="{{ config.getSiteName() }}" />
-					</a>
-					{#{% include 'template/sections/search-form.twig' %}#}
+<!--=================================
+        Header -->
+<header class="min-header">
+	<div class="topbar">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<p>Free delivery for orders over $150 within Christchurch</p>
 				</div>
-				<div class="main-navigation-wrapper">
-					<span class="open-nav">
-						<span class="bar top"></span>
-						<span class="bar middle"></span>
-						<span class="bar bottom"></span>
-					</span>
-					<nav class="main-navigation container">
-						<ul>
+			</div>
+		</div>
+	</div>
+	<div class="header">
+		<nav class="navbar navbar-static-top navbar-expand-lg">
+			<div class="container-fluid main-header position-relative">
+				<button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+					<i class="fas fa-align-left"></i>
+				</button>
+				<a class="navbar-brand" href="{{ homePath }}">
+					<img class="img-fluid logo" src="/theme/images/logo.png" alt="{{ config.getSiteName() }}">
+					<img class="img-fluid sticky-logo" src="/theme/images/sticky-logo.png" alt="{{ config.getSiteName() }}">
+				</a>
+				<div class="header-menu">
+					<div class="navbar-collapse collapse justify-content-center">
+						<ul class="nav navbar-nav">
 							{% include "template/sections/navigation.twig" with {
-								"navItems": navItems,
-								"currentDepth": 1,
-								"maxDepth": 2,
-								"currentNavItem": currentNavItem
-							} only %}
-{% include 'template/sections/search-form.twig' %}
-
-
-							{% include 'template/sections/cart-navigation.twig' %}
-							{% include 'template/sections/account-navigation.twig' %}
-{% include 'template/sections/cart-navigation.twig' %}
-
+															"navItems": navItems,
+															"currentDepth": 1,
+															"maxDepth": 2,
+															"currentNavItem": currentNavItem
+														} only %}
+							
 
 						</ul>
-					</nav>
+					</div>
 				</div>
-			</section>
-		</header><!-- end header -->
+				<div class="add-listing">
+					<ul class="nav navbar-nav">
+						{% include 'template/sections/search-form.twig' %}
+						{% include 'template/sections/account-navigation.twig' %}
+						{% include 'template/sections/cart-navigation.twig' %}
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+</header>
 		<main>
 			{% block content_banner %}
 				{% include 'template/sections/top-banner.twig' %}
@@ -139,19 +154,107 @@
 				{% endblock %}
 			{% endblock %}
 		</main>
-		<footer role="banner">
-			<section class="site-footer">
-				<div class="container columns">
+<!--=================================
+        footer-->
+{% include 'template/sections/newslettter.twig' %}
 
+<footer class="footer">
+	<div class="min-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-sm-12 text-center text-md-center order-md-2">
+					<a class="footer-logo" href="index.html">
+						<img class="img-fluid" src="/theme/images/footer-logo.png" alt="logo">
+						<h3 class="footer-logo-title mt-5">Life is  getting a whole lot better!</h3>
+					</a>
 				</div>
-			</section>
-			<section class="sub-footer">
-				<div class="container">
-					<div class="copyright">&copy; All rights reserved {{ config.getSiteName() }} {{ "now"|date("Y") }}</div>
-					<div class="attribution"><a href="https://www.activatedesign.co.nz/" target="_blank" {% if not page.isHomepage %} rel="nofollow" {% endif %}>Web Design</a> by Activate</div>
+				<div class="col-md-4 col-sm-12 mt-5 mt-md-0 order-md-1">
+					<div class="footer-link text-center text-md-start">
+						<h3 class="footer-title">Meet Our Meat</h3>
+						<div class="footer-contact-info text-center text-md-start">
+							<ul class="list-unstyled mb-0">
+								<li class="justify-content-center justify-content-md-start">
+									<a href="#">About Us</a>
+								</li>
+								<li class="justify-content-center justify-content-md-start">
+									<a href="#">Adventures Await</a>
+								</li>
+								<li class="justify-content-center justify-content-md-start">
+									<a href="#">Meet Deets (FAQ)</a>
+								</li>
+								<li class="justify-content-center justify-content-md-start">
+									<a href="#">Shop Meats</a>
+								</li>
+								<li class="justify-content-center justify-content-md-start">
+									<a href="/our-partners">Our Partners</a>
+								</li>
+							</ul>
+						</div>
+					</div>
 				</div>
-			</section>
-		</footer>
+				<div class="col-md-4 col-sm-12 mt-5 mt-md-0 text-start text-md-end order-md-3">
+					<div class="footer-link text-center text-md-end">
+						<h3 class="footer-title">Customer Service</h3>
+						<div class="footer-contact-info">
+							<ul class="list-unstyled mb-0">
+								<li class="justify-content-center justify-content-md-end">info@meetourmeat.co.nz</li>
+								<li class="justify-content-center justify-content-md-end">
+									<a href="/contact-us">Contact Us</a>
+								</li>
+								<li class="justify-content-center  justify-content-md-end">
+									<a href="#">Account</a>
+								</li>
+								<li class="justify-content-center justify-content-md-end">
+									<a href="#">Privacy Policy</a>
+								</li>
+								<li class="justify-content-center justify-content-md-end">
+									<a href="#">Refund Policy</a>
+								</li>
+								<li class="justify-content-center justify-content-md-end">
+									<a href="#">Shipping and Delivery</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer-bottom">
+		<div class="container">
+			<div class="row align-items-center copyright">
+				<div class="col-12 col-md-3 mb-3 mb-md-0 text-center text-md-start">
+					<p class="mb-0">© {{ config.getSiteName() }}</p>
+				</div>
+				<div class="col-12 col-md-6 mb-3 mb-md-0 text-center">
+					<ul class="social-icons list-unstyled list-inline mb-0">
+						<li class="list-inline-item">
+							<a href="#">
+								<i class="fa-brands fa-facebook-f"></i>
+							</a>
+						</li>
+						<li class="list-inline-item">
+							<a href="#">
+								<i class="fa-brands fa-twitter"></i>
+							</a>
+						</li>
+						<li class="list-inline-item">
+							<a href="#">
+								<i class="fa-brands fa-instagram"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-12 col-md-3 text-center text-md-end">
+					<p>Web Design by Activate</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<!--=================================
+        footer-->
+
 		{{ script.output()|raw }}
 		{# Below is a completely nonsensical fix for a range of bonkers page load display issues in Chrome and Firefox #}
 		<script> </script>

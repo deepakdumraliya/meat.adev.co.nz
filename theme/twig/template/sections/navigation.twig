@@ -19,7 +19,7 @@
 		{% set classes = classes|merge(["has-children"]) %}
 	{% endif %}
 
-	<li class="{{ classes|join(" ") }}">
+	<li class="{{ classes|join(" ") }} nav-link">
 		<a href="{{ navItem.getNavPath() }}" {% if navItem.isOpenedInNewWindow() %} target='_blank' {% endif %}>{{ navItem.getNavLabel()|raw }}</a>
 		{% if children|length > 0 %}
 			<span class='open-sub'></span>

@@ -1,0 +1,19 @@
+/*****************************
+    Banner
+*****************************/
+.banner {
+	padding: 220px 0 220px;
+	h1 {
+		span {
+			font-family: 'Smooch', cursive;
+			display: flex;
+		}
+	}
+}
+
+@media (max-width:767px) {
+	.banner {
+		padding: 200px 0 150px;
+	}
+
+}

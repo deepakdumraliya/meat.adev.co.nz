@@ -66,8 +66,8 @@
 		const IMAGE_LOCATION = Page::IMAGE_LOCATION;
 
 		/** @var int */
-		const DESKTOP_IMAGE_WIDTH = 2560;
-		const DESKTOP_IMAGE_HEIGHT = 380; // 2560 / [design canvas width] * [design banner height]
+	const DESKTOP_IMAGE_WIDTH = 1900;
+	const DESKTOP_IMAGE_HEIGHT = 363; // 2560 / [design canvas width] * [design banner height]
 		const DESKTOP_IMAGE_RESIZE_TYPE = ImageProperty::CROP;
 
 		// these are only relevant if CONTAINS_MULTIPLE_IMAGES = true
