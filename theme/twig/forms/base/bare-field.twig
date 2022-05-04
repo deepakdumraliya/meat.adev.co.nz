@@ -6,9 +6,10 @@
 	- Blocks:
 		- field: The field to wrap around
 #}
-<p class="field-wrapper {{ wrapperClasses }}">
+<div class="field-wrapper {{ wrapperClasses }} mb-3"></p>
+
 	<span class="field">
 		{% block field %}{% endblock %}
 		{% include 'forms/errors.twig' %}
 	</span>
-</p>
+</div>

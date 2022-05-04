@@ -43,4 +43,7 @@
 		{
 			return [ProductCategory::normalisedClassName(), Product::normalisedClassName()];
 		}
+		public static function loadAllFor()
+		{
+		}
 	}

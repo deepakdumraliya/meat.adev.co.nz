@@ -32,8 +32,8 @@
 		const IMAGE_WIDTH = 680;
 		const IMAGE_HEIGHT = 0;
 		const IMAGE_RESIZE_TYPE = ImageProperty::SCALE;
-		const THUMBNAIL_WIDTH = 150;
-		const THUMBNAIL_HEIGHT = 150;
+		const THUMBNAIL_WIDTH = 373;
+		const THUMBNAIL_HEIGHT = 373;
 		const THUMBNAIL_RESIZE_TYPE = ImageProperty::CROP;
 
 		/** @var bool */

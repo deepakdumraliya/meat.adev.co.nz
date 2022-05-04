@@ -16,14 +16,17 @@
 	{% endif %}
 
 	{% if children|length %}
-		{% set classes = classes|merge(["has-children"]) %}
+		{# {% set classes = classes|merge(["has-children"]) %} #}
+		{% set classes = classes|merge(["nav-item dropdown"]) %}
+
 	{% endif %}
 
-	<li class="{{ classes|join(" ") }} nav-link">
-		<a href="{{ navItem.getNavPath() }}" {% if navItem.isOpenedInNewWindow() %} target='_blank' {% endif %}>{{ navItem.getNavLabel()|raw }}</a>
+	<li class="{{ classes|join(" ") }} ">
+		<a href="{{ navItem.getNavPath() }}" class="nav-link" {% if navItem.isOpenedInNewWindow() %} target='_blank' {% endif %}>{{ navItem.getNavLabel()|raw }}</a>
+
 		{% if children|length > 0 %}
 			<span class='open-sub'></span>
-			<ul>
+			<ul class="dropdown-menu">
 			 	{% include "template/sections/navigation.twig" with {"navItems": children, "currentDepth": currentDepth + 1, "maxDepth": maxDepth, "currentNavItem": currentNavItem} only %}
 			</ul>
 		{% endif %}

@@ -8,6 +8,7 @@
 @import "functions";
 @import "bootstrap";
 @import "typography";
+@import "banner";
 @import "widget";
 @import "template";
 @import "forms";
@@ -24,6 +25,7 @@
 @import "header";
 @import "helpers";
 @import "layout";
+
 //noinspection CssInvalidFunction
 @if has-galleries()
 {

@@ -1,4 +1,4 @@
-<li>
+{# <li>
 	<a class="summary" href="{{ product.path }}">
 		<div class="text">
 			<span class="name">{{ product.name }}</span>
@@ -17,6 +17,39 @@
 				Add to cart
 			</a>
 		{% endif %}
-		<span class="button" href="{{ product.path }}">View Product</a>
+		<a class="button" href="{{ product.path }}">View Product</a>
 	</div>
-</li>
+</li> #}
+<div class="col-xxl-3 col-xl-4 col-lg-6 col-sm-12">
+	<div class="featured-product">
+		<div class="product-img">
+			<a href = "{{ product.path }}">
+			{% set images = product.getVisibleImages() %}
+			{% if images %}
+				{{ images[0].thumbnail.tag('', product.name)|raw }}
+			{% endif %}
+			</a>
+		</div>
+		{# {{dump(product.weight)}} #}
+		<div class="product-info">
+			<div class="product-title ps-3 ps-md-4">
+				<h5>{{ product.name }}</h5>
+				<span>Premium - {{product.weight}}g</span>
+			</div>
+			<div class="product-price">
+				<span>{{ product.getPrice()|formatPrice }}</span>
+				<select class="form-select" aria-label="Default select example">
+					<option selected>0</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+				</select>
+				{% if 'CART' is enabled and product.getAvailableStock() > 0 %}
+					<a class="button js-add-to-cart-link btn btn-primary" href="/cart/action/add/{{ controller.callStatic('Products\\Product', 'getClassLineItemGeneratorIdentifier') }}/{{ product.getLineItemGeneratorIdentifier() }}/1/" >
+						Add to Cart
+					</a>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>

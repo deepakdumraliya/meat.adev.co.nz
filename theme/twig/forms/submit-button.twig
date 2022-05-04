@@ -10,6 +10,7 @@
 #}
 {% embed "forms/base/bare-field.twig" %}
 	{% block field %}
-		<button class="button {{ classes }} submit-button" type="submit" {% if value is defined %} value="{{ value }}" {% endif %} {{ attributes|raw }}>{{ label }}</button>
+<button class="button {{ classes }} submit-button btn btn-primary" type="submit" {% if value is defined %} value="{{ value }}" {% endif %} {{ attributes|raw }}>{{ label }}</button>
+
 	{% endblock %}
 {% endembed %}

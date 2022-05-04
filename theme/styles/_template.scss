@@ -1,7 +1,7 @@
 :root
 {
 	--container-width: #{$LAPTOP_CONTAINER_WIDTH};
-	
+
 	@include above($DESKTOP_MIN)
 	{
 		--container-width: #{$CONTAINER_WIDTH};
@@ -123,10 +123,10 @@ main
 .content
 {
 	// note: sometimes .container and .content are the same element, so be wary of overriding the .container left/right padding which keeps page content clear of the edge of the window
-	
+
 	display: flex;
 	flex-flow: column;
-	
+
 	@include above($LAPTOP_MIN)
 	{
 		display: block; // trigger floating image
@@ -173,7 +173,7 @@ main
 .columns
 {
 	gap: 50px;
-	
+
 	> *
 	{
 		@include above($LAPTOP_MIN)
@@ -202,7 +202,7 @@ footer[role="banner"]
 {
 	z-index: 0;
 	font-size: rem(13px);
-	
+
 	a
 	{
 		color: inherit;
@@ -230,5 +230,8 @@ footer[role="banner"]
 	.attribution
 	{
 
-	}	
+	}
 }
+
+
+

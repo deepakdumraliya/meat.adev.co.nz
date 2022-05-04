@@ -17,7 +17,7 @@
 		<textarea
 			{% if name is defined %} name="{{ name }}" {% endif %}
 			{% if required %} required="required" {% endif %}
-			class="{{ classes }}"
+			class="{{ classes }} form-control rounded-0"
 			{{ attributes|raw }}
 			{% if usePlaceholder %}
 				placeholder="{{ label }}"

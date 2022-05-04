@@ -466,7 +466,7 @@
 		public function get_products()
 		{
 			/** @var Product[] $products */
-			$products = $this->getProperty("products");
+			$products = $this->getValue("products");
 
 			foreach($products as $product)
 			{

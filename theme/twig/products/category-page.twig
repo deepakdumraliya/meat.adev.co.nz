@@ -11,13 +11,14 @@
 
 {% block products_content %}
 	{% set products = category.getAllVisibleProducts() %}
-	{{ category.getPageContent()|raw }}
+	{# {{ category.getPageContent()|raw }} #}
 	{% if products %}
-		<ul class="product-links">
+		{# <ul class="product-links"> #}
+		<div class="row mt-4">
 			{% for product in products %}
 				{% include 'products/sections/product-summary.twig' %}
 			{% endfor %}
-		</ul>
+		</div>
 	{% else %}
 		<p class="message">No products were found in this category.</p>
 	{% endif %}

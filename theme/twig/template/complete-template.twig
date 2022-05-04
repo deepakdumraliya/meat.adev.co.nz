@@ -21,6 +21,9 @@
 		{# get fonts early to reduce content flash. Still need set in _setup.css as well #}
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		 <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Smooch&display=swap"rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
 		<script type="text/javascript">
 			// add this immediately so elements which are initially hidden based on presence of javascript don't 'flash'
@@ -135,8 +138,8 @@
 				{% include 'template/sections/top-banner.twig' %}
 			{% endblock %}
 			{% block content_wrapper %}
-				<section class="content-wrapper">
-					<div class="container content">
+				{# <section class="content-wrapper">
+					<div class="container content"> #}
 						{% block notifications %}
 							{% if message != '' %}
 								<p class="message">
@@ -145,8 +148,8 @@
 							{% endif %}
 						{% endblock %}
 						{% block content %}{% endblock %}
-					</div><!-- end content -->
-				</section>
+					{# </div><!-- end content -->
+				</section> #}
 				{% block page_sections %}
 					{% for section in page.getVisiblePageSections() %}
 						{% include section.getTemplateLocation() %}

@@ -165,9 +165,8 @@
 					$typeDef .= "s";
 				}
 			}
-			
 			$statement = self::prepareStatement($query, $typeDef, $params);
-			
+		
 			if($statement === false)
 			{
 				throw new Error(self::getConnection()->error);
