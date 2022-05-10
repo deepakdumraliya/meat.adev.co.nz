@@ -72,7 +72,7 @@
 		// Product
 		const DO_BANNER = Page::DO_BANNER;
 		const DO_HTML = false;
-		const DO_IMAGE = false;
+		const DO_IMAGE = true;
 		const IMAGE_LOCATION = DOC_ROOT . "/resources/images/category/";
 		// we usually want these to be consistent
 		const THUMBNAIL_WIDTH = ProductImage::THUMBNAIL_WIDTH;

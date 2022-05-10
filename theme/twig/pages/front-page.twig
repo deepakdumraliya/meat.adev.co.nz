@@ -3,6 +3,27 @@
 {# content_wrapper is the block most likely to be overidden (to include multiple content sections), 
  # but on some sites it may only be necessary to override the content block, or not at all #}
 {% block content_wrapper %}
-{# {{dump(catNavItems)}} #}
+{# {{dump(getallfeatured)}} #}
+
+
+
 	{{ parent() }}
+	{# {%	if page.display_Category	%} #}
+
+
+		{% include 'pages/front-sections/categoryblock.twig' with {
+			'section':{
+				'displayCategory':page.display_Category,
+				'category_Title':page.category_Title,
+				'category_Desc':page.category_Desc,
+				'catNavItems' : catNavItems
+			}
+		} only %}
+	{# {% endif %} #}
+{% include 'products/sections/featured.twig' %}
+
+
+
+
+
 {% endblock %}

@@ -84,9 +84,10 @@
 			
 			if(!$this->isSvg())
 			{
+				
 				$imageSize = @getimagesize($this->path);
-				$this->width = $imageSize[0];
-				$this->height = $imageSize[1];
+				$this->width = @$imageSize[0];
+				$this->height = @$imageSize[1];
 			}
 			else
 			{

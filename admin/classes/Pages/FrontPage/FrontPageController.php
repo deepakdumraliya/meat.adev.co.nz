@@ -2,7 +2,8 @@
 	namespace Pages\FrontPage;
 
 	use Pages\PageController;
-	use Products\ProductCategory;
+use Products\Product;
+use Products\ProductCategory;
 	/**
 	 * A FrontPage Controller loads anything extra needed for the front page
 	 */
@@ -16,6 +17,7 @@
 		{
 		$variables = parent::getTemplateVariables();
 		$variables["catNavItems"] = ProductCategory::getTopLevelCats();
+		$variables["getallfeatured"] = Product::getFeatured(4);
 		return $variables;
 		}
 	}
