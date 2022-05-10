@@ -8,15 +8,12 @@ $(window).scroll(function(){
   else sticky.removeClass('header-sticky');
 });
 
-// $(document).ready(function() {
-//   // page is now ready, initialize the calendar...
-//   // options and github  - http://fullcalendar.io/
 
-// $('#calendar').fullCalendar({
-//     // dayClick: function() {
-//     //     alert('a day has been clicked!');
-//     // }
-// });
-
-// });
-
+$( document ).on( 'change', '.inputquantitysummary', function ()
+{
+  let product_id = $( this ).data( 'id' );
+  let addurl = $( "#"+product_id + "-cart" ).attr( 'href' );
+  let value = addurl.substring( addurl.lastIndexOf( '/' ) + 1 );
+  addurl = addurl.replace( value, $( this ).val() );
+  $( "#" + product_id + "-cart" ).attr( 'href', addurl );
+} );

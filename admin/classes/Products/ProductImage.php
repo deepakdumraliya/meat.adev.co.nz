@@ -29,8 +29,8 @@
 		
 		// ProdcutImage
 		const IMAGE_LOCATION = DOC_ROOT . "/resources/images/product/";
-		const IMAGE_WIDTH = 680;
-		const IMAGE_HEIGHT = 0;
+		const IMAGE_WIDTH = 697;
+		const IMAGE_HEIGHT = 723;
 		const IMAGE_RESIZE_TYPE = ImageProperty::SCALE;
 		const THUMBNAIL_WIDTH = 373;
 		const THUMBNAIL_HEIGHT = 373;

@@ -65,7 +65,7 @@
 		const SLUG_TAB = "Content";
 
 		// Product
-		const DO_ASSOCIATED = false;
+		const DO_ASSOCIATED = true;
 		const DO_BANNER = ProductCategory::DO_BANNER;
 		const DO_ENQUIRY_FORM = false;
 		const DO_TABS = false;

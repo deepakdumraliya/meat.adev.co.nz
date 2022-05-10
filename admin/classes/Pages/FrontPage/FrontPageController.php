@@ -2,7 +2,7 @@
 	namespace Pages\FrontPage;
 
 	use Pages\PageController;
-	
+	use Products\ProductCategory;
 	/**
 	 * A FrontPage Controller loads anything extra needed for the front page
 	 */
@@ -14,9 +14,8 @@
 		 */
 		protected function getTemplateVariables()
 		{
-			return parent::getTemplateVariables() +
-			[
-			
-			];
+		$variables = parent::getTemplateVariables();
+		$variables["catNavItems"] = ProductCategory::getTopLevelCats();
+		return $variables;
 		}
 	}

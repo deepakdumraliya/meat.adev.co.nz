@@ -38,14 +38,16 @@
 			</div>
 			<div class="product-price">
 				<span>{{ product.getPrice()|formatPrice }}</span>
-				<select class="form-select" aria-label="Default select example">
-					<option selected>0</option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-				</select>
+				{% set stock = product.getAvailableStock() %}
+					{% if stock > 0 %}
+<input class="field form-control inputquantitysummary" data-id="{{ product.getLineItemGeneratorIdentifier() }}" type="number" name="quantity" class="form-control" value="1" max="{{ stock }}" min="1"/>
+
+						<span class="append-errors"></span>
+						
+					{% endif %}
 				{% if 'CART' is enabled and product.getAvailableStock() > 0 %}
-					<a class="button js-add-to-cart-link btn btn-primary" href="/cart/action/add/{{ controller.callStatic('Products\\Product', 'getClassLineItemGeneratorIdentifier') }}/{{ product.getLineItemGeneratorIdentifier() }}/1/" >
+<a class="button js-add-to-cart-link btn btn-primary add-to-cart-category" id="{{ product.getLineItemGeneratorIdentifier() }}-cart" href="/cart/action/add/{{ controller.callStatic('Products\\Product', 'getClassLineItemGeneratorIdentifier') }}/{{ product.getLineItemGeneratorIdentifier() }}/1">
+
 						Add to Cart
 					</a>
 				{% endif %}

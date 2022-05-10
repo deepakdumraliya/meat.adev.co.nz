@@ -5,10 +5,9 @@
 	use Core\Elements\GeneratorElement;
 	use Core\Elements\ImageElement;
 	use Core\Elements\Text;
-	use Core\Properties\ImageProperty;
-	use Core\Properties\LinkFromMultipleProperty;
+	use Core\Elements\Checkbox;
 	use Core\Properties\Property;
-	use Files\Image;
+	use Core\Attributes\Data;
 	use Pages\Page;
 
 	/**
@@ -25,6 +24,8 @@
 
 		const TABLE = 'front_page';
 		public $banner_text = '';
+		#[Data("displaycategory")]
+		public bool $displayCategory = false;
 		
 		/**
 		 * properties
@@ -35,6 +36,9 @@
 		{
 			parent::properties();
 			static::addProperty(new Property('bannerText', 'banner_text', 'html'));
+			static::addProperty(new Property('displayCategory', 'displaycategory', 'bool'));
+			static::addProperty(new Property('CategoryTitle', 'CategoryTitle', 'html'));
+			static::addProperty(new Property('CategoryDesc', 'categoryDescription', 'html'));
 		}	
 		/**
 		 * elements
@@ -48,5 +52,8 @@
 			//upcoming event 
 			//$this->addElement(new Text("upcomingeventTitle", "Title"), 'Upcoming Event');
 			$this->addElement(new Editor('bannerText', 'Banner Text'), 'Banners');
+			$this->addElement(new Checkbox("displayCategory", 'Display Category'), "Category");
+			$this->addElement(new Text("CategoryTitle", 'Category Block Title'), "Category");
+			$this->addElement(new Editor("CategoryDesc", 'Display Category'), "Category");
 		}
 	}
