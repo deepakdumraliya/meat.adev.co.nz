@@ -1,0 +1,2 @@
+[04-May-2022 22:19:28 Pacific/Auckland] PHP Warning:  Undefined array key "shippingRegionId" in /home/meatadev/public_html/processes/ajax/check-cart-weight.php on line 9
+[04-May-2022 22:19:32 Pacific/Auckland] PHP Warning:  Undefined array key "shippingRegionId" in /home/meatadev/public_html/processes/ajax/check-cart-weight.php on line 9

@@ -112,11 +112,34 @@
 			padding: 12px 15px;
 			box-shadow: none;
 		}
+		input.form-control {
+			width: 80px;
+			height: 48px;
+			border-radius: inherit;
+			border: 1px solid #e8e8e8 !important;
+			box-shadow: none;
+		}
 
 	}
 
 }
+.meet-product .product-price {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: flex;
+}
 
+.meet-product form {
+    display: flex;
+}
+
+.meet-product form input {
+    height: 54px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    width: 100%;
+}
 // Inner Banner
 .inner-banner {
 	height: 360px;
@@ -144,6 +167,10 @@
 
 	}
 
+}
+
+.form.contact-form form .field-wrapper {
+    margin-bottom: 20px;
 }
 
 .newsletter-bg-img {

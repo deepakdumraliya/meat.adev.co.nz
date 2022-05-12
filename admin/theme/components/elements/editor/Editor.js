@@ -150,6 +150,8 @@ export default
 		 */
 		validate: function()
 		{
+		    if(this.editor === undefined) return true;
+		    
 			this.values[this.data.name] = this.editor.getContent();
 			return ValueElement.methods.validate.call(this);
 		}

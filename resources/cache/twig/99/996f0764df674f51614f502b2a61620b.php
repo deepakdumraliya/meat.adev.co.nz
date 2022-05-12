@@ -79,15 +79,15 @@ class __TwigTemplate_28b93f1faf570146607a11fdff957c46 extends Template
         $context["products"] = twig_get_attribute($this->env, $this->source, ($context["category"] ?? null), "getAllVisibleProducts", [], "method", false, false, false, 13);
         // line 14
         echo "\t";
-        echo twig_get_attribute($this->env, $this->source, ($context["category"] ?? null), "getPageContent", [], "method", false, false, false, 14);
-        echo "
-\t";
         // line 15
+        echo "\t";
         if (($context["products"] ?? null)) {
             // line 16
-            echo "\t\t<ul class=\"product-links\">
-\t\t\t";
+            echo "\t\t";
             // line 17
+            echo "\t\t<div class=\"row mt-4\">
+\t\t\t";
+            // line 18
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["products"] ?? null));
             $context['loop'] = [
@@ -104,10 +104,10 @@ class __TwigTemplate_28b93f1faf570146607a11fdff957c46 extends Template
                 $context['loop']['last'] = 1 === $length;
             }
             foreach ($context['_seq'] as $context["_key"] => $context["product"]) {
-                // line 18
-                echo "\t\t\t\t";
-                $this->loadTemplate("products/sections/product-summary.twig", "products/category-page.twig", 18)->display($context);
                 // line 19
+                echo "\t\t\t\t";
+                $this->loadTemplate("products/sections/product-summary.twig", "products/category-page.twig", 19)->display($context);
+                // line 20
                 echo "\t\t\t";
                 ++$context['loop']['index0'];
                 ++$context['loop']['index'];
@@ -121,11 +121,11 @@ class __TwigTemplate_28b93f1faf570146607a11fdff957c46 extends Template
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['product'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 20
-            echo "\t\t</ul>
+            // line 21
+            echo "\t\t</div>
 \t";
         } else {
-            // line 22
+            // line 23
             echo "\t\t<p class=\"message\">No products were found in this category.</p>
 \t";
         }
@@ -143,7 +143,7 @@ class __TwigTemplate_28b93f1faf570146607a11fdff957c46 extends Template
 
     public function getDebugInfo()
     {
-        return array (  129 => 22,  125 => 20,  111 => 19,  108 => 18,  91 => 17,  88 => 16,  86 => 15,  81 => 14,  78 => 13,  74 => 12,  67 => 9,  63 => 8,  57 => 5,  52 => 4,  48 => 3,  37 => 1,);
+        return array (  129 => 23,  125 => 21,  111 => 20,  108 => 19,  91 => 18,  88 => 17,  86 => 16,  83 => 15,  81 => 14,  78 => 13,  74 => 12,  67 => 9,  63 => 8,  57 => 5,  52 => 4,  48 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -161,13 +161,14 @@ class __TwigTemplate_28b93f1faf570146607a11fdff957c46 extends Template
 
 {% block products_content %}
 \t{% set products = category.getAllVisibleProducts() %}
-\t{{ category.getPageContent()|raw }}
+\t{# {{ category.getPageContent()|raw }} #}
 \t{% if products %}
-\t\t<ul class=\"product-links\">
+\t\t{# <ul class=\"product-links\"> #}
+\t\t<div class=\"row mt-4\">
 \t\t\t{% for product in products %}
 \t\t\t\t{% include 'products/sections/product-summary.twig' %}
 \t\t\t{% endfor %}
-\t\t</ul>
+\t\t</div>
 \t{% else %}
 \t\t<p class=\"message\">No products were found in this category.</p>
 \t{% endif %}

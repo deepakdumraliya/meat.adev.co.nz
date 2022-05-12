@@ -35,23 +35,24 @@ class __TwigTemplate_354bc31808ee956e5fab1c49f2667cf7 extends Template
     {
         $macros = $this->macros;
         // line 9
-        echo "<p class=\"field-wrapper ";
+        echo "<div class=\"field-wrapper ";
         echo twig_escape_filter($this->env, ($context["wrapperClasses"] ?? null), "html", null, true);
-        echo "\">
+        echo "\"></p>
+
 \t<span class=\"field\">
 \t\t";
-        // line 11
-        $this->displayBlock('field', $context, $blocks);
         // line 12
-        echo "\t\t";
-        $this->loadTemplate("forms/errors.twig", "forms/base/bare-field.twig", 12)->display($context);
+        $this->displayBlock('field', $context, $blocks);
         // line 13
+        echo "\t\t";
+        $this->loadTemplate("forms/errors.twig", "forms/base/bare-field.twig", 13)->display($context);
+        // line 14
         echo "\t</span>
-</p>
+</div>
 ";
     }
 
-    // line 11
+    // line 12
     public function block_field($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -69,7 +70,7 @@ class __TwigTemplate_354bc31808ee956e5fab1c49f2667cf7 extends Template
 
     public function getDebugInfo()
     {
-        return array (  55 => 11,  49 => 13,  46 => 12,  44 => 11,  38 => 9,);
+        return array (  56 => 12,  50 => 14,  47 => 13,  45 => 12,  38 => 9,);
     }
 
     public function getSourceContext()
@@ -82,12 +83,13 @@ class __TwigTemplate_354bc31808ee956e5fab1c49f2667cf7 extends Template
 \t- Blocks:
 \t\t- field: The field to wrap around
 #}
-<p class=\"field-wrapper {{ wrapperClasses }}\">
+<div class=\"field-wrapper {{ wrapperClasses }}\"></p>
+
 \t<span class=\"field\">
 \t\t{% block field %}{% endblock %}
 \t\t{% include 'forms/errors.twig' %}
 \t</span>
-</p>
+</div>
 ", "forms/base/bare-field.twig", "/home/meatadev/public_html/theme/twig/forms/base/bare-field.twig");
     }
 }

@@ -34,7 +34,7 @@ class __TwigTemplate_88f4c11bc2e563a0f36e03839974c971 extends Template
     {
         $macros = $this->macros;
         // line 11
-        $this->loadTemplate("forms/submit-button.twig", "forms/submit-button.twig", 11, "1612877008")->display($context);
+        $this->loadTemplate("forms/submit-button.twig", "forms/submit-button.twig", 11, "501042024")->display($context);
     }
 
     public function getTemplateName()
@@ -61,7 +61,8 @@ class __TwigTemplate_88f4c11bc2e563a0f36e03839974c971 extends Template
 #}
 {% embed \"forms/base/bare-field.twig\" %}
 \t{% block field %}
-\t\t<button class=\"button {{ classes }} submit-button\" type=\"submit\" {% if value is defined %} value=\"{{ value }}\" {% endif %} {{ attributes|raw }}>{{ label }}</button>
+<button class=\"button {{ classes }} submit-button btn btn-primary\" type=\"submit\" {% if value is defined %} value=\"{{ value }}\" {% endif %} {{ attributes|raw }}>{{ label }}</button>
+
 \t{% endblock %}
 {% endembed %}", "forms/submit-button.twig", "/home/meatadev/public_html/theme/twig/forms/submit-button.twig");
     }
@@ -69,7 +70,7 @@ class __TwigTemplate_88f4c11bc2e563a0f36e03839974c971 extends Template
 
 
 /* forms/submit-button.twig */
-class __TwigTemplate_88f4c11bc2e563a0f36e03839974c971___1612877008 extends Template
+class __TwigTemplate_88f4c11bc2e563a0f36e03839974c971___501042024 extends Template
 {
     private $source;
     private $macros = [];
@@ -102,9 +103,9 @@ class __TwigTemplate_88f4c11bc2e563a0f36e03839974c971___1612877008 extends Templ
     {
         $macros = $this->macros;
         // line 13
-        echo "\t\t<button class=\"button ";
+        echo "<button class=\"button ";
         echo twig_escape_filter($this->env, ($context["classes"] ?? null), "html", null, true);
-        echo " submit-button\" type=\"submit\" ";
+        echo " submit-button btn btn-primary\" type=\"submit\" ";
         if (array_key_exists("value", $context)) {
             echo " value=\"";
             echo twig_escape_filter($this->env, ($context["value"] ?? null), "html", null, true);
@@ -115,6 +116,7 @@ class __TwigTemplate_88f4c11bc2e563a0f36e03839974c971___1612877008 extends Templ
         echo ">";
         echo twig_escape_filter($this->env, ($context["label"] ?? null), "html", null, true);
         echo "</button>
+
 \t";
     }
 
@@ -130,7 +132,7 @@ class __TwigTemplate_88f4c11bc2e563a0f36e03839974c971___1612877008 extends Templ
 
     public function getDebugInfo()
     {
-        return array (  105 => 13,  101 => 12,  37 => 11,);
+        return array (  106 => 13,  102 => 12,  37 => 11,);
     }
 
     public function getSourceContext()
@@ -147,7 +149,8 @@ class __TwigTemplate_88f4c11bc2e563a0f36e03839974c971___1612877008 extends Templ
 #}
 {% embed \"forms/base/bare-field.twig\" %}
 \t{% block field %}
-\t\t<button class=\"button {{ classes }} submit-button\" type=\"submit\" {% if value is defined %} value=\"{{ value }}\" {% endif %} {{ attributes|raw }}>{{ label }}</button>
+<button class=\"button {{ classes }} submit-button btn btn-primary\" type=\"submit\" {% if value is defined %} value=\"{{ value }}\" {% endif %} {{ attributes|raw }}>{{ label }}</button>
+
 \t{% endblock %}
 {% endembed %}", "forms/submit-button.twig", "/home/meatadev/public_html/theme/twig/forms/submit-button.twig");
     }

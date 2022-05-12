@@ -26,8 +26,8 @@ class __TwigTemplate_276b23c12476d058c7a031ba2a507250 extends Template
 
         $this->blocks = [
             'content' => [$this, 'block_content'],
-            'page_image' => [$this, 'block_page_image'],
-            'content_title' => [$this, 'block_content_title'],
+            'front_page' => [$this, 'block_front_page'],
+            'contact' => [$this, 'block_contact'],
             'page_content' => [$this, 'block_page_content'],
         ];
     }
@@ -51,44 +51,39 @@ class __TwigTemplate_276b23c12476d058c7a031ba2a507250 extends Template
         $macros = $this->macros;
         // line 4
         echo "\t";
-        $this->displayBlock('page_image', $context, $blocks);
-        // line 7
+        $this->displayBlock('front_page', $context, $blocks);
+        // line 5
         echo "\t";
-        $this->displayBlock('content_title', $context, $blocks);
+        $this->displayBlock('contact', $context, $blocks);
+        // line 6
+        echo "
+\t";
         // line 10
+        echo "\t";
+        // line 13
         echo "\t";
         $this->displayBlock('page_content', $context, $blocks);
     }
 
     // line 4
-    public function block_page_image($context, array $blocks = [])
+    public function block_front_page($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 5
-        echo "\t\t";
-        echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["page"] ?? null), "image", [], "any", false, false, false, 5), "tag", [0 => "content-image", 1 => twig_get_attribute($this->env, $this->source, ($context["page"] ?? null), "imageDescription", [], "any", false, false, false, 5)], "method", false, false, false, 5);
-        echo "
-\t";
     }
 
-    // line 7
-    public function block_content_title($context, array $blocks = [])
+    // line 5
+    public function block_contact($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 8
-        echo "\t\t<h1>";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["page"] ?? null), "getMainHeading", [], "method", false, false, false, 8), "html", null, true);
-        echo "</h1>
-\t";
     }
 
-    // line 10
+    // line 13
     public function block_page_content($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 11
+        // line 14
         echo "\t\t";
-        echo call_user_func_array($this->env->getFilter('expandHtml')->getCallable(), [twig_get_attribute($this->env, $this->source, ($context["page"] ?? null), "getPageContent", [], "method", false, false, false, 11)]);
+        echo call_user_func_array($this->env->getFilter('expandHtml')->getCallable(), [twig_get_attribute($this->env, $this->source, ($context["page"] ?? null), "getPageContent", [], "method", false, false, false, 14)]);
         echo "
 \t";
     }
@@ -105,7 +100,7 @@ class __TwigTemplate_276b23c12476d058c7a031ba2a507250 extends Template
 
     public function getDebugInfo()
     {
-        return array (  90 => 11,  86 => 10,  79 => 8,  75 => 7,  68 => 5,  64 => 4,  59 => 10,  56 => 7,  53 => 4,  49 => 3,  38 => 1,);
+        return array (  85 => 14,  81 => 13,  75 => 5,  69 => 4,  64 => 13,  62 => 10,  59 => 6,  56 => 5,  53 => 4,  49 => 3,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -113,12 +108,15 @@ class __TwigTemplate_276b23c12476d058c7a031ba2a507250 extends Template
         return new Source("{% extends 'template/template.twig' %}
 
 {% block content %}
-\t{% block page_image %}
+\t{% block front_page %}{% endblock %}
+\t{% block contact %}{% endblock %}
+
+\t{# {% block page_image %}
 \t\t{{ page.image.tag('content-image', page.imageDescription)|raw }}
-\t{% endblock %}
-\t{% block content_title %}
+\t{% endblock %} #}
+\t{# {% block content_title %}
 \t\t<h1>{{ page.getMainHeading() }}</h1>
-\t{% endblock %}
+\t{% endblock %} #}
 \t{% block page_content %}
 \t\t{{ page.getPageContent()|expandHtml }}
 \t{% endblock %}

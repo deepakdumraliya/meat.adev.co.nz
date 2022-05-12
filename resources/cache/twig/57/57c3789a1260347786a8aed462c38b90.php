@@ -85,40 +85,44 @@ class __TwigTemplate_681e2355951634c04bd9be8ed3b90c17 extends Template
             if (twig_length_filter($this->env, ($context["children"] ?? null))) {
                 // line 19
                 echo "\t\t";
-                $context["classes"] = twig_array_merge(($context["classes"] ?? null), [0 => "has-children"]);
                 // line 20
-                echo "\t";
+                echo "\t\t";
+                $context["classes"] = twig_array_merge(($context["classes"] ?? null), [0 => "nav-item dropdown"]);
+                // line 21
+                echo "
+\t";
             }
-            // line 21
+            // line 23
             echo "
 \t<li class=\"";
-            // line 22
+            // line 24
             echo twig_escape_filter($this->env, twig_join_filter(($context["classes"] ?? null), " "), "html", null, true);
-            echo "\">
+            echo " \">
 \t\t<a href=\"";
-            // line 23
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["navItem"], "getNavPath", [], "method", false, false, false, 23), "html", null, true);
-            echo "\" ";
-            if (twig_get_attribute($this->env, $this->source, $context["navItem"], "isOpenedInNewWindow", [], "method", false, false, false, 23)) {
+            // line 25
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["navItem"], "getNavPath", [], "method", false, false, false, 25), "html", null, true);
+            echo "\" class=\"nav-link\" ";
+            if (twig_get_attribute($this->env, $this->source, $context["navItem"], "isOpenedInNewWindow", [], "method", false, false, false, 25)) {
                 echo " target='_blank' ";
             }
             echo ">";
-            echo twig_get_attribute($this->env, $this->source, $context["navItem"], "getNavLabel", [], "method", false, false, false, 23);
+            echo twig_get_attribute($this->env, $this->source, $context["navItem"], "getNavLabel", [], "method", false, false, false, 25);
             echo "</a>
+
 \t\t";
-            // line 24
+            // line 27
             if ((twig_length_filter($this->env, ($context["children"] ?? null)) > 0)) {
-                // line 25
-                echo "\t\t\t<span class='open-sub'></span>
-\t\t\t<ul>
-\t\t\t \t";
-                // line 27
-                $this->loadTemplate("template/sections/navigation.twig", "template/sections/navigation.twig", 27)->display(twig_to_array(["navItems" => ($context["children"] ?? null), "currentDepth" => (($context["currentDepth"] ?? null) + 1), "maxDepth" => ($context["maxDepth"] ?? null), "currentNavItem" => ($context["currentNavItem"] ?? null)]));
                 // line 28
+                echo "\t\t\t<span class='open-sub'></span>
+\t\t\t<ul class=\"dropdown-menu\">
+\t\t\t \t";
+                // line 30
+                $this->loadTemplate("template/sections/navigation.twig", "template/sections/navigation.twig", 30)->display(twig_to_array(["navItems" => ($context["children"] ?? null), "currentDepth" => (($context["currentDepth"] ?? null) + 1), "maxDepth" => ($context["maxDepth"] ?? null), "currentNavItem" => ($context["currentNavItem"] ?? null)]));
+                // line 31
                 echo "\t\t\t</ul>
 \t\t";
             }
-            // line 30
+            // line 33
             echo "\t</li>
 ";
         }
@@ -139,7 +143,7 @@ class __TwigTemplate_681e2355951634c04bd9be8ed3b90c17 extends Template
 
     public function getDebugInfo()
     {
-        return array (  122 => 30,  118 => 28,  116 => 27,  112 => 25,  110 => 24,  100 => 23,  96 => 22,  93 => 21,  90 => 20,  87 => 19,  85 => 18,  82 => 17,  79 => 16,  76 => 15,  74 => 14,  71 => 13,  68 => 12,  65 => 11,  63 => 10,  60 => 9,  57 => 8,  54 => 7,  52 => 6,  49 => 5,  46 => 4,  44 => 3,  41 => 2,  37 => 1,);
+        return array (  126 => 33,  122 => 31,  120 => 30,  116 => 28,  114 => 27,  103 => 25,  99 => 24,  96 => 23,  92 => 21,  89 => 20,  87 => 19,  85 => 18,  82 => 17,  79 => 16,  76 => 15,  74 => 14,  71 => 13,  68 => 12,  65 => 11,  63 => 10,  60 => 9,  57 => 8,  54 => 7,  52 => 6,  49 => 5,  46 => 4,  44 => 3,  41 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -162,14 +166,17 @@ class __TwigTemplate_681e2355951634c04bd9be8ed3b90c17 extends Template
 \t{% endif %}
 
 \t{% if children|length %}
-\t\t{% set classes = classes|merge([\"has-children\"]) %}
+\t\t{# {% set classes = classes|merge([\"has-children\"]) %} #}
+\t\t{% set classes = classes|merge([\"nav-item dropdown\"]) %}
+
 \t{% endif %}
 
-\t<li class=\"{{ classes|join(\" \") }}\">
-\t\t<a href=\"{{ navItem.getNavPath() }}\" {% if navItem.isOpenedInNewWindow() %} target='_blank' {% endif %}>{{ navItem.getNavLabel()|raw }}</a>
+\t<li class=\"{{ classes|join(\" \") }} \">
+\t\t<a href=\"{{ navItem.getNavPath() }}\" class=\"nav-link\" {% if navItem.isOpenedInNewWindow() %} target='_blank' {% endif %}>{{ navItem.getNavLabel()|raw }}</a>
+
 \t\t{% if children|length > 0 %}
 \t\t\t<span class='open-sub'></span>
-\t\t\t<ul>
+\t\t\t<ul class=\"dropdown-menu\">
 \t\t\t \t{% include \"template/sections/navigation.twig\" with {\"navItems\": children, \"currentDepth\": currentDepth + 1, \"maxDepth\": maxDepth, \"currentNavItem\": currentNavItem} only %}
 \t\t\t</ul>
 \t\t{% endif %}

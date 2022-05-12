@@ -17,6 +17,7 @@
 {% endblock %}
 
 {% block products_content %}
+
 	{% set pricedOptions = product.pricedOptionGroup.getOptions() %}
 	{% set addUrl = "/Cart/Action/Add/" ~ controller.callStatic('Products\\Product', 'getClassLineItemGeneratorIdentifier') ~ "/" ~ product.getLineItemGeneratorIdentifier() ~ "/" %}
 	{% if pricedOptions %}
@@ -24,32 +25,30 @@
 	{% endif %}
 	<div class ="row">
 		<div class="col-lg-6 col-md-12">
-			<span class="text-primary">{{ product.getPrice()|formatPrice }}</span>
+			<span class="text-primary product-price">{{ product.getPrice()|formatPrice }}</span>
 
 			<p>{{ product.content|raw }}</p>
 	
 			{% if 'CART' is enabled %}
 			<form  class="js-add-to-cart-form add-to-cart custom-form row mt-3" action="{{ addUrl }}" method="post">
+					{% if pricedOptions %}
 					<div class="col-md-3">
-						{% if pricedOptions %}
-							
-								<label class="select-wrapper">
-									<label class="label form-label">{{ product.pricedOptionGroup.name }}</label>
-									<span
-										class="field">
-										{# The name attribute is just "id" here, so it's consistent with the URL scheme for adding a regular product #}
-										<select name="id" class="js-product-price-adjuster form-select">
-											{% for option in pricedOptions %}
-												<option value="{{ option.id }}" data-price="{{ option.getPrice()|formatPrice }}">{{ option.name }}
-													-
-													{{ option.getPrice()|formatPrice }}</option>
-											{% endfor %}
-										</select>
-									</span>
-								</label>
-						{% endif %}
-
+						<label class="select-wrapper">
+							<label class="label form-label">{{ product.pricedOptionGroup.name }}</label>
+							<span
+								class="field">
+								{# The name attribute is just "id" here, so it's consistent with the URL scheme for adding a regular product #}
+								<select name="id" class="js-product-price-adjuster form-select">
+									{% for option in pricedOptions %}
+										<option value="{{ option.id }}" data-price="{{ option.getPrice()|formatPrice }}">{{ option.name }}
+											-
+											{{ option.getPrice()|formatPrice }}</option>
+									{% endfor %}
+								</select>
+							</span>
+						</label>
 					</div>
+					{% endif %}
 					{% set stock = product.getAvailableStock() %}
 					{% if stock > 0 %}
 					<div class="col-md-3 mt-3 mt-md-0">
@@ -85,6 +84,13 @@
 					</div>
 			</form>
 			{% endif %}
+			{% if stock > 0 %}
+							<p class="text-primary mt-3 mb-5">1 in stock (can be backordered)</p>
+						{% else %}
+							
+							<p class="text-primary mt-3 mb-5">Out of Stock</p>
+							
+						{% endif %}
 			<div class="accordion accordion-flush pt-5 border-top" id="accordionFlushExample">
 				<div class="accordion-item mb-2">
 					<h2 class="accordion-header" id="flush-headingOne">
@@ -124,7 +130,7 @@
 		</div>
 		<div class="col-lg-6 col-md-12 mt-5 mt-lg-0">
 			<div class="left-btn mb-5 d-flex justify-content-end">
-				<a href="#"><i class="fa-solid fa-arrow-left me-3"></i>Back to Angus Beet</a>
+				<a href="{{ product.category.getNavPath() }}"><i class="fa-solid fa-arrow-left me-3"></i>Back to {{product.category.name}}</a>
 			</div>
 			<div class="product-img d-flex justify-content-end">
 				{# <img class="img-fluid" src="images/meet-product.png"> #}

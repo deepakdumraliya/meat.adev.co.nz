@@ -69,7 +69,7 @@ class __TwigTemplate_2006aa4c8441df13ec1931a8c520a356 extends Template
         // line 23
         echo "\tclass=\"";
         echo twig_escape_filter($this->env, ($context["classes"] ?? null), "html", null, true);
-        echo "\"
+        echo " form-control\"
 \t";
         // line 24
         echo ($context["attributes"] ?? null);
@@ -162,7 +162,7 @@ class __TwigTemplate_2006aa4c8441df13ec1931a8c520a356 extends Template
 \t{% if name is defined %} name=\"{{ name }}\" {% endif %}
 \t{% if value is defined %} value=\"{{ value }}\" {% endif %}
 \t{% if required %} required=\"required\" {% endif %}
-\tclass=\"{{ classes }}\"
+\tclass=\"{{ classes }} form-control\"
 \t{{ attributes|raw }}
 \t{% if suggestions is defined %}
 \t\tlist=\"{{ suggestionsId }}\"

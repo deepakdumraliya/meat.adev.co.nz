@@ -47,11 +47,16 @@ class __TwigTemplate_5be706bcae609ed8fe2e6280e1a31dc6 extends Template
                 echo " sel ";
             }
             echo "\">
-\t\t<a href=\"/account/\">Account</a>
+<a href=\"/account/\">
+\t<i class=\"las la-user\"></i>
+\t<div class=\"login\">Login</div>
+</a>
+
+
 \t\t";
-            // line 5
-            if ( !twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "isNull", [], "method", false, false, false, 5)) {
-                // line 6
+            // line 10
+            if ( !twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "isNull", [], "method", false, false, false, 10)) {
+                // line 11
                 echo "\t\t\t<ul>
 \t\t\t\t<li>
 \t\t\t\t\t<a href=\"/account/action/logout/\">Logout</a>
@@ -59,7 +64,7 @@ class __TwigTemplate_5be706bcae609ed8fe2e6280e1a31dc6 extends Template
 \t\t\t</ul>
 \t\t";
             } else {
-                // line 12
+                // line 17
                 echo "\t\t\t<ul>
 \t\t\t\t<li>
 \t\t\t\t\t<form action=\"/account/action/login/\" method=\"post\">
@@ -70,16 +75,17 @@ class __TwigTemplate_5be706bcae609ed8fe2e6280e1a31dc6 extends Template
 \t\t\t\t\t\t\t<input type=\"password\" name=\"password\" placeholder=\"Password\" />
 \t\t\t\t\t\t</p>
 \t\t\t\t\t\t<div class=\"actions\">
-\t\t\t\t\t\t\t<button type=\"submit\" value=\"Login\" class=\"button\">Login</button>
+\t\t\t\t\t\t\t<button type=\"submit\" value=\"Login\" class=\"button login\"><i class=\"fa-solid fa-user\"></i>Login</button>
+
 \t\t\t\t\t\t\t<div>
 \t\t\t\t\t\t\t\t";
-                // line 24
-                if (twig_get_attribute($this->env, $this->source, ($context["controller"] ?? null), "getStaticConst", [0 => "Users\\User", 1 => "REGISTRATION_ENABLED"], "method", false, false, false, 24)) {
-                    // line 25
+                // line 30
+                if (twig_get_attribute($this->env, $this->source, ($context["controller"] ?? null), "getStaticConst", [0 => "Users\\User", 1 => "REGISTRATION_ENABLED"], "method", false, false, false, 30)) {
+                    // line 31
                     echo "\t\t\t\t\t\t\t\t\t<a class=\"reset-link\" href=\"/account/register/\">No Account?</a><br />
 \t\t\t\t\t\t\t\t";
                 }
-                // line 27
+                // line 33
                 echo "\t\t\t\t\t\t\t\t<a class=\"reset-link\" href=\"/account/reset-password/\">Forgot Password?</a>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t</div>
@@ -88,7 +94,7 @@ class __TwigTemplate_5be706bcae609ed8fe2e6280e1a31dc6 extends Template
 \t\t\t</ul>
 \t\t";
             }
-            // line 34
+            // line 40
             echo "\t</li>
 ";
         }
@@ -106,7 +112,7 @@ class __TwigTemplate_5be706bcae609ed8fe2e6280e1a31dc6 extends Template
 
     public function getDebugInfo()
     {
-        return array (  92 => 34,  83 => 27,  79 => 25,  77 => 24,  63 => 12,  55 => 6,  53 => 5,  39 => 3,  37 => 2,);
+        return array (  98 => 40,  89 => 33,  85 => 31,  83 => 30,  68 => 17,  60 => 11,  58 => 10,  39 => 3,  37 => 2,);
     }
 
     public function getSourceContext()
@@ -114,7 +120,12 @@ class __TwigTemplate_5be706bcae609ed8fe2e6280e1a31dc6 extends Template
         return new Source("{# Generates account nav item. Includes a login form and logout button when appropriate #}
 {% if 'USERS' is enabled %}
 \t<li class=\"account-nav {% if user.isNull() %} do-form {% else %} has-children logged-in {% endif %} {% if page.pageType == \"Account\" %} sel {% endif %}\">
-\t\t<a href=\"/account/\">Account</a>
+<a href=\"/account/\">
+\t<i class=\"las la-user\"></i>
+\t<div class=\"login\">Login</div>
+</a>
+
+
 \t\t{% if not user.isNull() %}
 \t\t\t<ul>
 \t\t\t\t<li>
@@ -132,7 +143,8 @@ class __TwigTemplate_5be706bcae609ed8fe2e6280e1a31dc6 extends Template
 \t\t\t\t\t\t\t<input type=\"password\" name=\"password\" placeholder=\"Password\" />
 \t\t\t\t\t\t</p>
 \t\t\t\t\t\t<div class=\"actions\">
-\t\t\t\t\t\t\t<button type=\"submit\" value=\"Login\" class=\"button\">Login</button>
+\t\t\t\t\t\t\t<button type=\"submit\" value=\"Login\" class=\"button login\"><i class=\"fa-solid fa-user\"></i>Login</button>
+
 \t\t\t\t\t\t\t<div>
 \t\t\t\t\t\t\t\t{% if controller.getStaticConst('Users\\\\User', 'REGISTRATION_ENABLED') %}
 \t\t\t\t\t\t\t\t\t<a class=\"reset-link\" href=\"/account/register/\">No Account?</a><br />

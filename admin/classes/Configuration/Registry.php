@@ -17,6 +17,7 @@
 	use Template\ShortCodes\ShortCodeSupport;
 	use Testimonial;
 	use Users\Administrator;
+use Recipes\Recipe;
 	
 	/**
 	 * Handles global module configuration
@@ -50,6 +51,7 @@
 		const WEIGHT_BASED_SHIPPING = true;
 		const TESTIMONIALS = true;
 		const USERS = true;
+	const RECIPES = true;
 
 		const SEARCHABLE_CLASSES = [Page::class, ProductCategory::class, Product::class, BlogArticle::class];
 
@@ -83,6 +85,7 @@
 				ProductCategory::getAdminNavItem(),
 				Menu::getAdminNavItem(),
 				Page::getAdminNavItem(),
+				Recipe::getAdminNavItem(),
 				BlogArticle::getAdminNavItem(),
 				Form::getAdminNavItem(),
 				Gallery::getAdminNavItem(),

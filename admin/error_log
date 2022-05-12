@@ -1,47 +1,379 @@
-[25-Apr-2022 22:22:21 Pacific/Auckland] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'products.' in 'where clause' in /home/meatadev/public_html/admin/classes/Database/Mysql.php:45
+[10-May-2022 21:09:50 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 88
+[10-May-2022 21:09:50 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:11:07 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 88
+[10-May-2022 21:11:07 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:12:51 Pacific/Auckland] PHP Warning:  Undefined array key "meatImage" in /home/meatadev/public_html/admin/classes/Core/Elements/ImageElement.php on line 36
+[10-May-2022 21:12:51 Pacific/Auckland] PHP Warning:  Attempt to read property "width" on null in /home/meatadev/public_html/admin/classes/Core/Elements/ImageElement.php on line 39
+[10-May-2022 21:12:51 Pacific/Auckland] PHP Warning:  Attempt to read property "height" on null in /home/meatadev/public_html/admin/classes/Core/Elements/ImageElement.php on line 40
+[10-May-2022 21:12:51 Pacific/Auckland] PHP Warning:  Attempt to read property "resizeType" on null in /home/meatadev/public_html/admin/classes/Core/Elements/ImageElement.php on line 41
+[10-May-2022 21:12:51 Pacific/Auckland] PHP Warning:  meatImage in Pages\FrontPage\FrontPage is a private, protected or non-existent property in /home/meatadev/public_html/admin/classes/Core/Entity.php on line 1406
+[10-May-2022 21:12:51 Pacific/Auckland] PHP Warning:  Attempt to read property "getter" on null in /home/meatadev/public_html/admin/classes/Core/Entity.php on line 1413
+[10-May-2022 21:12:51 Pacific/Auckland] PHP Fatal error:  Uncaught Error: meatImage in Pages\FrontPage\FrontPage is a private, protected or non-existent property. in /home/meatadev/public_html/admin/classes/Core/Entity.php:1300
 Stack trace:
-#0 /home/meatadev/public_html/admin/classes/Database/Mysql.php(45): mysqli->prepare()
-#1 /home/meatadev/public_html/admin/classes/Database/Mysql.php(169): Database\Mysql->prepareStatement()
-#2 /home/meatadev/public_html/admin/classes/Database/Mysql.php(202): Database\Mysql->query()
-#3 /home/meatadev/public_html/admin/classes/Core/Entity.php(541): Database\Mysql->run()
-#4 /home/meatadev/public_html/admin/classes/Core/Entity.php(887): Core\Entity::makeMany()
-#5 /home/meatadev/public_html/admin/classes/Core/Generator.php(274): Core\Entity::loadAllForMultiple()
-#6 /home/meatadev/public_html/admin/classes/Core/Entity.php(935): Core\Generator::loadAllForMultiple()
-#7 /home/meatadev/public_html/admin/classes/Core/Generator.php(228): Core\Entity::loadAllFor()
-#8 /home/meatadev/public_html/admin/classes/Core/Generator.php(984): Core\Generator::loadAllFor()
-#9 /home/meatadev/public_html/admin/classes/Admin/ListController.php(189): Core\Generator::loadAllForTable()
-#10 /home/meatadev/public_html/admin/classes/Controller/UrlController.php(117): Admin\ListController::getControllerFromPattern()
-#11 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(100): Controller\UrlController::getControllerFor()
-#12 /home/meatadev/public_html/admin/classes/Controller/UrlController.php(122): Admin\AdminController::getControllerFor()
-#13 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(100): Controller\UrlController::getControllerFor()
-#14 /home/meatadev/public_html/admin/index.php(50): Admin\AdminController::getControllerFor()
-#15 {main}
-  thrown in /home/meatadev/public_html/admin/classes/Database/Mysql.php on line 45
-[25-Apr-2022 22:22:32 Pacific/Auckland] PHP Fatal error:  Uncaught TypeError: Cannot assign null to property Orders\WeightRange::$upTo of type float in /home/meatadev/public_html/admin/classes/Core/Elements/Base/ResultElement.php:128
+#0 /home/meatadev/public_html/admin/classes/Core/Entity.php(1415): Core\Entity->getValue()
+#1 /home/meatadev/public_html/admin/classes/Core/Elements/Base/ResultElement.php(128): Core\Entity->__get()
+#2 /home/meatadev/public_html/admin/classes/Core/Elements/ImageElement.php(116): Core\Elements\Base\ResultElement->getValue()
+#3 /home/meatadev/public_html/admin/classes/Admin/EditController.php(53): Core\Elements\ImageElement->getJsonValue()
+#4 /home/meatadev/public_html/admin/classes/Core/Elements/Group.php(73): Admin\EditController::getJsonValue()
+#5 /home/meatadev/public_html/admin/classes/Admin/EditController.php(53): Core\Elements\Group->getJsonValue()
+#6 /home/meatadev/public_html/admin/classes/Core/Elements/Group.php(73): Admin\EditController::getJsonValue()
+#7 /home/meatadev/public_html/admin/classes/Admin/EditController.php(53): Core\Elements\Group->getJsonValue()
+#8 /home/meatadev/public_html/admin/classes/Admin/EditController.php(154): Admin\EditController::getJsonValue()
+#9 /home/meatadev/public_html/admin/classes/Controller/UrlController.php(117): Admin\EditController::getControllerFromPattern()
+#10 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(100): Controller\UrlController::getControllerFor()
+#11 /home/meatadev/public_html/admin/classes/Controller/UrlController.php(122): Admin\AdminController::getControllerFor()
+#12 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(100): Controller\UrlController::getControllerFor()
+#13 /home/meatadev/public_html/admin/index.php(50): Admin\AdminController::getControllerFor()
+#14 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Core/Entity.php on line 1300
+[10-May-2022 21:13:17 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 88
+[10-May-2022 21:13:17 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:13:48 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 88
+[10-May-2022 21:13:48 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:13:53 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 88
+[10-May-2022 21:13:53 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:15:26 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 88
+[10-May-2022 21:15:26 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:17:45 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 88
+[10-May-2022 21:17:45 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:17:48 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 88
+[10-May-2022 21:17:48 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:20:12 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Class "Pages\FrontPage\FrontPage" not found in /home/meatadev/public_html/admin/classes/Admin/EditController.php:121
 Stack trace:
-#0 /home/meatadev/public_html/admin/classes/Core/Elements/Base/ResultElement.php(138): Core\Elements\Base\ResultElement->getValue()
-#1 /home/meatadev/public_html/admin/classes/Admin/EditController.php(53): Core\Elements\Base\ResultElement->getJsonValue()
-#2 /home/meatadev/public_html/admin/classes/Core/Elements/GeneratorElement.php(141): Admin\EditController::getJsonValue()
-#3 /home/meatadev/public_html/admin/classes/Core/Elements/GeneratorElement.php(215): Core\Elements\GeneratorElement->getJsonValue()
-#4 /home/meatadev/public_html/admin/classes/Admin/EditController.php(162): Core\Elements\GeneratorElement->getJson()
-#5 /home/meatadev/public_html/admin/classes/Controller/UrlController.php(117): Admin\EditController::getControllerFromPattern()
+#0 /home/meatadev/public_html/admin/classes/Controller/UrlController.php(117): Admin\EditController::getControllerFromPattern()
+#1 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(100): Controller\UrlController::getControllerFor()
+#2 /home/meatadev/public_html/admin/classes/Controller/UrlController.php(122): Admin\AdminController::getControllerFor()
+#3 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(100): Controller\UrlController::getControllerFor()
+#4 /home/meatadev/public_html/admin/index.php(50): Admin\AdminController::getControllerFor()
+#5 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Admin/EditController.php on line 121
+[10-May-2022 21:20:16 Pacific/Auckland] PHP Warning:  Undefined array key "meatIamges" in /home/meatadev/public_html/admin/classes/Core/Elements/ImageElement.php on line 36
+[10-May-2022 21:20:16 Pacific/Auckland] PHP Warning:  Attempt to read property "width" on null in /home/meatadev/public_html/admin/classes/Core/Elements/ImageElement.php on line 39
+[10-May-2022 21:20:16 Pacific/Auckland] PHP Warning:  Attempt to read property "height" on null in /home/meatadev/public_html/admin/classes/Core/Elements/ImageElement.php on line 40
+[10-May-2022 21:20:16 Pacific/Auckland] PHP Warning:  Attempt to read property "resizeType" on null in /home/meatadev/public_html/admin/classes/Core/Elements/ImageElement.php on line 41
+[10-May-2022 21:20:16 Pacific/Auckland] PHP Warning:  meatIamges in Pages\FrontPage\FrontPage is a private, protected or non-existent property in /home/meatadev/public_html/admin/classes/Core/Entity.php on line 1406
+[10-May-2022 21:20:16 Pacific/Auckland] PHP Warning:  Attempt to read property "getter" on null in /home/meatadev/public_html/admin/classes/Core/Entity.php on line 1413
+[10-May-2022 21:20:16 Pacific/Auckland] PHP Fatal error:  Uncaught Error: meatIamges in Pages\FrontPage\FrontPage is a private, protected or non-existent property. in /home/meatadev/public_html/admin/classes/Core/Entity.php:1300
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Core/Entity.php(1415): Core\Entity->getValue()
+#1 /home/meatadev/public_html/admin/classes/Core/Elements/Base/ResultElement.php(128): Core\Entity->__get()
+#2 /home/meatadev/public_html/admin/classes/Core/Elements/ImageElement.php(116): Core\Elements\Base\ResultElement->getValue()
+#3 /home/meatadev/public_html/admin/classes/Admin/EditController.php(53): Core\Elements\ImageElement->getJsonValue()
+#4 /home/meatadev/public_html/admin/classes/Core/Elements/Group.php(73): Admin\EditController::getJsonValue()
+#5 /home/meatadev/public_html/admin/classes/Admin/EditController.php(53): Core\Elements\Group->getJsonValue()
+#6 /home/meatadev/public_html/admin/classes/Core/Elements/Group.php(73): Admin\EditController::getJsonValue()
+#7 /home/meatadev/public_html/admin/classes/Admin/EditController.php(53): Core\Elements\Group->getJsonValue()
+#8 /home/meatadev/public_html/admin/classes/Admin/EditController.php(154): Admin\EditController::getJsonValue()
+#9 /home/meatadev/public_html/admin/classes/Controller/UrlController.php(117): Admin\EditController::getControllerFromPattern()
+#10 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(100): Controller\UrlController::getControllerFor()
+#11 /home/meatadev/public_html/admin/classes/Controller/UrlController.php(122): Admin\AdminController::getControllerFor()
+#12 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(100): Controller\UrlController::getControllerFor()
+#13 /home/meatadev/public_html/admin/index.php(50): Admin\AdminController::getControllerFor()
+#14 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Core/Entity.php on line 1300
+[10-May-2022 21:20:59 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 88
+[10-May-2022 21:20:59 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:22:27 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 88
+[10-May-2022 21:22:27 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:22:49 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 88
+[10-May-2022 21:22:49 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:23:11 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 88
+[10-May-2022 21:23:11 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:23:26 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 88
+[10-May-2022 21:23:26 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:24:32 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 88
+[10-May-2022 21:24:32 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:24:35 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 88
+[10-May-2022 21:24:35 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:24:39 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 88
+[10-May-2022 21:24:39 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:25:09 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 88
+[10-May-2022 21:25:09 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:26:20 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 88
+[10-May-2022 21:26:20 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:31:01 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:31:01 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 90
+[10-May-2022 21:31:23 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:31:23 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 90
+[10-May-2022 21:31:59 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 88
+[10-May-2022 21:31:59 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:31:59 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 90
+[10-May-2022 21:33:54 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 88
+[10-May-2022 21:33:54 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:33:54 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 90
+[10-May-2022 21:33:58 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 88
+[10-May-2022 21:33:58 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:33:58 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 90
+[10-May-2022 21:34:08 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 88
+[10-May-2022 21:34:08 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:34:08 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 90
+[10-May-2022 21:34:48 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:34:48 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 90
+[10-May-2022 21:35:17 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 90
+[10-May-2022 21:35:17 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 91
+[10-May-2022 21:36:02 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 90
+[10-May-2022 21:36:02 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 91
+[10-May-2022 21:39:20 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:39:20 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 90
+[10-May-2022 21:39:20 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 91
+[10-May-2022 21:44:22 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 90
+[10-May-2022 21:44:22 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 91
+[10-May-2022 21:49:49 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 88
+[10-May-2022 21:49:49 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:51:11 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 88
+[10-May-2022 21:51:11 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:52:18 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 88
+[10-May-2022 21:52:18 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:53:03 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 89
+[10-May-2022 21:53:03 Pacific/Auckland] PHP Warning:  Trying to access array offset on value of type bool in /home/meatadev/public_html/admin/classes/Files/Image.php on line 90
+[11-May-2022 17:44:19 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Class "Recipe\Recipe" not found in /home/meatadev/public_html/admin/classes/Configuration/Registry.php:95
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(68): Configuration\Registry::getAdminNavItems()
+#1 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(108): Admin\AdminController->getTemplateVariables()
+#2 /home/meatadev/public_html/admin/index.php(57): Admin\AdminController->output()
+#3 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Configuration/Registry.php on line 95
+[11-May-2022 17:44:22 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Class "Recipe\Recipe" not found in /home/meatadev/public_html/admin/classes/Configuration/Registry.php:95
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(68): Configuration\Registry::getAdminNavItems()
+#1 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(108): Admin\AdminController->getTemplateVariables()
+#2 /home/meatadev/public_html/admin/index.php(57): Admin\AdminController->output()
+#3 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Configuration/Registry.php on line 95
+[11-May-2022 17:44:24 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Class "Recipe\Recipe" not found in /home/meatadev/public_html/admin/classes/Configuration/Registry.php:95
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(68): Configuration\Registry::getAdminNavItems()
+#1 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(108): Admin\AdminController->getTemplateVariables()
+#2 /home/meatadev/public_html/admin/index.php(57): Admin\AdminController->output()
+#3 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Configuration/Registry.php on line 95
+[11-May-2022 17:45:53 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Class "Recipies\Recipe" not found in /home/meatadev/public_html/admin/classes/Configuration/Registry.php:95
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(68): Configuration\Registry::getAdminNavItems()
+#1 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(108): Admin\AdminController->getTemplateVariables()
+#2 /home/meatadev/public_html/admin/index.php(57): Admin\AdminController->output()
+#3 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Configuration/Registry.php on line 95
+[11-May-2022 17:47:18 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Class "Recipies\Recipe" not found in /home/meatadev/public_html/admin/classes/Configuration/Registry.php:95
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(68): Configuration\Registry::getAdminNavItems()
+#1 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(108): Admin\AdminController->getTemplateVariables()
+#2 /home/meatadev/public_html/admin/index.php(57): Admin\AdminController->output()
+#3 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Configuration/Registry.php on line 95
+[11-May-2022 17:47:21 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Class "Recipies\Recipe" not found in /home/meatadev/public_html/admin/classes/Configuration/Registry.php:95
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(68): Configuration\Registry::getAdminNavItems()
+#1 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(108): Admin\AdminController->getTemplateVariables()
+#2 /home/meatadev/public_html/admin/index.php(57): Admin\AdminController->output()
+#3 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Configuration/Registry.php on line 95
+[11-May-2022 17:47:50 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Class "Recipies\Recipe" not found in /home/meatadev/public_html/admin/classes/Configuration/Registry.php:95
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(68): Configuration\Registry::getAdminNavItems()
+#1 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(108): Admin\AdminController->getTemplateVariables()
+#2 /home/meatadev/public_html/admin/index.php(57): Admin\AdminController->output()
+#3 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Configuration/Registry.php on line 95
+[11-May-2022 17:47:54 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Class "Recipies\Recipe" not found in /home/meatadev/public_html/admin/classes/Configuration/Registry.php:95
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(68): Configuration\Registry::getAdminNavItems()
+#1 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(108): Admin\AdminController->getTemplateVariables()
+#2 /home/meatadev/public_html/admin/index.php(57): Admin\AdminController->output()
+#3 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Configuration/Registry.php on line 95
+[11-May-2022 17:49:28 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Class "Recipies\Recipe" not found in /home/meatadev/public_html/admin/classes/Configuration/Registry.php:95
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(68): Configuration\Registry::getAdminNavItems()
+#1 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(108): Admin\AdminController->getTemplateVariables()
+#2 /home/meatadev/public_html/admin/index.php(57): Admin\AdminController->output()
+#3 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Configuration/Registry.php on line 95
+[11-May-2022 17:53:23 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Class "Recipies\Recipe" not found in /home/meatadev/public_html/admin/classes/Configuration/Registry.php:95
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(68): Configuration\Registry::getAdminNavItems()
+#1 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(108): Admin\AdminController->getTemplateVariables()
+#2 /home/meatadev/public_html/admin/index.php(57): Admin\AdminController->output()
+#3 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Configuration/Registry.php on line 95
+[11-May-2022 17:53:31 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Class "Recipies\Recipe" not found in /home/meatadev/public_html/admin/classes/Configuration/Registry.php:95
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(68): Configuration\Registry::getAdminNavItems()
+#1 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(108): Admin\AdminController->getTemplateVariables()
+#2 /home/meatadev/public_html/admin/index.php(57): Admin\AdminController->output()
+#3 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Configuration/Registry.php on line 95
+[11-May-2022 17:53:51 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Class "Recipies\Recipe" not found in /home/meatadev/public_html/admin/classes/Configuration/Registry.php:95
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(68): Configuration\Registry::getAdminNavItems()
+#1 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(108): Admin\AdminController->getTemplateVariables()
+#2 /home/meatadev/public_html/admin/index.php(57): Admin\AdminController->output()
+#3 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Configuration/Registry.php on line 95
+[11-May-2022 17:54:31 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Class "Recipes\Recipe" not found in /home/meatadev/public_html/admin/classes/Configuration/Registry.php:95
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(68): Configuration\Registry::getAdminNavItems()
+#1 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(108): Admin\AdminController->getTemplateVariables()
+#2 /home/meatadev/public_html/admin/index.php(57): Admin\AdminController->output()
+#3 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Configuration/Registry.php on line 95
+[11-May-2022 17:54:37 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Class "Recipes\Recipe" not found in /home/meatadev/public_html/admin/classes/Configuration/Registry.php:95
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(68): Configuration\Registry::getAdminNavItems()
+#1 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(108): Admin\AdminController->getTemplateVariables()
+#2 /home/meatadev/public_html/admin/index.php(57): Admin\AdminController->output()
+#3 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Configuration/Registry.php on line 95
+[11-May-2022 17:57:02 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Class "Recipes\Recipe" not found in /home/meatadev/public_html/admin/classes/Configuration/Registry.php:95
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(68): Configuration\Registry::getAdminNavItems()
+#1 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(108): Admin\AdminController->getTemplateVariables()
+#2 /home/meatadev/public_html/admin/index.php(57): Admin\AdminController->output()
+#3 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Configuration/Registry.php on line 95
+[11-May-2022 17:57:08 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Class "Recipes\Recipe" not found in /home/meatadev/public_html/admin/classes/Configuration/Registry.php:95
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(68): Configuration\Registry::getAdminNavItems()
+#1 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(108): Admin\AdminController->getTemplateVariables()
+#2 /home/meatadev/public_html/admin/index.php(57): Admin\AdminController->output()
+#3 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Configuration/Registry.php on line 95
+[11-May-2022 18:00:57 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Class "Recipes\Recipe" not found in /home/meatadev/public_html/admin/classes/Configuration/Registry.php:95
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(68): Configuration\Registry::getAdminNavItems()
+#1 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(108): Admin\AdminController->getTemplateVariables()
+#2 /home/meatadev/public_html/admin/index.php(57): Admin\AdminController->output()
+#3 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Configuration/Registry.php on line 95
+[11-May-2022 18:01:00 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Class "Recipes\Recipe" not found in /home/meatadev/public_html/admin/classes/Configuration/Registry.php:95
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(68): Configuration\Registry::getAdminNavItems()
+#1 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(108): Admin\AdminController->getTemplateVariables()
+#2 /home/meatadev/public_html/admin/index.php(57): Admin\AdminController->output()
+#3 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Configuration/Registry.php on line 95
+[11-May-2022 18:10:22 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Class "Recipes\Recipe" not found in /home/meatadev/public_html/admin/classes/Configuration/Registry.php:88
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(68): Configuration\Registry::getAdminNavItems()
+#1 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(108): Admin\AdminController->getTemplateVariables()
+#2 /home/meatadev/public_html/admin/index.php(57): Admin\AdminController->output()
+#3 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Configuration/Registry.php on line 88
+[11-May-2022 18:10:25 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Class "Recipes\Recipe" not found in /home/meatadev/public_html/admin/classes/Configuration/Registry.php:88
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(68): Configuration\Registry::getAdminNavItems()
+#1 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(108): Admin\AdminController->getTemplateVariables()
+#2 /home/meatadev/public_html/admin/index.php(57): Admin\AdminController->output()
+#3 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Configuration/Registry.php on line 88
+[11-May-2022 18:11:15 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Class "Recipes\Recipe" not found in /home/meatadev/public_html/admin/classes/Configuration/Registry.php:88
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(68): Configuration\Registry::getAdminNavItems()
+#1 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(108): Admin\AdminController->getTemplateVariables()
+#2 /home/meatadev/public_html/admin/index.php(57): Admin\AdminController->output()
+#3 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Configuration/Registry.php on line 88
+[11-May-2022 18:11:26 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Class "Recipes\Recipe" not found in /home/meatadev/public_html/admin/classes/Configuration/Registry.php:88
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(68): Configuration\Registry::getAdminNavItems()
+#1 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(108): Admin\AdminController->getTemplateVariables()
+#2 /home/meatadev/public_html/admin/index.php(57): Admin\AdminController->output()
+#3 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Configuration/Registry.php on line 88
+[11-May-2022 18:11:30 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Class "Recipes\Recipe" not found in /home/meatadev/public_html/admin/classes/Configuration/Registry.php:88
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(68): Configuration\Registry::getAdminNavItems()
+#1 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(108): Admin\AdminController->getTemplateVariables()
+#2 /home/meatadev/public_html/admin/index.php(57): Admin\AdminController->output()
+#3 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Configuration/Registry.php on line 88
+[11-May-2022 18:14:49 Pacific/Auckland] PHP Warning:  Uninitialized string offset 0 in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php on line 80
+[11-May-2022 18:14:49 Pacific/Auckland] PHP Warning:  foreach() argument must be of type array|object, string given in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php on line 112
+[11-May-2022 18:14:49 Pacific/Auckland] PHP Warning:  Undefined array key 0 in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php on line 127
+[11-May-2022 18:14:49 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Call to a member function copy() on null in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php:127
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Core/Elements/ImageElement.php(184): Core\Elements\FileElement->getResult()
+#1 /home/meatadev/public_html/admin/classes/Core/Elements/ImageElement.php(166): Core\Elements\ImageElement->getChildResult()
+#2 /home/meatadev/public_html/admin/classes/Core/Elements/Group.php(112): Core\Elements\ImageElement->getResult()
+#3 /home/meatadev/public_html/admin/classes/Core/Elements/Group.php(112): Core\Elements\Group->getResult()
+#4 /home/meatadev/public_html/admin/classes/Admin/ProcessController.php(62): Core\Elements\Group->getResult()
+#5 /home/meatadev/public_html/admin/classes/Controller/UrlController.php(117): Admin\ProcessController::getControllerFromPattern()
 #6 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(100): Controller\UrlController::getControllerFor()
-#7 /home/meatadev/public_html/admin/classes/Controller/UrlController.php(122): Admin\AdminController::getControllerFor()
-#8 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(100): Controller\UrlController::getControllerFor()
-#9 /home/meatadev/public_html/admin/index.php(50): Admin\AdminController::getControllerFor()
-#10 {main}
-  thrown in /home/meatadev/public_html/admin/classes/Core/Elements/Base/ResultElement.php on line 128
-[25-Apr-2022 22:22:38 Pacific/Auckland] PHP Fatal error:  Uncaught TypeError: Cannot assign null to property Orders\WeightRange::$upTo of type float in /home/meatadev/public_html/admin/classes/Core/Elements/Base/ResultElement.php:128
+#7 /home/meatadev/public_html/admin/index.php(50): Admin\AdminController::getControllerFor()
+#8 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php on line 127
+[11-May-2022 18:15:23 Pacific/Auckland] PHP Warning:  Uninitialized string offset 0 in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php on line 80
+[11-May-2022 18:15:23 Pacific/Auckland] PHP Warning:  foreach() argument must be of type array|object, string given in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php on line 112
+[11-May-2022 18:15:23 Pacific/Auckland] PHP Warning:  Undefined array key 0 in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php on line 127
+[11-May-2022 18:15:23 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Call to a member function copy() on null in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php:127
 Stack trace:
-#0 /home/meatadev/public_html/admin/classes/Core/Elements/Base/ResultElement.php(138): Core\Elements\Base\ResultElement->getValue()
-#1 /home/meatadev/public_html/admin/classes/Admin/EditController.php(53): Core\Elements\Base\ResultElement->getJsonValue()
-#2 /home/meatadev/public_html/admin/classes/Core/Elements/GeneratorElement.php(141): Admin\EditController::getJsonValue()
-#3 /home/meatadev/public_html/admin/classes/Core/Elements/GeneratorElement.php(215): Core\Elements\GeneratorElement->getJsonValue()
-#4 /home/meatadev/public_html/admin/classes/Admin/EditController.php(162): Core\Elements\GeneratorElement->getJson()
-#5 /home/meatadev/public_html/admin/classes/Controller/UrlController.php(117): Admin\EditController::getControllerFromPattern()
+#0 /home/meatadev/public_html/admin/classes/Core/Elements/ImageElement.php(184): Core\Elements\FileElement->getResult()
+#1 /home/meatadev/public_html/admin/classes/Core/Elements/ImageElement.php(166): Core\Elements\ImageElement->getChildResult()
+#2 /home/meatadev/public_html/admin/classes/Core/Elements/Group.php(112): Core\Elements\ImageElement->getResult()
+#3 /home/meatadev/public_html/admin/classes/Core/Elements/Group.php(112): Core\Elements\Group->getResult()
+#4 /home/meatadev/public_html/admin/classes/Admin/ProcessController.php(62): Core\Elements\Group->getResult()
+#5 /home/meatadev/public_html/admin/classes/Controller/UrlController.php(117): Admin\ProcessController::getControllerFromPattern()
 #6 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(100): Controller\UrlController::getControllerFor()
-#7 /home/meatadev/public_html/admin/classes/Controller/UrlController.php(122): Admin\AdminController::getControllerFor()
-#8 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(100): Controller\UrlController::getControllerFor()
-#9 /home/meatadev/public_html/admin/index.php(50): Admin\AdminController::getControllerFor()
-#10 {main}
-  thrown in /home/meatadev/public_html/admin/classes/Core/Elements/Base/ResultElement.php on line 128
+#7 /home/meatadev/public_html/admin/index.php(50): Admin\AdminController::getControllerFor()
+#8 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php on line 127
+[11-May-2022 18:15:46 Pacific/Auckland] PHP Warning:  Uninitialized string offset 0 in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php on line 80
+[11-May-2022 18:15:46 Pacific/Auckland] PHP Warning:  foreach() argument must be of type array|object, string given in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php on line 112
+[11-May-2022 18:15:46 Pacific/Auckland] PHP Warning:  Undefined array key 0 in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php on line 127
+[11-May-2022 18:15:46 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Call to a member function copy() on null in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php:127
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Core/Elements/ImageElement.php(184): Core\Elements\FileElement->getResult()
+#1 /home/meatadev/public_html/admin/classes/Core/Elements/ImageElement.php(166): Core\Elements\ImageElement->getChildResult()
+#2 /home/meatadev/public_html/admin/classes/Core/Elements/Group.php(112): Core\Elements\ImageElement->getResult()
+#3 /home/meatadev/public_html/admin/classes/Core/Elements/Group.php(112): Core\Elements\Group->getResult()
+#4 /home/meatadev/public_html/admin/classes/Admin/ProcessController.php(62): Core\Elements\Group->getResult()
+#5 /home/meatadev/public_html/admin/classes/Controller/UrlController.php(117): Admin\ProcessController::getControllerFromPattern()
+#6 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(100): Controller\UrlController::getControllerFor()
+#7 /home/meatadev/public_html/admin/index.php(50): Admin\AdminController::getControllerFor()
+#8 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php on line 127
+[11-May-2022 18:16:04 Pacific/Auckland] PHP Warning:  Uninitialized string offset 0 in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php on line 80
+[11-May-2022 18:16:04 Pacific/Auckland] PHP Warning:  foreach() argument must be of type array|object, string given in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php on line 112
+[11-May-2022 18:16:04 Pacific/Auckland] PHP Warning:  Undefined array key 0 in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php on line 127
+[11-May-2022 18:16:04 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Call to a member function copy() on null in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php:127
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Core/Elements/ImageElement.php(184): Core\Elements\FileElement->getResult()
+#1 /home/meatadev/public_html/admin/classes/Core/Elements/ImageElement.php(166): Core\Elements\ImageElement->getChildResult()
+#2 /home/meatadev/public_html/admin/classes/Core/Elements/Group.php(112): Core\Elements\ImageElement->getResult()
+#3 /home/meatadev/public_html/admin/classes/Core/Elements/Group.php(112): Core\Elements\Group->getResult()
+#4 /home/meatadev/public_html/admin/classes/Admin/ProcessController.php(62): Core\Elements\Group->getResult()
+#5 /home/meatadev/public_html/admin/classes/Controller/UrlController.php(117): Admin\ProcessController::getControllerFromPattern()
+#6 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(100): Controller\UrlController::getControllerFor()
+#7 /home/meatadev/public_html/admin/index.php(50): Admin\AdminController::getControllerFor()
+#8 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php on line 127
+[11-May-2022 18:16:21 Pacific/Auckland] PHP Warning:  Uninitialized string offset 0 in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php on line 80
+[11-May-2022 18:16:21 Pacific/Auckland] PHP Warning:  foreach() argument must be of type array|object, string given in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php on line 112
+[11-May-2022 18:16:21 Pacific/Auckland] PHP Warning:  Undefined array key 0 in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php on line 127
+[11-May-2022 18:16:21 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Call to a member function copy() on null in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php:127
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Core/Elements/ImageElement.php(184): Core\Elements\FileElement->getResult()
+#1 /home/meatadev/public_html/admin/classes/Core/Elements/ImageElement.php(166): Core\Elements\ImageElement->getChildResult()
+#2 /home/meatadev/public_html/admin/classes/Core/Elements/Group.php(112): Core\Elements\ImageElement->getResult()
+#3 /home/meatadev/public_html/admin/classes/Core/Elements/Group.php(112): Core\Elements\Group->getResult()
+#4 /home/meatadev/public_html/admin/classes/Admin/ProcessController.php(62): Core\Elements\Group->getResult()
+#5 /home/meatadev/public_html/admin/classes/Controller/UrlController.php(117): Admin\ProcessController::getControllerFromPattern()
+#6 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(100): Controller\UrlController::getControllerFor()
+#7 /home/meatadev/public_html/admin/index.php(50): Admin\AdminController::getControllerFor()
+#8 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php on line 127
+[12-May-2022 07:58:46 Pacific/Auckland] PHP Warning:  Uninitialized string offset 0 in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php on line 80
+[12-May-2022 07:58:46 Pacific/Auckland] PHP Warning:  foreach() argument must be of type array|object, string given in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php on line 112
+[12-May-2022 07:58:46 Pacific/Auckland] PHP Warning:  Undefined array key 0 in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php on line 127
+[12-May-2022 07:58:46 Pacific/Auckland] PHP Fatal error:  Uncaught Error: Call to a member function copy() on null in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php:127
+Stack trace:
+#0 /home/meatadev/public_html/admin/classes/Core/Elements/ImageElement.php(184): Core\Elements\FileElement->getResult()
+#1 /home/meatadev/public_html/admin/classes/Core/Elements/ImageElement.php(166): Core\Elements\ImageElement->getChildResult()
+#2 /home/meatadev/public_html/admin/classes/Core/Elements/Group.php(112): Core\Elements\ImageElement->getResult()
+#3 /home/meatadev/public_html/admin/classes/Core/Elements/Group.php(112): Core\Elements\Group->getResult()
+#4 /home/meatadev/public_html/admin/classes/Admin/ProcessController.php(62): Core\Elements\Group->getResult()
+#5 /home/meatadev/public_html/admin/classes/Controller/UrlController.php(117): Admin\ProcessController::getControllerFromPattern()
+#6 /home/meatadev/public_html/admin/classes/Admin/AdminController.php(100): Controller\UrlController::getControllerFor()
+#7 /home/meatadev/public_html/admin/index.php(50): Admin\AdminController::getControllerFor()
+#8 {main}
+  thrown in /home/meatadev/public_html/admin/classes/Core/Elements/FileElement.php on line 127

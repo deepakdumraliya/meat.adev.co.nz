@@ -80,7 +80,7 @@
 		const THUMBNAIL_RESIZE_TYPE = ProductImage::THUMBNAIL_RESIZE_TYPE;
 
 		/** @var bool */
-		public $onNav = false;
+		public $onNav = true;
 
 		/** @var string */
 		public $content = "";

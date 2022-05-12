@@ -71,7 +71,15 @@ export default
 			}
 			
 			let proxy = generateRedirectProxy((propertyName) => this.$parent.searchForValue(propertyName));
-			return this.conditionalFunction.call(this, proxy);
+			
+			try
+			{
+			    return this.conditionalFunction.call(this, proxy);
+			}
+			catch(e)
+			{
+			    return false;
+			}
 		},
 		
 		/**
