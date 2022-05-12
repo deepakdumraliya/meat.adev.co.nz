@@ -89,15 +89,11 @@
 <!--=================================
         Header -->
 <header class="min-header">
-	<div class="topbar">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<p>Free delivery for orders over $150 within Christchurch</p>
-				</div>
-			</div>
-		</div>
-	</div>
+	{% if config.freeoffer %}
+		{% include 'template/sections/topbar.twig' with {
+			"offertext" : config.offertext
+		} only %}
+	{% endif %}
 	<div class="header">
 		<nav class="navbar navbar-static-top navbar-expand-lg">
 			<div class="container-fluid main-header position-relative">

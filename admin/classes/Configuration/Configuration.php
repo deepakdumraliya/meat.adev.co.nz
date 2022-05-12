@@ -9,7 +9,8 @@
 	use Core\Attributes\LinkFromMultiple;
 	use Core\Attributes\LinkTo;
 	use Core\Elements\Base\ResultElement;
-	use Core\Elements\GeneratorElement;
+use Core\Elements\Checkbox;
+use Core\Elements\GeneratorElement;
 	use Core\Elements\Group;
 	use Core\Elements\Html;
 	use Core\Elements\ImageElement;
@@ -94,6 +95,14 @@
 		/** @var SocialMediaLink[] */
 		#[LinkFromMultiple(SocialMediaLink::class, "parent")]
 		public array $socialMediaLinks;
+
+		//custom properties
+		#[Data("freeoffer")]
+		public bool $freeoffer = true;
+		#[Data("offertext")]
+		public string $offertext = "";
+
+		
 
 		/**
 		 * Gets the Configuration, or, if it doesn't exist, creates it
@@ -244,7 +253,10 @@
 				$recaptchaGroup->add(new Text('recaptchaSecret', 'Recaptcha Secret'));
 				$this->addElement($recaptchaGroup, "3rd Party Integrations");
 			}
-			}
+			$this->addElement(new Checkbox('freeoffer', 'Set Free Offer'), 'Offer');
+			$this->addElement(new Textarea('offertext', 'Set Free Offer TExt'), 'Offer');
+
+		}
 
 		/**
 		 * Same as in Generator, but without a return link

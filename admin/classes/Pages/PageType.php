@@ -12,6 +12,7 @@
 	use Pages\FrontPage\FrontPageController;
 	use Payments\BillPayments\BillPaymentController;
 	use Products\ProductsController;
+use Recipes\RecipeController;
 	
 	/**
 	 * Keeps track of the various page types
@@ -83,6 +84,10 @@
 			{
 				$types[static::TESTIMONIALS] = new self(Page::class, "pages/testimonials-page.twig");
 			}
+
+		if (Registry::RECIPES) {
+			$types['Recipes'] = new self(Page::class, "pages/recipe/recipe-page.twig", RecipeController::class);
+		}
 
 			return $types;
 		}

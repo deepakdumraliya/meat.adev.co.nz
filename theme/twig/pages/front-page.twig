@@ -8,7 +8,7 @@
 
 
 	{{ parent() }}
-	{# {%	if page.display_Category	%} #}
+	{%	if page.display_Category	%} 
 
 
 		{% include 'pages/front-sections/categoryblock.twig' with {
@@ -19,8 +19,21 @@
 				'catNavItems' : catNavItems
 			}
 		} only %}
-	{# {% endif %} #}
-{% include 'products/sections/featured.twig' %}
+	{% endif %}
+	{% include 'pages/front-sections/premiummeat.twig' with {
+			'section':{
+				'premiumMeatContent':page.premiumMeatContent,
+				'meatImage':page.meatImage
+			}
+		} only
+	%}
+	{% include 'products/sections/featured.twig' %}
+	{% include 'pages/front-sections/testimonialsection.twig'  with {
+			'section':{
+				'testimonialContent':page.testimonialContent,
+				'testimonialImage':page.testimonialImage
+			}
+	} only %}
 
 
 

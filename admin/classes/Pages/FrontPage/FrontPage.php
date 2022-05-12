@@ -39,6 +39,8 @@
 			static::addProperty(new Property('category_Desc', 'categoryDescription', 'html'));
 			static::addProperty(new Property('premiumMeatContent', 'meatcontent', 'html'));
 			static::addProperty(new ImageProperty('meatImage', 'meatimage', Page::IMAGE_LOCATION, 1204, 670, ImageProperty::SCALE));
+			static::addProperty(new Property('testimonialContent', 'testimonialcontent', 'html'));
+			static::addProperty(new ImageProperty('testimonialImage', 'testimonialimage', Page::IMAGE_LOCATION, 1204, 670, ImageProperty::SCALE));
 		}	
 		/**
 		 * elements
@@ -58,6 +60,9 @@
 			// meat
 			$this->addElement(new Editor("premiumMeatContent", 'Content'), "Premium");
 			$this->addElement((new ImageElement('meatImage', 'Image')), 'Premium')->addClass('half');
+			//testimonial section
+			$this->addElement(new Editor("testimonialContent", 'Content'), "Chefs’ Testimonials");
+			$this->addElement((new ImageElement('testimonialImage', 'Image')), 'Chefs’ Testimonials')->addClass('half');
 			
 
 		}

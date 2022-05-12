@@ -57,8 +57,8 @@ class Recipe extends Generator implements AdminNavItemGenerator, JsonSerializabl
     public bool $active = true;
 
     const IMAGE_LOCATION = DOC_ROOT . "/resources/images/recipe/";
-    const IMAGE_WIDTH = 768;
-    const IMAGE_HEIGHT = 482;
+    const IMAGE_WIDTH = 995;
+    const IMAGE_HEIGHT = 627;
     const IMAGE_RESIZE_TYPE = ImageProperty::SCALE;
 
     /**

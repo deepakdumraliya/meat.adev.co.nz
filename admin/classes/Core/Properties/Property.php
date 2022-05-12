@@ -36,17 +36,19 @@
 		public ?Closure $setter = null;
 		public int $setterParameterCount = 0;
 
+	public string $location = "";
 		/**
 		 * Creates a new Property
 		 * @param	string	$propertyName	The name of the property
 		 * @param	string	$databaseName	The name of the database field
 		 * @param	string	$type	The data type of the property
 		 */
-		public function __construct($propertyName, $databaseName = null, $type = null)
+	public function __construct($propertyName, $databaseName = null, $type = null, $location = null)
 		{
 			$this->propertyName = $propertyName;
 			$this->databaseName = $databaseName;
 			$this->type = $type;
+		$this->location = $location;
 		}
 
 		/**
