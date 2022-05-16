@@ -20,6 +20,7 @@
 	use Core\Elements\MultipleCheckbox;
 	use Core\Elements\Text;
 	use Core\Elements\Textarea;
+use Core\Elements\Number;
 
 	use Core\Entity;
 	use Core\Generator;
@@ -143,6 +144,9 @@
 			static::addProperty(new Property("price", "price", "float"));
 			static::addProperty(new Property("salePrice", "sale_price", "float"));
 			static::addProperty(new Property("stock", "stock", "int"));
+		static::addProperty(new Property("minQuantity", "minquantity", "int"));
+		static::addProperty(new Property("setminQuantity", "setminquantity", "bool"));
+
 			static::addProperty(new Property("weight", "weight", "float"));
 
 			static::addProperty(new Property("category"));
@@ -274,6 +278,8 @@
 
 			$this->addElement((new Text("name", "Product name"))->setHint("Required")->addValidation(Text::REQUIRED), 'Content');
 			parent::elements();
+		$this->addElement(new Checkbox("setminQuantity", 'Set Min Quantity'), "Minimum Quantity");
+		$this->addElement(new Number("minQuantity", 'Quantity'), "Minimum Quantity");
 
 			$saleGroup = (new Group('Sale Group'))->addClass('row-of-elements');
 			$this->addElement($saleGroup, 'Content');

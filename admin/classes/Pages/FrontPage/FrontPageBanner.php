@@ -22,7 +22,7 @@
 	const DO_TITLE = TRUE;
 		const PARENT_TITLE_PROPERTY = parent::PARENT_TITLE_PROPERTY;
 	const DO_TEXT = TRUE;
-		const DO_LINK = parent::DO_LINK;
+	const DO_LINK = TRUE;
 	const DO_BUTTON = TRUE;
 	const DESKTOP_IMAGE_WIDTH = 1900;
 	const DESKTOP_IMAGE_HEIGHT = 704; // 2560 / [design canvas width] * [design banner height]
