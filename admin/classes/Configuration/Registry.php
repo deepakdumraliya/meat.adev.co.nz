@@ -18,6 +18,7 @@
 	use Testimonial;
 	use Users\Administrator;
 use Recipes\Recipe;
+use Recipes\RecipeCategory;
 	
 	/**
 	 * Handles global module configuration
@@ -52,6 +53,7 @@ use Recipes\Recipe;
 		const TESTIMONIALS = true;
 		const USERS = true;
 	const RECIPES = true;
+	const RECIPECATEGORY = true;
 
 		const SEARCHABLE_CLASSES = [Page::class, ProductCategory::class, Product::class, BlogArticle::class];
 
@@ -86,6 +88,7 @@ use Recipes\Recipe;
 				Menu::getAdminNavItem(),
 				Page::getAdminNavItem(),
 				Recipe::getAdminNavItem(),
+			RecipeCategory::getAdminNavItem(),
 				BlogArticle::getAdminNavItem(),
 				Form::getAdminNavItem(),
 				Gallery::getAdminNavItem(),

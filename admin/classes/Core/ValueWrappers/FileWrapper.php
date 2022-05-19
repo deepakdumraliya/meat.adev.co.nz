@@ -170,7 +170,7 @@
 
 			if($file->getFolder()->path !== $property->location)
 			{
-				$file->move($property->location);
+				@$file->move($property->location);
 			}
 		}
 

@@ -197,14 +197,35 @@ $(function()
 	$(document).on("click", addToCartLinkSelector, function(event)
 	{
 		event.preventDefault();
-		let url = $(this).attr("href");
-		$cart.addClass("loading");
-		makeVisible();
-
-		$.get(url).then(function()
+		let url = $( this ).attr( "href" );
+		let minquantity = $( this ).data( 'minqunatity' );
+		let quantity = $( this ).attr( 'data-quantity');
+		console.log( minquantity + ">=" + quantity );
+		if ( $( this ).hasClass( 'minquantity' ) )
 		{
-			retrieveLineItems();
-		});
+			if ( quantity >= minquantity )
+			{
+				$cart.addClass( "loading" );
+				makeVisible();
+
+				$.get( url ).then( function ()
+				{
+					retrieveLineItems();
+				} );
+			} else
+			{
+				alert( "YOU SHOULD BY MINIMUM " + minquantity + " TO BUY THIS PRODUCT" );
+			}
+		} else
+		{
+			$cart.addClass( "loading" );
+			makeVisible();
+
+			$.get( url ).then( function ()
+			{
+				retrieveLineItems();
+			} );
+		}
 	});
 
 	// Handles the user submitting a form that adds a product to the cart

@@ -9,60 +9,60 @@
                         <div class="section-title">
                                 <h2>Recipes</h2>
                             </div>
+                            <form action="/recipes" name="catfilter">
                             <div class="recipe-filter d-flex align-items-center">
+                            
                                 <span>Filter by</span>
-                                <select class="form-select">
-                                  <option selected>Braising</option>
-                                  <option value="1">Braising</option>
-                                  <option value="2">Braising</option>
-                                  <option value="3">Braising</option>
+                                <select class="form-select" name = "cat" >
+                                  {% for cat in category %}
+                                    <option value={{ cat.id }} {% if curcat == cat.id  %} selected {% endif  %}>{{ cat.recipeType }}</option>
+                                 {% endfor %}
                                 </select>
-                                <a href="#" class="btn btn-primary">Filter</a>
+                                <input type="submit"  class="btn btn-primary" value="Filter" />
+                           
                             </div>
+                             </form>
                     </div>
                 </div>
-                <div class="row align-items-center mt-5">
-                    <div class="col-lg-4">
-                        <div class="testimonials-info">
-                            <div class="section-title">
-                                <h2 class="text-white">Premium quality meat</h2>
-                                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                <a class="btn mt-3" href="#">Find Out More</a>
+                {% set count = 0 %}
+                {% for recipe in recipes %}
+                    {%  if count % 2 == 0   %}
+                    <div class="row align-items-center mt-5">
+                        <div class="col-lg-4">
+                            <div class="testimonials-info">
+                                <div class="section-title">
+                                    <h2 class="text-white">{{recipe.title}}</h2>
+                                        <p class="text-white">{{recipe.content|raw}}</p>
+                                    <a class="btn mt-3" href="#">Find Out More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <img class="img-fluid" src="{{recipe.image.getLink()}}">
+
+
+                        </div>
+                    </div>
+                    {%  else %}
+                    <div class="row align-items-center mt-5">
+                        <div class="col-lg-8">
+                            <img class="img-fluid" src="{{recipe.image.getLink()}}">
+
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="premium-quality-info">
+                                <div class="section-title">
+                                     <h2 class="text-white">{{recipe.title}}</h2>
+                                        <p class="text-white">{{recipe.content|raw}}</p>
+
+                                    <a class="btn mt-3" href="#">Find Out More</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-8">
-                        <img class="img-fluid" src="theme/images/recipes-01.jpg">
-                    </div>
-                </div>
-                <div class="row align-items-center mt-5">
-                    <div class="col-lg-8">
-                        <img class="img-fluid" src="theme/images/recipes-02.jpg">
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="premium-quality-info">
-                            <div class="section-title">
-                                <h2 class="text-white">Premium quality meat</h2>
-                                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                <a class="btn mt-3" href="#">Find Out More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row align-items-center mt-5">
-                    <div class="col-lg-4">
-                        <div class="testimonials-info">
-                            <div class="section-title">
-                                <h2 class="text-white">Premium quality meat</h2>
-                                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                <a class="btn mt-3" href="#">Find Out More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-8">
-                        <img class="img-fluid" src="theme/images/recipes-03.jpg">
-                    </div>
-                </div>
+                    {% endif %}
+                    {% set count = count+ 1 %}
+                {% endfor %}
             </div>
         </section>
         <!--=================================

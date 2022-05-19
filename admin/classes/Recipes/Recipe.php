@@ -6,14 +6,18 @@ use Admin\AdminNavItem;
 use Admin\AdminNavItemGenerator;
 use Configuration\Registry;
 use Core\Attributes\Data;
+use Core\Attributes\ImageValue;
 use Core\Columns\PropertyColumn;
 use Core\Properties\ImageProperty;
 use Core\Properties\Property;
 use Core\Elements\Editor;
 use Core\Elements\Text;
 use Core\Elements\ImageElement;
+use Core\Elements\Textarea;
 use Core\Generator;
 use JsonSerializable;
+use Core\Attributes\LinkTo;
+use Core\Elements\Select;
 
 
 /**
@@ -38,8 +42,7 @@ class Recipe extends Generator implements AdminNavItemGenerator, JsonSerializabl
     const IDENTIFIER_PROPERTY = "title";
 
     const LABEL_PROPERTY = 'title';
-    #[Data("r_id")]
-    public int $recipe_id = 0;
+
     // Associate the $name property with the "name" field in the database
     #[Data("title")]
     public string $title = "";
@@ -51,15 +54,14 @@ class Recipe extends Generator implements AdminNavItemGenerator, JsonSerializabl
     #[Data("content", "html")]
     public string $content = "";
 
-    #[Data("image", "image")]
+    #[ImageValue("image", DOC_ROOT . "/resources/images/recipe/", 995, 627, ImageValue::SCALE)]
     public $image = null;
-
+    #[Data("active")]
     public bool $active = true;
 
-    const IMAGE_LOCATION = DOC_ROOT . "/resources/images/recipe/";
-    const IMAGE_WIDTH = 995;
-    const IMAGE_HEIGHT = 627;
-    const IMAGE_RESIZE_TYPE = ImageProperty::SCALE;
+    #[LinkTo("recipe_category_id")]
+    public RecipeCategory $recipeCategory;
+    
 
     /**
      * Sets the array of Columns that are displayed to the user for this
@@ -67,20 +69,9 @@ class Recipe extends Generator implements AdminNavItemGenerator, JsonSerializabl
      */
     protected static function columns()
     {
-        static::addColumn(new PropertyColumn('recipetitle', 'Title'));
+        static::addColumn(new PropertyColumn('title', 'Title'));
 
         parent::columns();
-    }
-    /**
-     * Gets the array of Properties that determine how this Object interacts with the database
-     */
-    protected static function properties()
-    {
-        parent::properties();
-        static::addProperty((new Property('recipetitle', 'title', 'string'))->setIsSearchable(true));
-        static::addProperty((new Property('recipecontent', 'content', 'html'))->setIsSearchable(true));
-        static::addProperty(new ImageProperty('reciepeImage', 'image', static::IMAGE_LOCATION, static::IMAGE_WIDTH, static::IMAGE_HEIGHT, static::IMAGE_RESIZE_TYPE));
-        static::addProperty(new Property('active', 'active', 'bool'));
     }
 
     /**
@@ -89,13 +80,37 @@ class Recipe extends Generator implements AdminNavItemGenerator, JsonSerializabl
     protected function elements()
     {
         parent::elements();
-
-        $this->addElement(new Text("recipetitle", "Name"), 'Recipe');
-        $this->addElement(new Editor("recipecontent", "Description"), 'Recipe');
-        $this->addElement((new ImageElement('reciepeImage', 'Image')), 'Recipe')->addClass('half');
+        parent::elements();
+        $this->addElement((new Select(
+            "recipeCategory",
+            "Recipe Category",
+            RecipeCategory::loadOptions()
+        ))->addClass('potenztyperecipe'))->addValidation(Select::REQUIRED);
+        $this->addElement(new Text("title", "Name"));
+        $this->addElement(new Textarea("content", "Description"));
+        $this->addElement(new ImageElement('image', 'Image'));
     }
 
+    /**
+     * getfilteredrecipe
+     *
+     * @param  mixed $cat_id
+     * @return void
+     */
+    public static function getfilteredrecipe($cat_id = null)
+    {
+        if (empty($cat_id)) {
+            return Recipe::loadAllFor('active', true, ['position' => true]);
+        } else {
+            $query = "SELECT ~PROPERTIES "
+            . "FROM ~TABLE "
+            . "WHERE ~active = true "
+            . "AND ~recipeCategory = ? ";
 
+
+            return static::makeMany($query, [$cat_id]);
+        }
+    }
     /**
      * Gets the nav item for this class
      * @return	AdminNavItem	The admin nav item for this class

@@ -20,7 +20,7 @@
 		 */
 		public function __construct($propertyName, $databaseName, $location)
 		{
-		parent::__construct($propertyName, $databaseName, null, $location);
+			parent::__construct($propertyName, $databaseName, null);
 
 			$this->location = rtrim($location, "/");
 		}

@@ -9,14 +9,13 @@
 {% endif %} #}
 
 {% if banner.title != '' %}
-
 	<div class="row justify-content-start">
 		<div class="col-xl-8 col-lg-12">
 			<div class="banner-info">
 				<h1 class="text-white text-start">{{ banner.title|nl2br }}
 					<span class="mt-1">{{ banner.text|nl2br }}</span>
 				</h1>
-				<a class="btn mt-3" href="#">SHOP OUR MEATS</a>
+				<a class="btn mt-3" href="{{ banner.link|nl2br }}">{{ banner.button|nl2br }}</a>
 			</div>
 		</div>
 	</div>

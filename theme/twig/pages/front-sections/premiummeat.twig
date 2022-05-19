@@ -7,7 +7,15 @@
                         <img class="img-fluid" src="{{section.meatImage.getLink()}}">
                     </div>
                     <div class="col-lg-3">
-                      {{section.premiumMeatContent|raw}}
+                     
+                        <div class="premium-quality-info">
+                            <div class="section-title">
+                                <h2 class="text-white"> {{section.premiumTitle|raw}}</h2>
+                                <p class="text-white"> {{section.premiumMeatContent|raw}}</p>
+                                <a class="btn mt-3" href="{{section.premiumUrl|raw}}"> {{section.findMoretitle|raw}}</a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

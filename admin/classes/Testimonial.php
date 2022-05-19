@@ -31,11 +31,11 @@
 		const LABEL_PROPERTY = 'witness';
 		
 		const IMAGE_LOCATION = DOC_ROOT . "/resources/images/testimonial/";
-		const IMAGE_WIDTH = 120;
-		const IMAGE_HEIGHT = 0;
+		const IMAGE_WIDTH = 1204;
+		const IMAGE_HEIGHT = 670;
 		const IMAGE_SCALE_TYPE = ImageValue::SCALE;
 
-		const DO_IMAGE = false;
+		const DO_IMAGE = true;
 
 		#[Data("witness")]
 		public string $witness = "";

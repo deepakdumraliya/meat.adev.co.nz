@@ -4,6 +4,7 @@
 	use Pages\PageController;
 	use Products\Product;
 	use Products\ProductCategory;
+	use Testimonial;
 	/**
 	 * A FrontPage Controller loads anything extra needed for the front page
 	 */
@@ -18,6 +19,7 @@
 		$variables = parent::getTemplateVariables();
 		$variables["catNavItems"] = ProductCategory::getTopLevelCats();
 		$variables["getallfeatured"] = Product::getFeatured(4);
+		$variables["testimonial"] = Testimonial::loadRandom();
 		return $variables;
 		}
 	}

@@ -3,9 +3,6 @@
 {# content_wrapper is the block most likely to be overidden (to include multiple content sections), 
  # but on some sites it may only be necessary to override the content block, or not at all #}
 {% block content_wrapper %}
-{# {{dump(getallfeatured)}} #}
-
-
 
 	{{ parent() }}
 	{%	if page.display_Category	%} 
@@ -22,6 +19,9 @@
 	{% endif %}
 	{% include 'pages/front-sections/premiummeat.twig' with {
 			'section':{
+				'premiumTitle':page.premiumTitle,
+				'premiumUrl' : page.premiumUrl,
+				'findMoretitle' : page.findMoretitle,
 				'premiumMeatContent':page.premiumMeatContent,
 				'meatImage':page.meatImage
 			}
@@ -30,8 +30,8 @@
 	{% include 'products/sections/featured.twig' %}
 	{% include 'pages/front-sections/testimonialsection.twig'  with {
 			'section':{
-				'testimonialContent':page.testimonialContent,
-				'testimonialImage':page.testimonialImage
+				'testimony':testimonial.testimony,
+				'testimonialImage':testimonial.image
 			}
 	} only %}
 
