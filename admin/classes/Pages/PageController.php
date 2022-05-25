@@ -3,6 +3,7 @@
 
 	use Controller\RedirectController;
 	use Controller\UrlController;
+	use Products\ProductCategory;
 	
 	/**
 	 * Displays a normal page to the user
@@ -81,7 +82,7 @@
 			$variables["banners"] = $this->page->getVisibleBanners();
 
 			$variables["currentNavItem"] = $this->page;
-
+			$variables["catNavItems"] = ProductCategory::getTopLevelCats();
 			$variables["message"] = outputMessage();
 			$variables["originalPage"] = $this->page;
 			$variables["page"] = $this->page->getContentPage();

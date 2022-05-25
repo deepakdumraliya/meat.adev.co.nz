@@ -73,6 +73,12 @@
 			"name": "instructions",
 			"value": cart.shippingAddress.deliveryInstructions == "" ? user.address.deliveryInstructions : cart.shippingAddress.deliveryInstructions
 		} only %}
+
+		{% include "forms/radio-buttons.twig" with{
+			"label" : "Select Delivery Date",
+			"name" : "deliverydate",
+			"values" : availabledates
+		} only %}
 		{% include "forms/submit-button.twig" with {"label": "Next"} %}
 	</form>
 	

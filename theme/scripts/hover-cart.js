@@ -200,7 +200,6 @@ $(function()
 		let url = $( this ).attr( "href" );
 		let minquantity = $( this ).data( 'minqunatity' );
 		let quantity = $( this ).attr( 'data-quantity');
-		console.log( minquantity + ">=" + quantity );
 		if ( $( this ).hasClass( 'minquantity' ) )
 		{
 			if ( quantity >= minquantity )
@@ -232,34 +231,81 @@ $(function()
 	$(document).on("submit", addToCartFormSelector, function(event)
 	{
 		event.preventDefault();
-		let data = $(this).serialize();
-		let type = $(this).attr("method");
-		let url = $(this).attr("action");
-		$cart.addClass("loading");
-		makeVisible();
-		let request;
+		let data = $( this ).serialize();
+	
+		var values = {};
+		$.each( $( this ).serializeArray(), function ( i, field )
+		{
+			values[field.name] = field.value;
+		} );
+		if ( values.hasOwnProperty( 'minquantity' )   )
+		{
+			if ( values.quantity >= values.minquantity )
+			{
+				let type = $( this ).attr( "method" );
+				let url = $( this ).attr( "action" );
+				$cart.addClass( "loading" );
+				makeVisible();
+				let request;
 
-		if(url.indexOf("?") > -1)
-		{
-			url += "&ajax=redirect";
-		}
-		else
-		{
-			url += "?ajax=redirect";
-		}
+				if ( url.indexOf( "?" ) > -1 )
+				{
+					url += "&ajax=redirect";
+				}
+				else
+				{
+					url += "?ajax=redirect";
+				}
 
-		if(type === "post")
-		{
-			request = $.post(url, data);
-		}
-		else
-		{
-			request = $.get(url, data);
-		}
+				if ( type === "post" )
+				{
+					request = $.post( url, data );
+				}
+				else
+				{
+					request = $.get( url, data );
+				}
 
-		request.then(function()
+				request.then( function ()
+				{
+					retrieveLineItems();
+				} );
+			} else
+			{
+				alert( "YOU SHOULD BY MINIMUM " + values.minquantity + " TO BUY THIS PRODUCT" );
+			}
+			
+		} else
 		{
-			retrieveLineItems();
-		});
+			let type = $( this ).attr( "method" );
+			let url = $( this ).attr( "action" );
+			$cart.addClass( "loading" );
+			makeVisible();
+			let request;
+
+			if ( url.indexOf( "?" ) > -1 )
+			{
+				url += "&ajax=redirect";
+			}
+			else
+			{
+				url += "?ajax=redirect";
+			}
+
+			if ( type === "post" )
+			{
+				request = $.post( url, data );
+			}
+			else
+			{
+				request = $.get( url, data );
+			}
+
+			request.then( function ()
+			{
+				retrieveLineItems();
+			} );
+		}
+		
 	});
 });

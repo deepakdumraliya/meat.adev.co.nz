@@ -15,8 +15,8 @@
 		const ID_FIELD = "address_id";
 		const SINGULAR = "Address";
 		const PLURAL = "Addresses";
-		
-		const REQUIRED_SHIPPING_ADDRESS_FIELDS = ["name", "address", "city", "postCode", "country"];
+
+	const REQUIRED_SHIPPING_ADDRESS_FIELDS = ["name", "address", "city", "postCode", "country", "deliveryDate"];
 		const REQUIRED_BILLING_ADDRESS_FIELDS = ["name", "email", "phone", "address", "city", "postCode", "country"];
 		
 		#[Data("name")]
@@ -45,6 +45,9 @@
 		
 		#[Data("delivery_instructions")]
 		public string $deliveryInstructions = "";
+
+	#[Data("delivery_date")]
+	public string $deliveryDate = "";
 		
 		/**
 		 * Sets the Form Elements for this object
@@ -144,6 +147,9 @@
 			{
 				$messages[] = "Please enter any delivery instructions";
 			}
+		if ($this->deliveryDate === "" && in_array("deliveryDate", $fields)) {
+			$messages[] = "Please select delivery date";
+		}
 			
 			return $messages;
 		}

@@ -1,3 +1,5 @@
+
+
 {% for navItem in navItems %}
 
 	{% set classes = [] %}
@@ -6,7 +8,7 @@
 	{% if currentDepth < maxDepth %}
 		{% set children = navItem.getChildNavItems() %}
 	{% endif %}
-
+	
 	{% if navItem.isHomepage() %}
 		{% set classes = classes|merge(["home"]) %}
 	{% endif %}
@@ -30,5 +32,15 @@
 			 	{% include "template/sections/navigation.twig" with {"navItems": children, "currentDepth": currentDepth + 1, "maxDepth": maxDepth, "currentNavItem": currentNavItem} only %}
 			</ul>
 		{% endif %}
+		{%	if navItem.pageType == "Products" %}
+			<span class='open-sub'></span>
+			<ul class="dropdown-menu">
+{% include "template/sections/navigation.twig" with {"navItems": catNavItems, "currentDepth": currentDepth + 1, "maxDepth": maxDepth, "currentNavItem": currentNavItem} only %}
+
+
+			</ul>
+	{% endif %}
+
+
 	</li>
 {% endfor %}

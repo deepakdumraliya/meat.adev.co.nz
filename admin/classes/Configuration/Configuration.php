@@ -14,7 +14,8 @@ use Core\Elements\GeneratorElement;
 	use Core\Elements\Group;
 	use Core\Elements\Html;
 	use Core\Elements\ImageElement;
-	use Core\Elements\Text;
+use Core\Elements\Number;
+use Core\Elements\Text;
 	use Core\Elements\Textarea;
 	use Core\Generator;
 	use Files\Image;
@@ -102,6 +103,24 @@ use Core\Elements\GeneratorElement;
 		#[Data("offertext")]
 		public string $offertext = "";
 
+	//days
+	#[Data("monday")]
+	public bool $monday = false;
+	#[Data("tuesday")]
+	public bool $tuesday = false;
+	#[Data("wednesday")]
+	public bool $wednesday = false;
+	#[Data("thursday")]
+	public bool $thursday = false;
+	#[Data("friday")]
+	public bool $friday = false;
+	#[Data("saturday")]
+	public bool $saturday = false;
+	#[Data("sunday")]
+	public bool $sunday = false;
+
+	#[Data("minimumdays")]
+	public int $minimumdays = 0;
 		
 
 		/**
@@ -240,6 +259,15 @@ use Core\Elements\GeneratorElement;
 				}
 
 				$this->addElement(new Text('gstNumber', 'GST Number'), 'Billing');
+			$this->addElement(new Number('minimumdays', 'Minimum period before delivery in days'), 'Delivery');
+
+			$this->addElement(new Checkbox('monday', 'Monday'), 'Delivery');
+			$this->addElement(new Checkbox('tuesday', 'Tuesday'), 'Delivery');
+			$this->addElement(new Checkbox('wednesday', 'Wednesday'), 'Delivery');
+			$this->addElement(new Checkbox('thursday', 'Thursday'), 'Delivery');
+			$this->addElement(new Checkbox('friday', 'Friday'), 'Delivery');
+			$this->addElement(new Checkbox('saturday', 'Saturday'), 'Delivery');
+			$this->addElement(new Checkbox('sunday', 'Sunday'), 'Delivery');
 			}
 
 			$this->addElement(new Text('analyticsId', 'Google Analytics ID'), '3rd Party Integrations');
@@ -255,6 +283,7 @@ use Core\Elements\GeneratorElement;
 			}
 			$this->addElement(new Checkbox('freeoffer', 'Set Free Offer'), 'Offer');
 			$this->addElement(new Textarea('offertext', 'Set Free Offer TExt'), 'Offer');
+	
 
 		}
 

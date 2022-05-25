@@ -49,6 +49,10 @@
 						</label>
 					</div>
 					{% endif %}
+					{% if product.setminQuantity %}
+						<input type="hidden" name="minquantity" value={{product.minQuantity}}>
+					{% endif %}
+
 					{% set stock = product.getAvailableStock() %}
 					{% if stock > 0 %}
 					<div class="col-md-3 mt-3 mt-md-0">

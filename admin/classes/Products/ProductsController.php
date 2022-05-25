@@ -137,7 +137,7 @@
 			$variables["product"] = $this->product;
 			$variables["catNavItems"] = ProductCategory::getTopLevelCats();
 			// if Categories display on main menu
-			// $variables["currentNavItem"] = $this->category;
+			$variables["currentNavItem"] = $this->category;
 
 			if ($this->product !== null && !$this->product->isNull())
 			{

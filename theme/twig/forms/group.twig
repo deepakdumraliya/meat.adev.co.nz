@@ -6,19 +6,26 @@
 	- Blocks:
 		- contents: The contents to display inside the group
 #}
-<fieldset class="field-wrapper group {{ wrapperClasses }}">
+<p class="field-wrapper  {{ wrapperClasses }}">
+
+
 	{# Chromium and descendant browsers don't support display flex or grid on fieldset .... #}
-	<div class="layout">
+<label style="align-items: center;">
+
+
+
 		{% if heading %}
-			<legend>
-				{{ heading }}
-				{% include 'forms/errors.twig' %}
-			</legend>
-		{% else %}
-			<legend>
-				{% include 'forms/errors.twig' %}
-			</legend>
+			<span class="label">{{ heading }}</span>
 		{% endif %}
-		{% block contents %}{% endblock %}
-	</div>
-</fieldset>
+<span class="datesfields" style="display: flex;flex-direction: column;">
+
+
+			{% block contents %}{% endblock %}
+		</span>
+		{% include 'forms/errors.twig' %}
+
+
+</label>
+
+
+</p>

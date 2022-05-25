@@ -24,6 +24,14 @@
 					{{ orderDetails.getOrderDetailsShippingAddress().deliveryInstructions|nl2br }}
 				</p>
 			{% endif %}
+<div>
+	<label>Delivery Date<label>
+			:
+			{{ orderDetails.getOrderDetailsShippingAddress().deliveryDate }}
+
+		</div>
+
+
 		</div>
 	{% endif %}
 	<div class="address">

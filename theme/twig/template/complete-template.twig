@@ -105,13 +105,16 @@
 					<img class="img-fluid sticky-logo" src="/theme/images/sticky-logo.png" alt="{{ config.getSiteName() }}">
 				</a>
 				<div class="header-menu">
+
 					<div class="navbar-collapse collapse justify-content-center">
 						<ul class="nav navbar-nav">
 							{% include "template/sections/navigation.twig" with {
 															"navItems": navItems,
 															"currentDepth": 1,
 															"maxDepth": 2,
-															"currentNavItem": currentNavItem
+															"currentNavItem": currentNavItem,
+															'catNavItems':catNavItems
+
 														} only %}
 							
 
