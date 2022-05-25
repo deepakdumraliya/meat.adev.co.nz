@@ -18,6 +18,10 @@ class RecipeController extends PagesPageController
     {
         $variables = parent::getTemplateVariables();
         $category = isset($_GET['cat']) ? $_GET['cat'] : "";
+        $recipe_id = isset($_GET['id']) ? $_GET['id'] : "";
+        if(!empty($recipe_id)){
+            $variables['recipesingle'] = Recipe::getRecipeById($recipe_id);
+        }
         $variables['category'] = RecipeCategory::loadAllFor('active', true, ['position' => true]);
         $variables['curcat'] = $category;
         $variables['recipes'] = Recipe::getfilteredrecipe($category);

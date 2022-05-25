@@ -20,6 +20,7 @@ use Core\Attributes\LinkTo;
 use Core\Elements\Select;
 
 
+
 /**
  * A single eventlist to keep track of
  */
@@ -42,7 +43,7 @@ class Recipe extends Generator implements AdminNavItemGenerator, JsonSerializabl
     const IDENTIFIER_PROPERTY = "title";
 
     const LABEL_PROPERTY = 'title';
-
+    const IMAGE_CLASS = RecipeImage::class;
     // Associate the $name property with the "name" field in the database
     #[Data("title")]
     public string $title = "";
@@ -54,8 +55,22 @@ class Recipe extends Generator implements AdminNavItemGenerator, JsonSerializabl
     #[Data("content", "html")]
     public string $content = "";
 
+    #[Data("ingredients", "html")]
+    public string $ingredients = "";
+
+    #[Data("steps", "html")]
+    public string $steps = "";
+    
     #[ImageValue("image", DOC_ROOT . "/resources/images/recipe/", 995, 627, ImageValue::SCALE)]
     public $image = null;
+
+    #[ImageValue("image1", DOC_ROOT . "/resources/images/recipe/", 995, 627, ImageValue::SCALE)]
+    public $image1 = null;
+
+    #[ImageValue("image2", DOC_ROOT . "/resources/images/recipe/", 995, 627, ImageValue::SCALE)]
+    public $image2 = null;
+
+
     #[Data("active")]
     public bool $active = true;
 
@@ -74,6 +89,8 @@ class Recipe extends Generator implements AdminNavItemGenerator, JsonSerializabl
         parent::columns();
     }
 
+  
+
     /**
      * Sets the Form Elements for this object
      */
@@ -88,7 +105,11 @@ class Recipe extends Generator implements AdminNavItemGenerator, JsonSerializabl
         ))->addClass('potenztyperecipe'))->addValidation(Select::REQUIRED);
         $this->addElement(new Text("title", "Name"));
         $this->addElement(new Textarea("content", "Description"));
+        $this->addElement(new Editor("ingredients", "Ingredients"));
+        $this->addElement(new Editor("steps", "Steps"));
         $this->addElement(new ImageElement('image', 'Image'));
+        $this->addElement(new ImageElement('image1', 'Image 1'));
+        $this->addElement(new ImageElement('image2', 'Image 2'));
     }
 
     /**
@@ -110,6 +131,22 @@ class Recipe extends Generator implements AdminNavItemGenerator, JsonSerializabl
 
             return static::makeMany($query, [$cat_id]);
         }
+    }
+    
+    /**
+     * getRecipeById
+     *
+     * @param  mixed $id
+     * @return void
+     */
+    public static function getRecipeById($id = null){
+        $query = "SELECT ~PROPERTIES "
+            . "FROM ~TABLE "
+            . "WHERE ~active = true "
+            . "AND r_id = ? ";
+
+
+        return static::makeMany($query, [$id]);
     }
     /**
      * Gets the nav item for this class
