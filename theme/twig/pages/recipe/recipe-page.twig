@@ -2,7 +2,7 @@
 {% block recipe %}
 
 {% if recipesingle %}
-    {{dump(recipesingle)}}
+    {# {{dump(recipesingle)}} #}
 <!--=================================
         Recipes -->
 <section class="space-ptb bg-light">
@@ -10,24 +10,25 @@
 		<div class="row">
 			<div class="col-md-8">
 				<div class="section-title">
-					<h2>Recipe title goes here</h2>
+					<h2>{{recipesingle.title}}</h2>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="d-flex justify-content-md-end">
-					<a class="btn btn-primary" href="#">BACK</a>
+<a class="btn btn-primary" href="https://www.meat.adev.co.nz/recipes">BACK</a>
+
 				</div>
 			</div>
 		</div>
 
 		<div class="row align-items-center mt-5">
 			<div class="col-lg-9">
-				<img class="img-fluid" src="images/recipes-06.jpg">
+				<img class="img-fluid" src="{{recipesingle.image.getLink()}}">
 			</div>
 			<div class="col-lg-3">
-				<div class="premium-quality-info" style="background-image: url(images/premium-quality-info-bg.jpg); background-size: cover;">
+				<div class="premium-quality-info" style="background-image: url(/theme/images/premium-quality-info-bg.jpg); background-size: cover;">
 					<h2 class="ingredients-title text-white mb-4 mb-lg-5">Ingredients</h2>
-					<ul class="list-item text-white mb-0">
+					{# <ul class="list-item text-white mb-0">
 						<li>300g Lorem ipsum dolor sit amet, consectetur
 						</li>
 						<li>1 cup of Adipiscing elit, sed do eiusmod tempor
@@ -46,7 +47,10 @@
 						</li>
 						<li>2 cans of Incididunt ut labore et
 						</li>
-					</ul>
+					</ul> #}
+					<div class="list-item text-white mb-0">
+					{{recipesingle.ingredients|raw}}
+					</div>
 				</div>
 			</div>
 		</div>
@@ -61,7 +65,7 @@
 		<div class="row">
 			<div class="col-lg-8">
 				<div class="recipe-step pe-0 pe-lg-5">
-					<div class="mb-4 mb-lg-5">
+					{# <div class="mb-4 mb-lg-5">
 						<div class="section-title">
 							<span class="text-primary">Step 1</span>
 						</div>
@@ -82,12 +86,15 @@
 					</div>
 					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
 					<p class="mb-0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
-					</p>
+					</p> #}
+
+					{{recipesingle.steps|raw}}
+
 				</div>
 			</div>
 			<div class="col-lg-4 pt-5 pt-lg-0">
-				<img class="img-fluid mb-5" src="images/recipes-04.jpg">
-				<img class="img-fluid" src="images/recipes-05.jpg">
+				<img class="img-fluid mb-5" src="{{recipesingle.image1.getLink()}}">
+				<img class="img-fluid" src="{{recipesingle.image2.getLink()}}">
 			</div>
 		</div>
 	</div>

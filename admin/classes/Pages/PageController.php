@@ -80,7 +80,15 @@
 		{
 			$variables = parent::getTemplateVariables();
 			$variables["banners"] = $this->page->getVisibleBanners();
-
+			$breadcrum = explode( "/",$_SERVER['REQUEST_URI']);
+			$variables["breadcrum"] = array();
+			foreach($breadcrum as $value){
+				if(!empty($value)){
+					$value = str_replace('-', ' ', $value);
+					$value = ucwords($value);
+					array_push($variables["breadcrum"], $value);
+				}
+			}
 			$variables["currentNavItem"] = $this->page;
 			$variables["catNavItems"] = ProductCategory::getTopLevelCats();
 			$variables["message"] = outputMessage();

@@ -146,7 +146,7 @@ class Recipe extends Generator implements AdminNavItemGenerator, JsonSerializabl
             . "AND r_id = ? ";
 
 
-        return static::makeMany($query, [$id]);
+        return static::makeOne($query, [$id]);
     }
     /**
      * Gets the nav item for this class

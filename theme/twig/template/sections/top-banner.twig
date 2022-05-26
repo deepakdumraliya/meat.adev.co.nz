@@ -1,4 +1,5 @@
 {% set bannerAsBackground = false %}
+{{dump(breadcrum)}}
 
 {% if banners|length > 0 %}
 	<section class="slideshow">
@@ -36,6 +37,36 @@
 										{{ caption|raw }}
 									</div>
 								</figcaption>
+							{% endif %}
+							{%	if breadcrum %}
+							<div class="container">
+								<div class="row justify-content-start">
+									<div class="col-lg-6">
+										<nav aria-label="breadcrumb">
+											<ol class="breadcrumb position-absolute bottom-0">
+												<li class="breadcrumb-item">
+													<a href="https://www.meat.adev.co.nz">Home</a>
+												</li>
+											
+												{% set last =  breadcrum|length %}
+												{% for key,crum in breadcrum %}
+													{%	if key == last - 1 %}
+														<li class="breadcrumb-item active" aria-current="page">{{crum}}</li>
+
+													{% else %}
+														<li class="breadcrumb-item">
+															<a href="#">{{crum}}</a>
+														</li>
+													{%	endif %}
+														
+												{% endfor %}
+
+											</ol>
+										</nav>
+									</div>
+								</div>
+							</div>
+
 							{% endif %}
 						</figure>
 					{% endif %}
