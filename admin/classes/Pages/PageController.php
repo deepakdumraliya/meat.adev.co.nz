@@ -84,6 +84,9 @@
 			$variables["breadcrum"] = array();
 			foreach($breadcrum as $value){
 				if(!empty($value)){
+					if(str_contains($value, 'id')){
+						continue;
+					}
 					$value = str_replace('-', ' ', $value);
 					$value = ucwords($value);
 					array_push($variables["breadcrum"], $value);
