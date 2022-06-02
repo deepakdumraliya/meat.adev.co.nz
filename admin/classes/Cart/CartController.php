@@ -392,7 +392,7 @@
 				$cart->shippingAddress->deliveryInstructions = $_POST["instructions"];
 			}
 			if (isset($_POST["deliverydate"])) {
-				$cart->shippingAddress->deliveryDate = $_POST["deliverydate"];
+			$cart->shippingAddress->deliveryDate = date('Y-m-d', strtotime($_POST["deliverydate"]));
 			}
 
 			foreach($cart->shippingAddress->verifyFields(Address::REQUIRED_SHIPPING_ADDRESS_FIELDS) as $message)
@@ -777,54 +777,54 @@
 		
 			$config = $variables['config'];
 			$date = new \DateTime();
-			$curdate = new \DateTime(date('Y-m-d'));
+		$curdate = new \DateTime(date('d-m-Y'));
 			if($config->monday == 1){
 				$date->modify('next monday');
 				$difference = $curdate->diff($date);
 				if($difference->days >= $config->minimumdays){
-					$datesfordilevery[$date->format('Y-m-d')] = $date->format('Y-m-d');
+				$datesfordilevery[$date->format('d-m-Y')] = $date->format('d-m-Y');
 				}
 			}
 			if ($config->tuesday == 1) {
 				$date->modify('next tuesday');
 				$difference = $curdate->diff($date);
 				if ($difference->days >= $config->minimumdays) {
-					$datesfordilevery[$date->format('Y-m-d')] = $date->format('Y-m-d');
+				$datesfordilevery[$date->format('d-m-Y')] = $date->format('d-m-Y');
 				}
 			}
 			if ($config->wednesday == 1) {
 				$date->modify('next wednesday');
 				$difference = $curdate->diff($date);
 				if ($difference->days >= $config->minimumdays) {
-					$datesfordilevery[$date->format('Y-m-d')] = $date->format('Y-m-d');
+				$datesfordilevery[$date->format('d-m-Y')] = $date->format('d-m-Y');
 				}
 			}
 			if ($config->thursday == 1) {
 				$date->modify('next thursday');
 				$difference = $curdate->diff($date);
 				if ($difference->days >= $config->minimumdays) {
-					$datesfordilevery[$date->format('Y-m-d')] = $date->format('Y-m-d');
+				$datesfordilevery[$date->format('d-m-Y')] = $date->format('d-m-Y');
 				}
 			}
 			if ($config->friday == 1) {
 				$date->modify('next friday');
 				$difference = $curdate->diff($date);
 				if ($difference->days >= $config->minimumdays) {
-					$datesfordilevery[$date->format('Y-m-d')] = $date->format('Y-m-d');
+				$datesfordilevery[$date->format('d-m-Y')] = $date->format('d-m-Y');
 				}
 			}
 			if ($config->saturday == 1) {
 				$date->modify('next saturday');
 				$difference = $curdate->diff($date);
 				if ($difference->days >= $config->minimumdays) {
-					$datesfordilevery[$date->format('Y-m-d')] = $date->format('Y-m-d');
+				$datesfordilevery[$date->format('d-m-Y')] = $date->format('d-m-Y');
 				}
 			}
 			if ($config->sunday == 1) {
 				$date->modify('next sunday');
 				$difference = $curdate->diff($date);
 				if ($difference->days >= $config->minimumdays) {
-					$datesfordilevery[$date->format('Y-m-d')] = $date->format('Y-m-d');
+				$datesfordilevery[$date->format('d-m-Y')] = $date->format('d-m-Y');
 				}
 			}
 			$variables["availabledates"] = $datesfordilevery;
